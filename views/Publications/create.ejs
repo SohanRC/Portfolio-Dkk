@@ -1,0 +1,49 @@
+<% layout('./layouts/boilerplate') -%>
+    <title>Create Listings</title>
+
+    <body>
+
+        <form action="/publications" method="post" novalidate class="needs-validation">
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <h2 style="margin-left:15vw ;">Create New Publications</h2> <br><br>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="newpublication[title]" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Title.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="newpublication[description]" class="form-control" id="description" cols="30" rows="5"
+                            required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a valid Description.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="text" id="date" class="form-control" name="newpublication[date]" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Date.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" id="type" class="form-control" name="newpublication[type]" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Type.
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="margin-left:23vw ;">Submit</button>
+                </div>
+            </div>
+
+        </form>
+        <br><br><br>
+    </body>

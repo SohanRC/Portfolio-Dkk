@@ -1,0 +1,43 @@
+*{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* navbar */
+
+.navbar{
+    height:4.5rem;
+    font-size: 1.3rem;
+}
+
+/* footer */
+
+.f-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+    background-color: rgb(220, 220, 220);
+}
+.f-info div{
+    padding: 0.2rem;
+}
+.f-social{
+    font-size: 1.3rem;
+}
+.f-social i{
+    margin-left: 5px;
+}
+.f-links a{
+    text-decoration: none;
+    color: black;
+}
+.f-links a:hover{
+    text-decoration: underline;
+}
+
+.image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

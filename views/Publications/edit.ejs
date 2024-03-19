@@ -1,0 +1,51 @@
+<% layout('./layouts/boilerplate') -%>
+<title>Edit Publications</title>
+    <body>
+        <form method="POST" action="/publications/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <h2 style="margin-left:20vw ;">Edit Publications</h2> <br><br>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="newpublication[title]" value="<%=data.title%>"
+                            required>
+                        <div class="invalid-feedback">
+                            Please enter a valid Title.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="newpublication[description]" class="form-control" id="description" cols="30" rows="5"
+                            required><%=data.description%></textarea>
+                        <div class="invalid-feedback">
+                            Please enter a valid Description.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="text" id="date" class="form-control" name="newpublication[date]"
+                            value="<%=data.date%>" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid date.
+                        </div>
+                    </div>
+                    
+
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type</label>
+                        <input type="text" id="type" class="form-control" name="newpublication[type]"
+                            value="<%=data.type%>" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid type.
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="margin-left:23vw ;">Submit</button>
+                </div>
+            </div>
+
+        </form>
+        <br><br><br>
+    </body>

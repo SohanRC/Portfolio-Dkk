@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="./Dashboard.css">
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div class="navbar-container">
+            <nav>
+                <h1>Dr.Dipak Kumar Kole</h1>
+                <div class="routes">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/publications">Publications</a></li>
+                        <li><a href="/activities">Activities</a></li>
+                        <li><a href="/awards">Achievements</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+
+        <section class="main-section">
+
+            <div class="wrapper">
+                <h1>Dashboard</h1>
+                <hr style="width: 100%;">
+
+                <div class="options">
+                    <a href="" style="background-color: #FF7518; color: white;">Publications</a>
+                    <a href="" style="background-color: #097969; color: white;">Achievements</a>
+                    <a href="" style="background-color: #D22B2B; color: white;">Activities</a>
+                </div>
+                
+            </div>
+
+        </section>
+
+    </div>
+</body>
+
+<script>
+    let hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+        let routes = document.querySelector('.routes');
+        routes.classList.toggle('active');
+    })
+</script>
+
+</html>

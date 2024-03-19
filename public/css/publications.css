@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto+Slab:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.publication{
+    max-width: 1200px;
+    padding: 2rem ;
+}
+.publication h1{
+    font-size: 3rem;
+    align-self: flex-start;
+}
+
+.card{
+    background-color: white;
+    padding: 1rem;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-shadow: 2px 2px 10px rgb(203, 203, 203);
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.01);
+    box-shadow: 4px 4px 10px rgb(178, 178, 178);
+    transition: all 0.2s ease-in-out;
+}
+.name{
+    display: flex;
+    flex-direction: column;
+}
+.name ul{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+.name ul li,p{
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.2rem;
+    color: rgb(60, 60, 60);
+}
+
+.name ul li{
+    font-weight: 600;
+}
+.description h1{
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    padding: 1.5rem 0;
+    font-weight: 500;
+    /* text-align: center; */ 
+}
+.description p{
+    font-size: 1.1rem;
+    font-weight: 350;
+    font-family: "Roboto Slab", serif;
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+.conferenceContainer{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.cardInter {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+.cardInter .title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.cardInter:hover{
+    transform: scale(1.01);
+    box-shadow: 4px 4px 10px rgb(178, 178, 178);
+    transition: all 0.2s ease-in-out;
+}
+
+.cardInter .authors {
+    font-size: 0.9em;
+    color: #666;
+}
+.cardInter .details {
+    font-size: 0.9em;
+    color: #666;
+}
+.cardInter .date {
+    font-style: italic;
+}
+
+#googleScholar{
+    text-decoration: none;
+    /* border: 2px solid red; */
+    padding: 0.2rem 0.5rem;
+    background-color: #2962ff;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.buttons{
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+button{
+    padding: 0.3rem 0.8rem;
+    font-size: 1.1rem;
+    margin-right: 0.3rem;
+    cursor: pointer;
+    border:none;
+    outline: none;
+
+    background-color: #2962ff;
+    color: white;
+    border-radius: 5px;
+}
+
+
+footer{
+    background-color: #0b546b;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: 0.4rem;
+}
+
+footer h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+footer h3{
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+footer p{
+    font-weight: 600;
+    letter-spacing: 1px;
+}

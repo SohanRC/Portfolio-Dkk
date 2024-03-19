@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="./homepage.css">
+  <link rel="stylesheet" href="./publications.css">
+</head>
+
+<body>
+  <div class="main-container">
+
+    <div class="navbar-container">
+      <nav>
+        <h1>Dr.Dipak Kumar Kole</h1>
+        <div class="routes">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li style="border-bottom: 2px solid #2962ff;"><a href="#">Publications</a></li>
+            <li><a href="/activities">Activities</a></li>
+            <li><a href="/awards">Achievements</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
+    </div>
+
+    <section class="main-section">
+      <div class="buttons">
+        <a href="#Journal"><button>Journals</button></a>
+        <a href="#Conference"><button>conference</button></a>
+        <a href="#Books"><button>Books</button></a>
+      </div>
+      <div class="publication">
+
+        <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+        <h1 id="Journal">Journal Publications</h1>
+        <hr>
+
+        <div class="card">
+          <div class="name">
+           <b><p style="font-weight: 600;">Tanmoy Chaku, Abhirup Ray, Malay Kule, Dipak Kumar Kole</p></b>
+            <p>
+              <span id="date">
+                <strong style="font-weight: 600;">11th December,2022 : </strong>
+              </span>
+              International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
+            </p>
+          </div>
+
+          <div class="description">
+            <h2 style="font-weight: 700; margin: 5px;">X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h2><hr>
+        
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe
+              perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat
+              quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam
+              neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum,
+              tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate
+              possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium
+              vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
+            </p>
+            <a href="https://dncjgec.in/" id="googleScholar">Details</a>
+          </div>
+        </div>
+
+      <!-- **************JOURNAL PUBLICATIONS Ends*********** -->
+
+
+      <!-- **************International PUBLICATIONS BEGIN*********** -->
+      <h1 id="Conference">Publications in International Conferences</h1>
+      <hr>
+      <div class="conferenceContainer">
+        <div class="cardInter">
+          <div class="title">Swift Sort: A New Divide and Conquer Approach Based Sorting Algorithm</div>
+          <div class="authors" style="font-weight: 600;">Tanmoy Chaku, Abhirup Ray, Malay Kule, Dipak Kumar Kole</div>
+          <div class="details">
+            <p>Presented at the 2nd International Conference on Frontiers in Computing and Systems (COMSYS-2021)</p>
+            <p>Conference Theme: Computational Intelligence for Machine Learning and Healthcare Informatics</p>
+            <p>Date: 29th September to 1st October 2021</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- **************JOURNAL PUBLICATIONS Ends*********** -->
+
+      <!-- ******************BOOKS Begins******************** -->
+
+      <h1 id="Books">Book Chapters Published</h1>
+      <hr>
+      <div class="conferenceContainer">
+
+        <div class="cardInter">
+          <div class="title">“Deep Learning for COVID-19”</div>
+          <div class="authors" style="font-weight: 600;">Suchandra Dutta, Avishake Adhikary, Dhrubasish Sarkar, Dipak K. Kole, Premananda Jana
+          </div>
+          <div class="details">
+            <p>Book Chapter of Artificial Intelligence for COVID-19 pp 551-565. ( DOI: 10.1007/978-3-030-69744-0_30 )
+            </p>
+            <p>Date: 20 July 2021</p>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+  </section>
+
+  <footer>
+    <h2>Dr. Dipak Kumar Kole</h2>
+    <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
+    <h3><strong style="font-weight: 600;">Contact No :</strong> 9748111074</h3>
+    <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
+    <div class="links">
+      <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
+      <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
+      <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a>
+    </div>
+    <hr style="width: 100%;">
+    <p style="margin: 0.3rem 0; color: white;">@ Dr.Dipak Kumar Kole | 2024</p>
+  </footer>
+  </div>
+</body>
+
+<script>
+  let hamburger = document.querySelector('.hamburger');
+  hamburger.addEventListener('click', () => {
+    let routes = document.querySelector('.routes');
+    routes.classList.toggle('active');
+  })
+</script>
+
+</html>
