@@ -34,7 +34,7 @@ main().then(() => {
   .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/portfolio');
+  await mongoose.connect('mongodb+srv://sibu23122003:ddxRdUouTqfr6koe@cluster0.7zcjfgf.mongodb.net/portfolio');
   
 }
 //Home Route
