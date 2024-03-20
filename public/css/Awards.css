@@ -205,6 +205,13 @@ ul{
     font-size: 1rem;
 }
 
+.buttons button{
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
 
 /* ************** Hero Section Ends ******************* */
 

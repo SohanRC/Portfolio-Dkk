@@ -4,31 +4,13 @@ const mongoose = require('mongoose');
 // const Review = require("./reviews.js");
 
 const userSchema = new mongoose.Schema({
-  author: {
-    type: String,
-    required: true
-  },
-  title:{
-    type:String,
-    required:true
-  },
+ 
   date: {
     type: String,
     required: true
   },
   description: {
     type: String,
-  },
-  type: {
-    type: String,
-    required: true
-  },
-  location:{
-    type:String,
-    required:true
-  },
-  link:{
-    type:String,
   }
 });
 
@@ -39,6 +21,6 @@ const userSchema = new mongoose.Schema({
 //     await Review.deleteMany({ _id: { $in: listing.review } });
 //   }
 // });
-const Publication = mongoose.model("Publication", userSchema);
+const Awards = mongoose.model("Awards", userSchema);
 
-module.exports = Publication;
+module.exports = Awards;

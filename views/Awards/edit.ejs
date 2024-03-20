@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/publications.css">
+    <link rel="stylesheet" href="/Awards.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <base href="/" /> <!-- for local host -->
@@ -21,9 +21,9 @@
                 <div class="routes">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/publications">Publications</a></li>
+                        <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
-                        <li><a href="/awards">Achievements</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/awards">Achievements</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
@@ -38,57 +38,25 @@
 
         <section class="main-section">
 
-            <form action="/publications" method="post" class="needs-validation" novalidate>
+            <form method="POST" action="awards/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div><br><br>
-                        <h2>Create New Publications</h2> <br><br>
-                        <div class="mb-3">
-                            <label for="type" class="form-label">publication Type </label>
-                            <input type="text" class="form-control" id="type" name="newpublication[type]"
-                                value="<%=type%>" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="newpublication[title]" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Title.
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="author" class="form-label">Authors</label>
-                            <input type="text" class="form-control" id="author" name="newpublication[author]" required>
-                            <div class="invalid-feedback">
-                                Please enter valid Authors.
-                            </div>
-                        </div>
-
+                        <h2>Update Achievements</h2> <br><br>
+                       
                         <div class="mb-3">
                             <label for="date" class="form-label">Date</label>
-                            <input type="text" id="date" class="form-control" name="newpublication[date]" required>
+                            <input type="text" id="date" class="form-control" name="newaward[date]" required
+                                value="<%=data.date%>">
                             <div class="invalid-feedback">
                                 Please enter a valid Date.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="location" class="form-label">Published at</label>
-                            <input type="text" id="location" class="form-control" name="newpublication[location]"
-                                required>
-                            <div class="invalid-feedback">
-                                Please enter a valid string.
-                            </div>
-                        </div>
-                        <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea name="newpublication[description]" class="form-control" id="description" cols="30"
-                                rows="5"></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="link" class="form-label">link</label>
-                            <input type="text" id="link" class="form-control" name="newpublication[link]">
+                            <textarea name="newaward[description]" class="form-control" id="description" cols="30"
+                                rows="5" required><%=data.description%></textarea>
                         </div>
 
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
