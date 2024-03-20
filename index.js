@@ -34,6 +34,7 @@ main().then(() => {
 })
   .catch(err => console.log(err));
 
+  // console.log(process.env);
 async function main() {
   await mongoose.connect(process.env.URI);
   
