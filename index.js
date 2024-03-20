@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const engine = require('ejs-mate');
 const ExpressError = require("./utils/ExpressError.js");
@@ -7,7 +8,7 @@ const dashboard= require("./routes/dashboard.js");
 const awards= require("./routes/awards.js");
 // const reviews=require("./routes/reviews.js");
 const app = express();
-let port = 3000;
+let port = process.env.PORT;
 var methodOverride = require('method-override')
 const path = require("path");
 const mongoose = require('mongoose');
@@ -34,7 +35,7 @@ main().then(() => {
   .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb+srv://sibu23122003:ddxRdUouTqfr6koe@cluster0.7zcjfgf.mongodb.net/portfolio');
+  await mongoose.connect(process.env.URI);
   
 }
 //Home Route
