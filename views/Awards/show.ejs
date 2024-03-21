@@ -40,7 +40,7 @@
                 <hr style="width: 100%;">
 
                 <a href="/awards/new"><button
-                    style="background-color: rgb(179, 179, 179); color: black; height: 2rem; padding: 5px; font-size: 1.1rem;">Add Achievements</button></a>
+                    style="height: 2rem; cursor: pointer;font-size: 1.1rem; border: none; padding: 0.2rem 0.5rem; margin-top: 1rem; border-radius: 5px; background-color: #2962ff; color: white;">Add Achievements</button></a>
 
                 <div class="awardContainer">
                     
@@ -58,9 +58,9 @@
 
                         <div class="buttons" style="display: flex;">
                             <a href="/awards/<%=award._id%>/edit"><button
-                                    style="background-color: black;">Edit</button></a>
+                                    style="background-color: black; border: none; outline: none; border-radius: 5px; cursor: pointer;">Edit</button></a>
                             <form method="POST" action="/awards/<%=award._id%>?_method=DELETE">
-                                <button style="background-color: red;">Delete</button>
+                                <button style="background-color: red; border: none; outline: none; border-radius: 5px; cursor: pointer;">Delete</button>
                             </form>
                         </div>
 
