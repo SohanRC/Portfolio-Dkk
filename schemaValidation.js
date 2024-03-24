@@ -20,3 +20,16 @@ module.exports.AwardSchema= Joi.object({
   }).required()
 
 });
+
+module.exports.ActivitieSchema= Joi.object({
+  newactivitie: Joi.object({
+     program: Joi.string().required(),
+     acted_as: Joi.string(),
+     organizer: Joi.string().required(),
+     date: Joi.string().required(),
+     year: Joi.number().required(),
+     priority: Joi.number().required(),
+     type: Joi.string().required(),
+  }).required()
+
+});

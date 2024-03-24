@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards Page</title>
+    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/activities.css">
+    <base href="/" /> <!-- for local host -->
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div class="navbar-container">
+            <nav>
+                <h1>Dr.Dipak Kumar Kole</h1>
+                <div class="routes">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/publications">Publications</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/activities">Activities</a></li>
+                        <li><a href="/awards">Achievements</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+
+        <section class="main-section">
+
+            <div class="wrapper">
+                <h1>Professional Activities </h1>
+                <hr style="width: 100%;">
+                <a href="/activities/new?type=Activities"><button
+                        style="background-color: rgb(179, 179, 179); color: black; padding: 5px; border: none; border-radius: 5px; font-size: 1.1rem; margin: 10px;">Add
+                        Professional Activities</button></a>
+
+                <div class="cards-container">
+
+                    <%for(Pact of data){ %>
+                        <% let type=Pact.type %>
+                            <%if(type==="Activities"){%>
+
+                                <div class="card">
+                                    <h3>
+                                        <%=Pact.acted_as%>
+                                    </h3>
+                                    <p><strong>Conference:</strong>
+                                        <%=Pact.program%>
+                                    </p>
+                                    <p><strong>Organizer:</strong>
+                                        <%=Pact.organizer%>
+                                    </p>
+                                    <p><strong>Date:</strong>
+                                        <%=Pact.date%>
+                                    </p>
+
+                                    <div class="buttons" style="display: flex;">
+                                        <a href="/activities/<%=Pact._id%>/edit"><button
+                                                style="background-color: black; border: none; outline: none; border-radius: 5px; cursor: pointer; padding: 5px; color: white; margin: 5px;">Edit</button></a>
+                                        <form method="POST" action="/activities/<%=Pact._id%>?_method=DELETE">
+                                            <button style="background-color: red; border: none; outline: none; border-radius: 5px; cursor: pointer; padding: 5px; color: white; margin: 5px;">Delete</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                                <%}}%>
+
+                </div>
+
+
+                <h1>Career Development Seminar & workshop attended</h1>
+                <hr style="width: 100%;">
+
+                <a href="/activities/new?type=Seminar"><button
+                        style="background-color: rgb(179, 179, 179); color: black; padding: 5px; border: none; border-radius: 5px; font-size: 1.1rem; margin: 10px;">Add
+                        Career Development Seminar & workshop</button></a>
+
+
+
+                <div class="cards-container">
+
+                    <%for(Pact of data){ %>
+                        <% let type=Pact.type %>
+                        <%if(type!="Activities"){%>
+
+
+                                <div class="card">
+                                    <h3>
+                                        <%=Pact.program%>
+                                    </h3>
+                                    <p><strong>Date:</strong>
+                                        <%=Pact.date%>
+                                    </p>
+                                    <p><strong>Organizer:</strong>
+                                        <%=Pact.organizer%>
+                                    </p>
+
+                                    <div class="buttons" style="display: flex;">
+                                        <a href="/activities/<%=Pact._id%>/edit"><button
+                                                style="background-color: black; border: none; outline: none; border-radius: 5px; cursor: pointer; padding: 5px; color: white; margin: 5px;">Edit</button></a>
+                                        <form method="POST" action="/activities/<%=Pact._id%>?_method=DELETE">
+                                            <button style="background-color: red; border: none; outline: none; border-radius: 5px; cursor: pointer; padding: 5px; color: white; margin: 5px;">Delete</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                                <%}}%>
+                </div>
+
+
+            </div>
+
+        </section>
+
+        <footer>
+            <h2>Dr. Dipak Kumar Kole</h2>
+            <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
+            <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
+            <div class="links">
+                <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
+                <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
+                <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a>
+            </div>
+            <hr style="width: 100%;">
+            <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
+        </footer>
+    </div>
+</body>
+
+<script>
+    let hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+        let routes = document.querySelector('.routes');
+        routes.classList.toggle('active');
+    })
+</script>
+
+</html>

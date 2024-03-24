@@ -520,13 +520,118 @@ async function main() {
 
 
 const sampleListings = [
-  {
-    date: "2020",
-    description: "Certificate of Appreciation is awarded to DIPAK KUMAR KOLE for Innovative Implementable Idea (〖 I〗^3) in SAMHAR COVID19 Hackathon 2020 (Supercomputing using AI, ML, Healthcare Analytics based Research for combating COVID19) organized by Ministry of Electronics & Information Technology (MeitY) and Department of Science & Technology (DST), 2020"
+  
+ {
+    program: "Three days Faculty Development Program of AICTE on Student Induction Program",
+    organizer: "Sister Nivedita University, Newtown, Kolkata-700156",
+    date: "16-07-2018 to 18-07-2018",
+    year: 2018,
+    priority: 1,
+    type: "Workshop"
   },
   {
-    date: "Jul-Oct 2018",
-    description: " 	Certificate of Appreciation is awarded to DIPAK KUMAR KOLE for his instrumental role as SPOC for the SWAYAM-NPTEL Local Chapter of Jalpaiguri Govt. Engg. College, Jalpaiguri, West Bengal rated A Grade based on performance in NPTEL Online Certification courses,Jul-Oct 2018 "
+    program: "Five Day Workshop on Some Theoretical Aspects in Computing and Appliactions",
+    organizer: "Dept. of Computer Science & Technology, Indian Institute of Engineering Science and Technology, Shibpur",
+    date: "8th -12th January, 2018",
+    year: 2018,
+    priority: 1,
+    type: "Workshop"
+  },
+  {
+    program: "NBA Workshop",
+    organizer: "Maulana Abul Kalam Azad University and The Islamic University of Science and Technology, at the Constitution Club, New Dellhi",
+    date: "December 14-15, 2017",
+    year: 2017,
+    priority: 1,
+    type: "Workshop"
+  },
+  {
+    program: "One Week Short Term Training Programme of NITTTR, Kolkata on Role of Technical Institute in Community Development",
+    organizer: "NITTTR, Kolkata",
+    date: "8-12 August, 2016",
+    year: 2016,
+    priority: 1,
+    type: "Training"
+  },
+  {
+    program: "Five Day Workshop on Workshop on Machine Learning for Medical Image Analysis",
+    organizer: "School of Computing and Electrical Engineering, IIT Mandi",
+    date: "18th -22nd June, 2016",
+    year: 2016,
+    priority: 1,
+    type: "Workshop"
+  },
+  {
+    program: "Participated and Presented a technical paper in Third International Conference on Information System Design and Intelligent Applications (INDIA-2016)",
+    organizer: "Springer ASIC Series Vol.443/434/435",
+    date: "8th -9th, January 2016",
+    year: 2016,
+    priority: 1,
+    type: "Conference"
+  },
+  {
+    program: "Two Weeks Short Term Training Programme of NITTTR, Kolkata on Faculty Orientation Programme on Institutional Improvement",
+    organizer: "JGEC, Jalpaiguri",
+    date: "1st -10th April, 2015",
+    year: 2015,
+    priority: 1,
+    type: "Training"
+  },
+  {
+    program: "UGC Sponsored Refresher Course Parallel and Distributed Technologies for High Performance Computing",
+    organizer: "Jadavpur University",
+    date: "3rd January to 22nd January 2005",
+    year: 2005,
+    priority: 1,
+    type: "Training"
+  },
+  {
+    program: "Short term course Micro-Teaching for Improvement of Teaching Skills",
+    organizer: "NITTTR, Kolkata",
+    date: "2005",
+    year: 2005,
+    priority: 1,
+    type: "Training"
+  },
+  {
+    program: "Training programmed Introduction to Open Source System, GNU-LINUX OS and Open Office",
+    organizer: "West Bengal University of Technology",
+    date: "2005",
+    year: 2005,
+    priority: 1,
+    type: "Training"
+  },
+  {
+    program: "A workshop on Challenges in VLSI design: Cutting Edge Perspective",
+    organizer: "Department of IT, Bengal Engineering and Science University",
+    date: "July 21-25, 2008",
+    year: 2008,
+    priority: 1,
+    type: "Workshop"
+  },
+  {
+    program: "Dr. Homi J. Bhabha Birth Centenary Workshop on Introduction to Graph and Geometric Algorithms",
+    organizer: "Indian Institute of Science, Bangalore",
+    date: "15th July to 18th July 2009",
+    year: 2009,
+    priority: 1,
+    type: "Workshop"
+  },
+  {
+    program: "QIP Short Term Course sponsored by AICTE on Image and Video Processing",
+    organizer: "Indian Institute of Technology, Kharagpur",
+    date: "23rd November to 6th December 2009",
+    year: 2009,
+    priority: 1,
+    type: "Course"
+  },
+  {
+    program: "QIP Short Term Course sponsored by AICTE on Network Security – Theoretical & Practical Perspective (NETSEC-2010)",
+    organizer: "Indian Institute of Technology, Kharagpur",
+    date: "2nd August to 7th August 2010",
+    year: 2010,
+    priority: 1,
+    type: "Course"
   }
 ];
 

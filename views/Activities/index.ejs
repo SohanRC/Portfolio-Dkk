@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Awards Page</title>
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/publications.css">
+    <link rel="stylesheet" href="/activities.css">
+    <base href="/" /> <!-- for local host -->
 </head>
 
 <body>
@@ -32,232 +33,59 @@
             </nav>
         </div>
 
-        <!-- <section class="main-section">
-            <div class="publication">
+        <section class="main-section">
 
-                <h1>Journal Publications</h1>
-                <hr>
+            <div class="wrapper">
+                <h1>Professional Activities </h1>
+                <hr style="width: 100%;">
 
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
+
+                <div class="cards-container">
+
+                    <%for(Pact of data){ %>
+                        <% let type=Pact.type %>
+                        <%if(type==="Activities"){%>
+
+                    <div class="card">
+                        <h3><%=Pact.acted_as%></h3>
+                        <p><strong>Conference:</strong><%=Pact.program%></p>
+                        <p><strong>Organizer:</strong><%=Pact.organizer%></p>
+                        <p><strong>Date:</strong> <%=Pact.date%></p>
                     </div>
 
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
-                    </div>
+                    <%}}%>
 
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
-                    </div>
-
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
-                    </div>
-
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
                 </div>
 
-                <h1>International Publications</h1>
-                <hr>
 
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
+                <h1>Career Development Seminar & workshop attended</h1>
+                <hr style="width: 100%;">
+                
+               
+                <div class="cards-container">
+
+                    <%for(Pact of data){ %>
+                        <% let type=Pact.type %>
+                        <%if(type!="Activities"){%>
+
+                            
+                    <div class="card">
+                        <h3><%=Pact.program%></h3>
+                        <p><strong>Date:</strong><%=Pact.date%></p>
+                        <p><strong>Organizer:</strong><%=Pact.organizer%></p>
                     </div>
 
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
-                    </div>
-
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="name">
-                        <ul>
-                            <li>Dipak Kumar Kole</li>
-                            <li>Swalpa Kumar Roy</li>
-                            <li>Dhiman Mondal</li>
-                            <li>Purbayan Kar</li>
-                            <li>Kusal Roy</li>
-                        </ul>
-                        <p>
-                            <span id="date">
-                                <strong style="font-weight: 600;">11th December,2022 : </strong>
-                            </span>
-                        International Journal of SN Computer Science, Vol.-5, Issue 1, Page No. 86
-                        </p>
-                    </div>
-
-                    <div class="description">
-                        <h1>X-ResFormer: A Model to Detect Infestation of Pest and Diseases on Crops</h1>
-                        <hr>
-                        <br>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, ipsa. Sequi animi adipisci earum saepe perspiciatis ab quae quam tenetur accusantium tempore! Provident magnam doloremque quasi doloribus fugiat quae numquam totam aut mollitia enim autem ad itaque quo impedit atque quis earum, minima error quibusdam neque fugit! Repellendus, magnam sit! Esse enim autem sapiente minus quis delectus deleniti dolorum eum, tenetur culpa reprehenderit dicta similique corporis magni in quaerat eos, harum sed maiores voluptate possimus. Esse ut rem commodi consequuntur, nisi doloribus dolorum quidem aliquam sint laborum, laudantium vero ullam, illum quod velit voluptate asperiores. Ex sapiente soluta quae fuga?
-                        </p>
-                        <span id="scholarLink">
-                            Link : <a href="" id="googleScholar">https://dncjgec.in/</a>
-                        <span>
-                    </div>
+                    <%}}%>
                 </div>
                 
+                
             </div>
-        </section> -->
-<section class="main-section">
-        <div style="height: 100vh; width: 100vw;"><h1 style="margin-top: 40vh; margin-left: 10vw;">This Page is Under Production</h1></div>
-    </section>
+
+        </section>
 
         <footer>
             <h2>Dr. Dipak Kumar Kole</h2>
             <h3><strong style="font-weight: 600;">Email :</strong>  dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
-            <h3><strong style="font-weight: 600;">Contact No :</strong>  9748111074</h3>
             <h3><strong style="font-weight: 600;">Address :</strong>  Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>

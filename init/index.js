@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const List = require("../models/awards.js");
+const List = require("../models/activities.js");
 // const Review=require("../models/reviews.js");
 const initdata = require("./data.js");
 
@@ -9,7 +9,7 @@ console.log("connection is sucess");
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/portfolio');
+  await mongoose.connect(process.env.URI);
   
 }
 

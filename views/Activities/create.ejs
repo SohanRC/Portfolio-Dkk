@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/publications.css">
+   <link rel="stylesheet" href="/activities.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <base href="/" /> <!-- for local host -->
@@ -21,8 +21,8 @@
                 <div class="routes">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/publications">Publications</a></li>
-                        <li><a href="/activities">Activities</a></li>
+                        <li><a href="/publications">Publications</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
@@ -38,64 +38,65 @@
 
         <section class="main-section">
 
-            <form method="POST" action="/publications/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <form action="/activities" method="post" class="needs-validation" novalidate style="width: 50vw;">
 
                 <div class="row">
                     <div><br><br>
-                        <h2>Update Publications</h2> <br><br>
+                        <h2>Create New Activities</h2> <br><br>
                         <div class="mb-3">
-                            <label for="type" class="form-label">publication Type </label>
-                            <input type="text" class="form-control" id="type" name="newpublication[type]"
-                                value="<%=data.type%>" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="newpublication[title]" required
-                                value="<%=data.title%>">
-                            <div class="invalid-feedback">
-                                Please enter a valid Title.
-                            </div>
+                            <label for="type" class="form-label">Activities Type </label>
+                            <input type="text" class="form-control" id="type" name="newactivitie[type]"
+                                value="<%=type%>" readonly>
                         </div>
 
+                        <% if(type=="Activities"){%>
                         <div class="mb-3">
-                            <label for="author" class="form-label">Authors</label>
-                            <input type="text" class="form-control" id="author" name="newpublication[author]" required
-                                value="<%=data.author%>">
+                            <label for="acted_as" class="form-label">Acted As</label>
+                            <input type="text" class="form-control" id="acted_as" name="newactivitie[acted_as]">
                             <div class="invalid-feedback">
-                                Please enter valid Authors.
+                                Please enter a valid position.
+                            </div>
+                        </div>
+                        <%}%>
+
+                        <div class="mb-3">
+                            <label for="program" class="form-label">Program Name</label>
+                            <input type="text" class="form-control" id="program" name="newactivitie[program]" required>
+                            <div class="invalid-feedback">
+                                Please enter valid program.
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="date" class="form-label">Date</label>
-                            <input type="text" id="date" class="form-control" name="newpublication[date]" required
-                                value="<%=data.date%>">
+                            <input type="text" id="date" class="form-control" name="newactivitie[date]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid Date.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="location" class="form-label">Published at</label>
-                            <input type="text" id="location" class="form-control" name="newpublication[location]"
-                                required value="<%=data.location%>">
+                            <label for="organizer" class="form-label">Organizer</label>
+                            <input type="text" id="organizer" class="form-control" name="newactivitie[organizer]"
+                                required>
                             <div class="invalid-feedback">
-                                Please enter a valid string.
+                                Please enter a valid organizer.
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="newpublication[description]" class="form-control" id="description" cols="30"
-                                rows="5"><%=data.description%></textarea>
+                            <label for="year" class="form-label">Year</label>
+                            <input type="text" id="year" class="form-control" name="newactivitie[year]" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid Year.
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="link" class="form-label">link</label>
-                            <input type="text" id="link" class="form-control" name="newpublication[link]"
-                                value=<%=data.link%>>
+                            <label for="priority" class="form-label">Priority</label>
+                            <input type="text" id="priority" class="form-control" name="newactivitie[priority]" value="1" required>
                         </div>
 
-                        <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
+                        <button class="btn btn-primary" style="margin-left:25vw ;">Submit</button>
                     </div>
                 </div>
 
