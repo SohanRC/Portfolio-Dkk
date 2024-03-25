@@ -21,14 +21,14 @@ const validateActivitie = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Activitie.find();
+  const data = await Activitie.find().sort({year:-1,priority:-1});
   console.log(data);
   res.render("./Activities/index", { data });
 }));
 
 //update Route
 router.get("/edit", asyncWrap(async (req, res) => {
-  const data = await Activitie.find(); 
+  const data = await Activitie.find().sort({year:-1,priority:-1}); 
   console.log(data);
   res.render("./Activities/show", { data });
 }));

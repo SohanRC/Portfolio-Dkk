@@ -91,6 +91,22 @@
                             <input type="text" id="link" class="form-control" name="newpublication[link]">
                         </div>
 
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Year</label>
+                            <input type="text" id="year" class="form-control" name="newpublication[year]" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid Year.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="priority" class="form-label">Priority</label>
+                            <input type="text" id="priority" class="form-control" name="newpublication[priority]" value="1" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid Priority.
+                            </div>
+                        </div>
+
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                     </div>
                 </div>

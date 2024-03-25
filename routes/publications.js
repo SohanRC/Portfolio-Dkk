@@ -21,14 +21,14 @@ const validatePublication = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Publication.find();
+  const data = await Publication.find().sort({year:-1,priority:-1});
   console.log(data);
   res.render("./Publications/index", { data });
 }));
 
 //update Route
 router.get("/edit", asyncWrap(async (req, res) => {
-  const data = await Publication.find();
+  const data = await Publication.find().sort({year:-1,priority:-1});
   console.log(data);
   res.render("./Publications/show", { data });
 }));

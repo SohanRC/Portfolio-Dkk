@@ -21,14 +21,14 @@ const validateAward = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-    const data = await Award.find();
+    const data = await Award.find().sort({date:-1});
     console.log(data);
     res.render("./Awards/index.ejs", { data });
 }));
 
 //Edit Route
 router.get("/edit", asyncWrap(async (req, res) => {
-    const data = await Award.find();
+    const data = await Award.find().sort({date:-1});
     console.log(data);
     res.render("./Awards/show.ejs", { data });
 }));

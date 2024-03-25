@@ -9,13 +9,15 @@ module.exports.PublicationSchema = Joi.object({
     date: Joi.string().required(),
     type: Joi.string().required(),
     link: Joi.string(),
+    year: Joi.number().required(),
+    priority: Joi.number().required(),
   }).required()
 
 });
 
 module.exports.AwardSchema= Joi.object({
   newaward: Joi.object({
-     date: Joi.string().required(),
+     date: Joi.number().required(),
      description: Joi.string().required(),
   }).required()
 

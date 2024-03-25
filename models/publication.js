@@ -29,6 +29,14 @@ const userSchema = new mongoose.Schema({
   },
   link:{
     type:String,
+  },
+  year:{
+    type:Number,
+    required:true
+  },
+  priority:{
+    type: Number,
+    required:true
   }
 });
 
