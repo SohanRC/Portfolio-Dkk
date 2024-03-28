@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="./homepage.css">
+    <style>
+        a{
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,6 +57,11 @@
                 <%   data.forEach((e)=>{ %>
                     <%  if(e.type == "Image") {  %>
                         <img src="<%= e.description %>" alt="">
+                        <form action="/EditHome/Image/<%= e._id %>" method="post" encType="multipart/form-data">
+                            <input type="file" name="coverImage" id="">
+                            <input type="submit" value="Submit" style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">
+                        </form>
                     <% } %>
                 <%  }) %>
                 
@@ -77,6 +87,9 @@
                 <%   data.forEach((e)=>{ %>
                     <%  if(e.type == "Biography") {  %>
                         <p><%= e.description %></p>
+                        <a href="/EditHome/edit/<%= e._id %>"
+                            style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a>
                     <% } %>
                 <%  }) %>
                 <!-- <p>I am Dipak K. Kole, a seasoned academic with a passion for engineering and mathematics. I earned my
@@ -100,9 +113,18 @@
                 <h2>Interests</h2>
                 <hr style="width: 100%">
                 <ul>
+                    <li><a href="/EditHome/add/Interests">Add Interests</a></li>
                     <%   data.forEach((e)=>{ %>
                         <%  if(e.type == "Interests") {  %>
                             <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
                         <% } %>
                     <%  }) %>
                     <!-- <li>➤ Synthesis and Testing of Reversible logic circuits</li>
@@ -115,9 +137,18 @@
                 <h2>Education</h2>
                 <hr style="width: 100%">
                 <ul>
+                    <li><a href="/EditHome/add/Education">Add Education</a></li>
                     <%   data.forEach((e)=>{ %>
                         <%  if(e.type == "Education") {  %>
                             <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
                         <% } %>
                     <%  }) %>
                     <!-- <li>➤ Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science
@@ -133,9 +164,18 @@
                 <h2>Experience</h2>
                 <hr style="width: 100%">
                 <ul>
+                    <li><a href="/EditHome/add/Experience">Add Experience</a></li>
                     <%   data.forEach((e)=>{ %>
                         <%  if(e.type == "Experience") {  %>
                             <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
                         <% } %>
                     <%  }) %>
                     <!-- <li>➤ St. Thomas’ College of Engineering & Technology, Associate Professor,Sept’2006-December’2014.
