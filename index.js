@@ -6,8 +6,14 @@ const publications = require("./routes/publications.js");
 const activities = require("./routes/activities.js");
 const dashboard = require("./routes/dashboard.js");
 const awards = require("./routes/awards.js");
-const Home = require('./models/Home.js')
+const home = require("./routes/home.js");
 const fileUpload = require('express-fileupload');
+const session = require('express-session');
+const flash = require('connect-flash');
+const passport =require('passport');
+const LocalStrategy=require('passport-local');
+const user = require("./routes/user.js");
+const User=require('./models/user.js');
 
 const app = express();
 let port = process.env.PORT;
@@ -40,137 +46,47 @@ async function main() {
 
 }
 
+//Session Options
+const sessionOptions = {
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,// 7 Days from now
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true
+  }
+}
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+//save flash at res.locals
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.user=req.user;
+  next();
+});
 
 // ROUTERRS
 app.use("/publications", publications);
 app.use("/activities", activities);
 app.use("/awards", awards);
 app.use("/dashboard", dashboard);
+app.use("/user",user);
+app.use("/", home);
 
 
-// ************************Home Routes Starts here********************
-app.get("/", async (req, res) => {
-
-  const homeData = await Home.find();
-  res.render("./Home/index.ejs", {
-    data: homeData
-  });
-
-});
-
-// Edit Home Route From Dashboard
-app.get("/edit", async (req, res) => {
-  const homeData = await Home.find();
-  res.render("./Home/show.ejs", {
-    data: homeData
-  });
-
-});
-
-// create page route
-app.get("/EditHome/add/:place", (req, res) => {
-  res.render("./Home/create.ejs", {
-    data: req.params.place,
-  });
-})
-
-// edit page route
-app.get("/EditHome/edit/:id", async (req, res) => {
-  try {
-    const p = await Home.findById(req.params.id);
-    res.render("./Home/edit.ejs", {
-      data: p,
-    });
-  } catch (error) {
-    console.log("Server Error");
-    res.redirect("/");
-  }
-})
-
-
-// create a data
-app.post("/create", async (req, res) => {
-  try {
-    const p = new Home({
-      type: req.body.type,
-      description: req.body.desc,
-    })
-    const response = await p.save();
-    console.log("Data Added Succesfully !");
-    res.redirect("/");
-  } catch (error) {
-    console.log("Error");
-    console.log(error.message);
-    res.redirect("/");
-  }
-})
-
-// update that data with id
-app.patch("/update/:id", async (req, res) => {
-  try {
-    const updatedValue = await Home.findByIdAndUpdate(req.params.id, {
-      type: req.body.type,
-      description: req.body.desc,
-    })
-    console.log("Updated Successfully !");
-    res.redirect("/");
-  } catch (error) {
-    console.log("Failed to Update!");
-    console.log(error.message);
-    res.redirect("/");
-  }
-})
-
-
-// Image Upload
-app.post("/EditHome/Image/:id", async (req, res) => {
-  try {
-    let imageFile;
-    let uploadPath;
-
-    if (!req.files || Object.keys(req.files).length === 0) {
-      return res.redirect("/");
-    }
-
-    imageFile = req.files.coverImage;
-    uploadPath = __dirname + "/public/Images/" + imageFile.name;
-
-    imageFile.mv(uploadPath, async (err) => {
-      if (err) {
-        console.log("Could Not Upload Photo");
-        return res.redirect("/");
-      }
-
-      const p = await Home.findByIdAndUpdate(req.params.id, {
-        description : `./${imageFile.name}`
-      }, {
-        returnDocument : 'after',
-      })
-      
-      console.log("Image Uploded Succesfully !");
-      return res.redirect("/");
-    })
-  } catch (error) {
-    console.log("Could Not Upload Photot");
-    console.log(error.message);
-    return res.redirect("/");
-  }
-})
-
-
-// delete with id
-app.get("/EditHome/delete/:id", async (req, res) => {
-  try {
-    await Home.findByIdAndDelete(req.params.id);
-    res.redirect("/");
-  } catch (error) {
-    console.log("Could Not Delete !");
-    console.log(error.message);
-    res.redirect("/");
-  }
-})
-
-// ************************Home page routes ends here*******************
 
 
 
