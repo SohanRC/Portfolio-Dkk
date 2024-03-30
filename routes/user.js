@@ -24,7 +24,7 @@ router.post("/login", passport.authenticate('local', { failureRedirect: '/user/l
 }));
 
 //logout
-router.get("/logout", (req, res, next) => {
+router.post("/logout", (req, res, next) => {
     req.logout((err) => {
         if (err) {
             return next(err);
@@ -37,7 +37,7 @@ router.get("/logout", (req, res, next) => {
 });
 
 
-//Login
+//change Password
 router.get("/changePassword",isLoggedin, asyncWrap(async (req, res) => {
     res.render("./User/changePassword.ejs");
 }));
