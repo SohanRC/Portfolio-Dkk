@@ -638,76 +638,76 @@ async function main() {
 
 // module.exports = { data: sampleListings };
 
-const homeData = [
-  {
-    type: "Image",
-    description : "./DKK_Passport 51mmx51mm.jpg"
-  },
-  {
-    type: "Biography",
-    description : "I am Dipak K. Kole, a seasoned academic with a passion for engineering and mathematics. I earned my Ph.D. in Engineering from Bengal Engineering and Science University, now known as IIEST Shibpur, India, in 2012. Prior to that, I completed my M.Tech. and B.Tech. in Computer Science & Engineering and my B.Sc. in Mathematics Honours from Calcutta University.My academic journey has been marked by a strong commitment to excellence, as evidenced by my achievement of securing the 4th position in Mathematics Honours at Calcutta University. With over 22 years of professional experience, I bring a wealth of knowledge and expertise to my role.Currently serving as a Full Professor in the Computer Science and Engineering Department at Jalpaiguri Government Engineering College since 2014, I am deeply involved in both teaching and research. My research interests span a wide range of topics, including Synthesis & Testing of Reversible Circuits, Social Network Analysis, Digital Watermarking, and Agriculture Engineering.I have contributed significantly to the academic community through my publications, with over 67 research articles published in various international journals, conference proceedings, and book chapters. My research areas include VLSI, Reversible Circuits, Social Network Analysis, Agriculture Engineering, Image & Video Processing, and Cryptography.I am dedicated to advancing knowledge and inspiring the next generation of engineers and mathematicians. My work reflects my commitment to pushing the boundaries of research and innovation in the field of engineering and mathematics."
-  },
-  {
-    type: "Interests",
-    description : "Synthesis and Testing of Reversible logic circuits"
-  },
-  {
-    type: "Interests",
-    description : "Algorithm Design"
-  },
-  {
-    type: "Interests",
-    description : " Image processing"
-  },
-  {
-    type: "Interests",
-    description : "Cryptography"
-  },
-  {
-    type: "Interests",
-    description : "Social Network Analysis"
-  },
-  {
-    type: "Education",
-    description : "Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science University,Shibpur.Dissertation: Synthesis and Testing of Reversible Logic Circuits. Supervisors: Prof. Hafizur Rahaman (IIEST, Shibpur) and Prof. Bhargab B. Bhattacharya (ISI, Kolkata)"
-  },
-  {
-    type: "Education",
-    description : " M.Tech. in Computer Sc. & Engg. from University of Calcutta"
-  },
-  {
-    type: "Education",
-    description : "B.Tech. in Computer Sc. & Engg. from University of Calcutta"
-  },
-  {
-    type: "Education",
-    description : "B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta University)."
-  },
-  {
-    type: "Experience",
-    description : "St. Thomas’ College of Engineering & Technology, Associate Professor,Sept’2006-December’2014."
-  },
-  {
-    type: "Experience",
-    description : "NSHM Knowledge Campus Kolkata, Visiting Faculty of M.Sc. in Applied Mathematics and Computer Science, July’2013-December, 2013."
-  },
-  {
-    type: "Experience",
-    description : "Bengal Engineering and Science University, Visiting Faculty in PDSIT, Jun’2010- Jun’2013."
-  },
-  {
-    type: "Experience",
-    description : "Bengal Engineering & Science University, Shibpur, Visiting Faculty in Information Technology, July’2011-December’2011."
-  },
-  {
-    type: "Experience",
-    description : "Simplex Infrastructures Ltd., R & D Engineer, Sept’2005 – August’2006."
-  },
-  {
-    type: "Experience",
-    description : "MCKV Institute of Engineering, Sr. Lecturer in CSE Dept., Jun’2001 –S ept’2005."
-  },
-]
+// const homeData = [
+//   {
+//     type: "Image",
+//     description : "./DKK_Passport 51mmx51mm.jpg"
+//   },
+//   {
+//     type: "Biography",
+//     description : "I am Dipak K. Kole, a seasoned academic with a passion for engineering and mathematics. I earned my Ph.D. in Engineering from Bengal Engineering and Science University, now known as IIEST Shibpur, India, in 2012. Prior to that, I completed my M.Tech. and B.Tech. in Computer Science & Engineering and my B.Sc. in Mathematics Honours from Calcutta University.My academic journey has been marked by a strong commitment to excellence, as evidenced by my achievement of securing the 4th position in Mathematics Honours at Calcutta University. With over 22 years of professional experience, I bring a wealth of knowledge and expertise to my role.Currently serving as a Full Professor in the Computer Science and Engineering Department at Jalpaiguri Government Engineering College since 2014, I am deeply involved in both teaching and research. My research interests span a wide range of topics, including Synthesis & Testing of Reversible Circuits, Social Network Analysis, Digital Watermarking, and Agriculture Engineering.I have contributed significantly to the academic community through my publications, with over 67 research articles published in various international journals, conference proceedings, and book chapters. My research areas include VLSI, Reversible Circuits, Social Network Analysis, Agriculture Engineering, Image & Video Processing, and Cryptography.I am dedicated to advancing knowledge and inspiring the next generation of engineers and mathematicians. My work reflects my commitment to pushing the boundaries of research and innovation in the field of engineering and mathematics."
+//   },
+//   {
+//     type: "Interests",
+//     description : "Synthesis and Testing of Reversible logic circuits"
+//   },
+//   {
+//     type: "Interests",
+//     description : "Algorithm Design"
+//   },
+//   {
+//     type: "Interests",
+//     description : " Image processing"
+//   },
+//   {
+//     type: "Interests",
+//     description : "Cryptography"
+//   },
+//   {
+//     type: "Interests",
+//     description : "Social Network Analysis"
+//   },
+//   {
+//     type: "Education",
+//     description : "Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science University,Shibpur.Dissertation: Synthesis and Testing of Reversible Logic Circuits. Supervisors: Prof. Hafizur Rahaman (IIEST, Shibpur) and Prof. Bhargab B. Bhattacharya (ISI, Kolkata)"
+//   },
+//   {
+//     type: "Education",
+//     description : " M.Tech. in Computer Sc. & Engg. from University of Calcutta"
+//   },
+//   {
+//     type: "Education",
+//     description : "B.Tech. in Computer Sc. & Engg. from University of Calcutta"
+//   },
+//   {
+//     type: "Education",
+//     description : "B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta University)."
+//   },
+//   {
+//     type: "Experience",
+//     description : "St. Thomas’ College of Engineering & Technology, Associate Professor,Sept’2006-December’2014."
+//   },
+//   {
+//     type: "Experience",
+//     description : "NSHM Knowledge Campus Kolkata, Visiting Faculty of M.Sc. in Applied Mathematics and Computer Science, July’2013-December, 2013."
+//   },
+//   {
+//     type: "Experience",
+//     description : "Bengal Engineering and Science University, Visiting Faculty in PDSIT, Jun’2010- Jun’2013."
+//   },
+//   {
+//     type: "Experience",
+//     description : "Bengal Engineering & Science University, Shibpur, Visiting Faculty in Information Technology, July’2011-December’2011."
+//   },
+//   {
+//     type: "Experience",
+//     description : "Simplex Infrastructures Ltd., R & D Engineer, Sept’2005 – August’2006."
+//   },
+//   {
+//     type: "Experience",
+//     description : "MCKV Institute of Engineering, Sr. Lecturer in CSE Dept., Jun’2001 –S ept’2005."
+//   },
+// ]
 
 // Home.insertMany(homeData).
 //   then((e) => {
@@ -718,11 +718,18 @@ const homeData = [
 //   console.log(err.message);
 // })
 
-Home.find().then((e) => {
-  console.log(e)
-}).catch((err) => {
-  console.log(err.message)
-});
+// Home.find().then((e) => {
+//   console.log(e)
+// }).catch((err) => {
+//   console.log(err.message)
+// });
 
 
-module.exports = homeData;
+const user=[{
+username:"DKK",
+password:"1234",
+}
+];
+
+
+module.exports = user;
