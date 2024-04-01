@@ -89,7 +89,7 @@ nav h1{
 }
 
 .routes.active{
-    height: 300px;
+    height: 460px;
     transition: height 0.2s ease-in-out;
 }
 
