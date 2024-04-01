@@ -22,6 +22,8 @@
             <li style="border-bottom: 2px solid #2962ff;"><a href="/publications">Publications</a></li>
             <li><a href="/activities">Activities</a></li>
             <li><a href="/awards">Achievements</a></li>
+            <li><a href="/student">Student</a></li>
+            <li><a href="/trekking">Trekking</a></li>
             <li><a href="/dashboard">Dashboard</a></li>
           </ul>
         </div>
@@ -83,86 +85,86 @@
 
 
 
-                 <!-- **************Publications in International Conferences BEGIN*********** -->
-        <h1 id="Conference">Publications in International Conferences</h1>
-        <hr>
-
-        <%for(journal of data){ %>
-          <% let type=journal.type %>
-
-            <%if(type==="Conference"){%>
-              <div class="card">
-                <div class="name">
-                  <b>
-                    <p style="font-weight: 600;">
-                      <%=journal.author%>
-                    </p>
-                  </b>
-                  <p>
-                    <span id="date">
-                      <strong style="font-weight: 600;">
-                        <%=journal.date%> :
-                      </strong>
-                    </span>
-                    <%=journal.location%>
-                  </p>
-                </div>
-
-                <div class="description">
-                  <h2 style="font-weight: 700; margin: 5px;">
-                    <%=journal.title%>
-                  </h2>
+                  <!-- **************Publications in International Conferences BEGIN*********** -->
+                  <h1 id="Conference">Publications in International Conferences</h1>
                   <hr>
 
-                  <p>
-                    <%=journal.description%>
-                  </p>
-                  <a href="<%=journal.link%>" id="googleScholar">Details</a>
-                </div>
-              </div>
-              <%}%>
-                <%}%>
+                  <%for(journal of data){ %>
+                    <% let type=journal.type %>
+
+                      <%if(type==="Conference"){%>
+                        <div class="card">
+                          <div class="name">
+                            <b>
+                              <p style="font-weight: 600;">
+                                <%=journal.author%>
+                              </p>
+                            </b>
+                            <p>
+                              <span id="date">
+                                <strong style="font-weight: 600;">
+                                  <%=journal.date%> :
+                                </strong>
+                              </span>
+                              <%=journal.location%>
+                            </p>
+                          </div>
+
+                          <div class="description">
+                            <h2 style="font-weight: 700; margin: 5px;">
+                              <%=journal.title%>
+                            </h2>
+                            <hr>
+
+                            <p>
+                              <%=journal.description%>
+                            </p>
+                            <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                          </div>
+                        </div>
+                        <%}%>
+                          <%}%>
 
 
-                 <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-        <h1 id="Books">Book Chapters Published</h1>
-        <hr>
+                            <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+                            <h1 id="Books">Book Chapters Published</h1>
+                            <hr>
 
-        <%for(journal of data){ %>
-          <% let type=journal.type %>
+                            <%for(journal of data){ %>
+                              <% let type=journal.type %>
 
-            <%if(type==="Book"){%>
-              <div class="card">
-                <div class="name">
-                  <b>
-                    <p style="font-weight: 600;">
-                      <%=journal.author%>
-                    </p>
-                  </b>
-                  <p>
-                    <span id="date">
-                      <strong style="font-weight: 600;">
-                        <%=journal.date%> :
-                      </strong>
-                    </span>
-                    <%=journal.location%>
-                  </p>
-                </div>
+                                <%if(type==="Book"){%>
+                                  <div class="card">
+                                    <div class="name">
+                                      <b>
+                                        <p style="font-weight: 600;">
+                                          <%=journal.author%>
+                                        </p>
+                                      </b>
+                                      <p>
+                                        <span id="date">
+                                          <strong style="font-weight: 600;">
+                                            <%=journal.date%> :
+                                          </strong>
+                                        </span>
+                                        <%=journal.location%>
+                                      </p>
+                                    </div>
 
-                <div class="description">
-                  <h2 style="font-weight: 700; margin: 5px;">
-                    <%=journal.title%>
-                  </h2>
-                  <hr>
+                                    <div class="description">
+                                      <h2 style="font-weight: 700; margin: 5px;">
+                                        <%=journal.title%>
+                                      </h2>
+                                      <hr>
 
-                  <p>
-                    <%=journal.description%>
-                  </p>
-                  <a href="<%=journal.link%>" id="googleScholar">Details</a>
-                </div>
-              </div>
-              <%}%>
-                <%}%>
+                                      <p>
+                                        <%=journal.description%>
+                                      </p>
+                                      <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                                    </div>
+                                  </div>
+                                  <%}%>
+                                    <%}%>
       </div>
 
     </section>

@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // Edit Home Route From Dashboard
-router.get("/edit",isLoggedin, async (req, res) => {
+router.get("/edit", async (req, res) => {
   const homeData = await Home.find();
   res.render("./Home/show.ejs", {
     data: homeData
@@ -25,14 +25,14 @@ router.get("/edit",isLoggedin, async (req, res) => {
 });
 
 // create page route
-router.get("/EditHome/add/:place",isLoggedin, (req, res) => {
+router.get("/EditHome/add/:place", (req, res) => {
   res.render("./Home/create.ejs", {
     data: req.params.place,
   });
 })
 
 // edit page route
-router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
+router.get("/EditHome/edit/:id", async (req, res) => {
   try {
     const p = await Home.findById(req.params.id);
     res.render("./Home/edit.ejs", {
@@ -46,7 +46,7 @@ router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
 
 
 // create a data
-router.post("/create",isLoggedin, async (req, res) => {
+router.post("/create", async (req, res) => {
   try {
     const p = new Home({
       type: req.body.type,
@@ -63,7 +63,7 @@ router.post("/create",isLoggedin, async (req, res) => {
 })
 
 // update that data with id
-router.patch("/update/:id",isLoggedin, async (req, res) => {
+router.patch("/update/:id", async (req, res) => {
   try {
     const updatedValue = await Home.findByIdAndUpdate(req.params.id, {
       type: req.body.type,
@@ -80,7 +80,7 @@ router.patch("/update/:id",isLoggedin, async (req, res) => {
 
 
 // Image Upload
-router.post("/EditHome/Image/:id",isLoggedin, async (req, res) => {
+router.post("/EditHome/Image/:id", async (req, res) => {
   try {
     let imageFile;
     let uploadPath;

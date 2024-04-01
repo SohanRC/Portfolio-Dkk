@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Details</title>
     <link rel="stylesheet" href="./homepage.css">
     <link rel="stylesheet" href="./trekking.css">
-
 </head>
 
 <body>
@@ -34,44 +33,15 @@
                 </div>
             </nav>
         </div>
-
-        <h1 id="Trekking">Trekking</h1>
+        <!-- <h2 id="Trekking">Description</h2>
         <hr>
+        <p class="card-text"></p>
+        <h2 id="Trekking">Gallery</h2>
+        <hr> -->
 
-        <section class="main-section">
-            <%for(trekking of data){%>
-                <!-- <a href="/trekking/<%=trekking._id%>" style="text-decoration: none;color: black;"> -->
-                    <div class="card">
-                        <img src="./nstex29k.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title">Description</h2>
-                            <p class="card-text">
-                                <%=trekking.description%>
-                            </p>
-                            <p><b>Location</b>: <%=trekking.location%>
-                            </p>
-                            <p><b>Duration</b>: <%=trekking.duration%> days</p>
-                            <p><b>Year</b>:<%=trekking.year%>
-                            </p>
-                        </div>
-                    </div>
-                <!-- </a> -->
-                <%}%>
-
-                    <div class="card">
-                        <img src="./nstex29k.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h2 class="card-title">Description</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                                consectetur
-                                elit a ex consectetur, ut posuere nisl faucibus.</p>
-                            <p><b>Location</b>: lorem </p>
-                            <p><b>Duration</b>: 5 days</p>
-                            <p><b>Year</b>: 2020</p>
-                        </div>
-                    </div>
-
-        </section>
+        <!-- <section class="main-section">
+           
+        </section> -->
 
         <footer>
             <h2>Dr. Dipak Kumar Kole</h2>

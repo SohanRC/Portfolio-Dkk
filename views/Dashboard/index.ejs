@@ -10,53 +10,58 @@
 </head>
 
 <body>
-        <div class="main-container">
+    <div class="main-container">
 
-            <div class="navbar-container">
-                <nav>
-                    <h1>Dr.Dipak Kumar Kole</h1>
-                    <div class="routes">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/publications">Publications</a></li>
-                            <li><a href="/activities">Activities</a></li>
-                            <li><a href="/awards">Achievements</a></li>
-                            <li style="border-bottom: 2px solid #2962ff;"><a href="/dashboard">Dashboard</a></li>
-                        </ul>
-                    </div>
-                    <div class="hamburger">
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
-                    </div>
-                </nav>
-            </div>
+        <div class="navbar-container">
+            <nav>
+                <h1>Dr.Dipak Kumar Kole</h1>
+                <div class="routes">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/publications">Publications</a></li>
+                        <li><a href="/activities">Activities</a></li>
+                        <li><a href="/awards">Achievements</a></li>
+                        <li><a href="/student">Student</a></li>
+                        <li><a href="/trekking">Trekking</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/dashboard">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
 
-            <section class="main-section">
+        <section class="main-section">
 
-                <div class="wrapper">
-                    <h1>Dashboard</h1>
-                    <hr style="width: 100%;">
+            <div class="wrapper">
+                <h1>Dashboard</h1>
+                <hr style="width: 100%;">
 
-                    <div class="options">
-                        <a href="/publications/edit" style="background-color: #FF7518; color: white;">Publications</a>
-                        <a href="/awards/edit" style="background-color: #097969; color: white;">Achievements</a>
-                        <a href="/activities/edit" style="background-color: #D22B2B; color: white;">Activities</a>
-                        <a href="/edit" style="background-color: #097969; color: white;">Home</a>
-                    </div>
-
+                <div class="options">
+                    <a href="/publications/edit" style="background-color: #FF7518; color: white;">Publications</a>
+                    <a href="/awards/edit" style="background-color: #097969; color: white;">Achievements</a>
+                    <a href="/activities/edit" style="background-color: #D22B2B; color: white;">Activities</a>
+                    <a href="/edit" style="background-color: #097969; color: white;">Home</a>
                 </div>
 
-            </section>
-            <div style="display: flex; margin-left:38vw;">
+            </div>
+
+        </section>
+        <div style="display: flex; margin-left:38vw;">
             <form action="/user/changePassword" method="get">
-                <button style="color: white;background-color: blue; margin: 10px; border: none; font-size: 1rem; padding: 5px; border-radius: 5px;">Change Password</button>
-                </form>
+                <button
+                    style="color: white;background-color: blue; margin: 10px; border: none; font-size: 1rem; padding: 5px; border-radius: 5px;">Change
+                    Password</button>
+            </form>
             <form action="/user/logout" method="post">
-            <button style="color: white;background-color: blue;margin: 10px; border: none; font-size: 1rem; padding: 5px; border-radius: 5px;">LogOut</button>
+                <button
+                    style="color: white;background-color: blue;margin: 10px; border: none; font-size: 1rem; padding: 5px; border-radius: 5px;">LogOut</button>
             </form>
         </div>
-        </div>
+    </div>
 
 
 </body>

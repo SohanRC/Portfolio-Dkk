@@ -15,23 +15,34 @@ module.exports.PublicationSchema = Joi.object({
 
 });
 
-module.exports.AwardSchema= Joi.object({
+module.exports.AwardSchema = Joi.object({
   newaward: Joi.object({
-     date: Joi.number().required(),
-     description: Joi.string().required(),
+    date: Joi.number().required(),
+    description: Joi.string().required(),
   }).required()
 
 });
 
-module.exports.ActivitieSchema= Joi.object({
+module.exports.ActivitieSchema = Joi.object({
   newactivitie: Joi.object({
-     program: Joi.string().required(),
-     acted_as: Joi.string(),
-     organizer: Joi.string().required(),
-     date: Joi.string().required(),
-     year: Joi.number().required(),
-     priority: Joi.number().required(),
-     type: Joi.string().required(),
+    program: Joi.string().required(),
+    acted_as: Joi.string(),
+    organizer: Joi.string().required(),
+    date: Joi.string().required(),
+    year: Joi.number().required(),
+    priority: Joi.number().required(),
+    type: Joi.string().required(),
+  }).required()
+
+});
+
+module.exports.TrekkingSchema = Joi.object({
+  newtrekking: Joi.object({
+    year: Joi.number().required(),
+    description: Joi.string().required(),
+    location: Joi.string().required(),
+    duration: Joi.number().required(),
+    
   }).required()
 
 });

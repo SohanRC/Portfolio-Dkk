@@ -5,6 +5,8 @@ const ExpressError = require("./utils/ExpressError.js");
 const publications = require("./routes/publications.js");
 const activities = require("./routes/activities.js");
 const dashboard = require("./routes/dashboard.js");
+const trekking = require("./routes/trekking.js");
+const student = require("./routes/student.js");
 const awards = require("./routes/awards.js");
 const home = require("./routes/home.js");
 const fileUpload = require('express-fileupload');
@@ -83,6 +85,8 @@ app.use("/publications", publications);
 app.use("/activities", activities);
 app.use("/awards", awards);
 app.use("/dashboard", dashboard);
+app.use("/trekking", trekking);
+app.use("/student", student);
 app.use("/user",user);
 app.use("/", home);
 

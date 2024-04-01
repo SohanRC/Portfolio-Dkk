@@ -725,11 +725,14 @@ async function main() {
 // });
 
 
-const user=[{
-username:"DKK",
-password:"1234",
+const trekking=[{
+year:2019,
+description:"Beautiful Memories (2019) of My Adventure Trekking: Uttarey (West Sikim) to Gorkhey via Achallay",
+location:"Uttarey (West Sikim) to Gorkhey via Achallay",
+duration:10,
+image:[]
 }
 ];
 
 
-module.exports = user;
+module.exports = trekking;
