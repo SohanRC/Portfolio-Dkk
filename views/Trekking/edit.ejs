@@ -53,7 +53,7 @@
                         <div class="card" style="width: 200px;">
                             <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs%>.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <form method="POST" action="/trekking/<%=trekking._id%>/image/<%=imgs%>?_method=DELETE">
+                                <form method="POST" action="/trekking/<%=data._id%>/image/<%=imgs%>?_method=DELETE">
                                     <button style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin-left:4vw; font-size: 1rem;">Delete</button>
                                 </form>
                             </div>
