@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const engine = require('ejs-mate');
+const asyncWrap = require("./utils/asyncWrap.js");
 const ExpressError = require("./utils/ExpressError.js");
 const publications = require("./routes/publications.js");
 const activities = require("./routes/activities.js");
@@ -12,10 +13,13 @@ const home = require("./routes/home.js");
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const flash = require('connect-flash');
-const passport =require('passport');
-const LocalStrategy=require('passport-local');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 const user = require("./routes/user.js");
-const User=require('./models/user.js');
+const User = require('./models/user.js');
+const Trekking = require("./models/trekking.js");
+const cloudinary = require("cloudinary").v2
+// const fse = require("fs-extra")
 
 const app = express();
 let port = process.env.PORT;
@@ -48,6 +52,14 @@ async function main() {
 
 }
 
+//cloudnari
+const cloudinaryConfig = cloudinary.config({
+  cloud_name: process.env.CLOUDNAME,
+  api_key: process.env.CLOUDAPIKEY,
+  api_secret: process.env.CLOUDINARYSECRET,
+  secure: true
+})
+
 //Session Options
 const sessionOptions = {
   secret: "mysupersecretcode",
@@ -76,7 +88,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
-  res.locals.user=req.user;
+  res.locals.user = req.user;
   next();
 });
 
@@ -87,8 +99,38 @@ app.use("/awards", awards);
 app.use("/dashboard", dashboard);
 app.use("/trekking", trekking);
 app.use("/student", student);
-app.use("/user",user);
+app.use("/user", user);
 app.use("/", home);
+
+app.get("/get-signature", (req, res) => {
+  const timestamp = Math.round(new Date().getTime() / 1000)
+  const signature = cloudinary.utils.api_sign_request(
+    {
+      timestamp: timestamp
+    },
+    cloudinaryConfig.api_secret
+  )
+  res.json({ timestamp, signature })
+})
+
+
+
+app.post("/image", async (req, res) => {
+  let { user_id } = req.body;
+
+  const data = await Trekking.findOneAndUpdate({ _id: user_id }, { $push: { image: req.body.public_id } });
+  console.log(data);
+  // res.redirect(`/trekking/${user_id}/edit`);
+})
+
+//Delete Image
+app.delete("/trekking/:id/image/:imgid", asyncWrap(async (req, res) => {
+  let { id,imgid } = req.params;
+  const data = await Trekking.findOneAndUpdate({ _id: id }, { $pull: { image: imgid } });
+  console.log(data);
+  cloudinary.uploader.destroy(imgid);
+  res.redirect(`/trekking/${id}/edit`);
+}));
 
 
 

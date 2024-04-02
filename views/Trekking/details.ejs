@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details</title>
-    <link rel="stylesheet" href="./homepage.css">
-    <link rel="stylesheet" href="./trekking.css">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/trekking.css">
+
 </head>
 
 <body>
@@ -33,16 +34,27 @@
                 </div>
             </nav>
         </div>
-        <!-- <h2 id="Trekking">Description</h2>
+<div class="page" style="margin: 20px;">
+        <h2>Description</h2>
         <hr>
-        <p class="card-text"></p>
-        <h2 id="Trekking">Gallery</h2>
-        <hr> -->
+        <p class="card-text">
+            <%=data.description%>
+        </p>
+        <p><b>Location</b>:  <%=data.location%> </p>
+        <p><b>Duration</b>:  <%=data.duration%></p>
+        <p><b>Year</b>:  <%=data.year%></p>
 
-        <!-- <section class="main-section">
-           
-        </section> -->
+        <h2 id="Gallery">Gallery</h2>
+        <hr>
 
+        <section class="main-section" style="min-height: 0px;">
+            <%for(imgs of data.image){%>
+                    <div class="card" style="width: auto">
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs%>.png" class="card-img-top" alt="...">
+                    </div>
+                <%}%>
+        </section>
+    </div>
         <footer>
             <h2>Dr. Dipak Kumar Kole</h2>
             <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
