@@ -92,15 +92,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ROUTERRS
-app.use("/publications", publications);
-app.use("/activities", activities);
-app.use("/awards", awards);
-app.use("/dashboard", dashboard);
-app.use("/trekking", trekking);
-app.use("/student", student);
-app.use("/user", user);
-app.use("/", home);
+
 
 app.get("/get-signature", (req, res) => {
   const timestamp = Math.round(new Date().getTime() / 1000)
@@ -132,8 +124,15 @@ app.delete("/trekking/:id/image/:imgid", asyncWrap(async (req, res) => {
   res.redirect(`/trekking/${id}/edit`);
 }));
 
-
-
+// ROUTERRS
+app.use("/publications", publications);
+app.use("/activities", activities);
+app.use("/awards", awards);
+app.use("/dashboard", dashboard);
+app.use("/trekking", trekking);
+app.use("/student", student);
+app.use("/user", user);
+app.use("/", home);
 
 
 //Wrong Path
