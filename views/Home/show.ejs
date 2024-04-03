@@ -55,17 +55,11 @@
                     <a href=""><i class="fi fi-brands-github"></i></a>
 
                 </div> -->
-
-                <%   data.forEach((e)=>{ %>
-                    <%  if(e.type == "Image") {  %>
-                        <img src="<%= e.description %>" alt="">
-                        <form action="/EditHome/Image/<%= e._id %>" method="post" encType="multipart/form-data">
-                            <input type="file" name="coverImage" id="">
-                            <input type="submit" value="Submit" style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
-                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">
-                        </form>
-                    <% } %>
-                <%  }) %>
+                <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=dp%>.png" alt="">
+                <form id="upload-form">
+                    <input id="file-field" type="file"/>
+                    <button style="border-radius: 5px; padding: 5px;">Upload Image</button>
+                </form>
                 
                 <h1 style="font-size: 2.5rem; text-align: center;">Dr. Dipak Kumar Kole</h1>
                 <h2 style="font-size: 1.3rem; font-weight: 400; text-align: center;">Professor of the Department of
@@ -206,6 +200,8 @@
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/dp.js"></script>
 </body>
 
 <script>

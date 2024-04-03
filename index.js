@@ -10,7 +10,7 @@ const trekking = require("./routes/trekking.js");
 const student = require("./routes/student.js");
 const awards = require("./routes/awards.js");
 const home = require("./routes/home.js");
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
@@ -36,7 +36,7 @@ app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(fileUpload());
+// app.use(fileUpload());
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });

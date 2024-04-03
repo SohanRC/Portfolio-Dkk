@@ -51,12 +51,7 @@
 
                 </div> -->
 
-                <%   data.forEach((e)=>{ %>
-                    <%  if(e.type == "Image") {  %>
-                        <img src="<%= e.description %>" alt="">
-                    <% } %>
-                <%  }) %>
-                
+                <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=dp%>.png" alt="">
                 <h1 style="font-size: 2.5rem; text-align: center;">Dr. Dipak Kumar Kole</h1>
                 <h2 style="font-size: 1.3rem; font-weight: 400; text-align: center;">Professor of the Department of
                     Computer Science &
@@ -166,6 +161,8 @@
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/dp.js"></script>
 </body>
 
 <script>

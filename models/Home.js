@@ -8,6 +8,10 @@ const homeSchema = new mongoose.Schema({
     description: {
         type: String,
         required : true,
+    },
+    priority:{
+        type:Number,
+        required:true
     }
 })
 
