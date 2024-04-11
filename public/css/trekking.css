@@ -9,18 +9,22 @@
     
 }
 .card{
-    width: 400px;
+    max-width: 400px;
     background-color: white;
     border: 1px solid white;
     border-radius: 10px;
     box-shadow: 10px 5px rgba(0, 0, 0, 0.1);
     margin: 10px;
+    transition: transform 0.2s ease-in-out;
+}
 
-
+.card:hover{
+    transform: scale(1.02);
+    box-shadow: 10px 5px rgba(0, 0, 0, 0.3);
 }
 .card-img-top{
     height: 300px;
-    width: auto;
+    width: 100%;
     border: 1px solid white;
     border-radius: 10px;
 }
@@ -31,4 +35,12 @@
 
 p{
     font-weight: 400;
+}
+
+b{
+    font-weight: 700;
+}
+
+h2{
+    font-weight: 600;
 }
