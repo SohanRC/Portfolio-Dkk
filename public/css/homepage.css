@@ -188,6 +188,7 @@ ul{
     justify-content: center;
     align-items: center;
     max-width: 1200px;
+    text-align: justify;
 }
 
 .biography h1{

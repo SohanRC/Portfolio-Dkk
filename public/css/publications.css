@@ -68,6 +68,7 @@
     font-family: "Roboto Slab", serif;
     font-style: normal;
     margin-bottom: 1rem;
+    text-align: justify;
 }
 
 .conferenceContainer{
