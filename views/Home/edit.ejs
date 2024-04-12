@@ -38,7 +38,7 @@
         </div>
 
 
-        <section class="main-section">
+        <section class="main-section" style="padding: 0 10px;">
 
             <form method="POST" action="/update/<%= data._id %>?_method=PATCH" class="needs-validation" novalidate>
             <!-- <form method="POST" action="/publications/?_method=PATCH" class="needs-validation" novalidate> -->
@@ -54,7 +54,7 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Description</label>
 
-                            <textarea name="desc" cols="30" rows="10" class="form-control" id="title" name="desc" required><%= data.description %></textarea>
+                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" name="desc" required><%= data.description %></textarea>
 
                             <div class="invalid-feedback">
                                 Please enter a valid Description.

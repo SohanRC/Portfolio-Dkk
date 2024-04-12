@@ -38,7 +38,7 @@
         </div>
 
 
-        <section class="main-section">
+        <section class="main-section" style="padding: 0 10px;">
 
             <form method="POST" action="awards/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
 
@@ -57,8 +57,8 @@
 
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea name="newaward[description]" class="form-control" id="description" cols="30"
-                                rows="5" required><%=data.description%></textarea>
+                            <textarea name="newaward[description]" class="form-control" id="description" cols="60"
+                                rows="10" required><%=data.description%></textarea>
                         </div>
 
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
