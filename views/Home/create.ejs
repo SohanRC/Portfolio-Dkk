@@ -38,7 +38,7 @@
         </div>
 
 
-        <section class="main-section">
+        <section class="main-section" style="padding: 0 10px;">
 
             <form action="/create" method="post" class="needs-validation" novalidate>
 
@@ -52,7 +52,9 @@
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Description</label>
-                            <input type="text" class="form-control" id="title" name="desc" required>
+                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
+                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" required></textarea>
+                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
                             <div class="invalid-feedback">
                                 Please enter a valid Description.
                             </div>
