@@ -8,7 +8,7 @@ const Home = require("../models/Home.js");
 const User = require("../models/user.js");
 const {isLoggedin}=require("../views/middleware.js");
 const cloudinary = require("cloudinary").v2;
-const cloud_name = "dra540ujl";
+const cloud_name = "ddkcibobs";
 //cloudnari
 const cloudinaryConfig = cloudinary.config({
   cloud_name: process.env.CLOUDNAME,

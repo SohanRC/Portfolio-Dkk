@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/trekking.css">
     <style>
-        .main-container .popup-image {
+        .main-container .popup-image{
             position: fixed;
             top: 0;
             left: 0;
@@ -19,40 +19,40 @@
             display: none;
         }
 
-        .main-container .popup-image span {
+        .main-container .popup-image span{
             position: absolute;
             top: 0px;
             right: 10px;
             font-size: 60px;
             font-weight: bolder;
-            color: #fff;
+            color: #fff ;
             cursor: pointer;
             z-index: 9999999999999999999;
         }
 
-        .main-container .popup-image img {
+        .main-container .popup-image img{
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%,-50%);
             border: 5px solid #fff;
             border-radius: 5px;
             max-width: 800px;
             height: 600px;
         }
 
-        @media screen and (max-width : 850px) {
+        @media screen and (max-width : 850px){
             .main-container .popup-image img {
                 max-width: 500px;
                 height: 400px;
-            }
+           }
         }
 
-        @media screen and (max-width : 600px) {
+        @media screen and (max-width : 600px){
             .main-container .popup-image img {
                 max-width: 300px;
                 height: 300px;
-            }
+           }
         }
     </style>
 </head>
@@ -69,9 +69,9 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li><a href="/student">Scholar</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
+                        <li><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
@@ -82,37 +82,29 @@
                 </div>
             </nav>
         </div>
-        <div class="page" style="margin: 20px;">
-            <h2>
-                <%= data.type %> - <%=data.location%>
-            </h2>
+
+        <h2 id="Gallery">Photo</h2>
             <hr>
-            <p class="card-text">
-                <%=data.description%>
-            </p>
-            <p><b>Location</b>: <%=data.location%>
-            </p>
-                    <p><b>Year</b>: <%=data.year%>
-                    </p>
 
-                    <h2 id="Gallery">Gallery</h2>
-                    <hr>
+            <section class="main-section" style="min-height: 0px;">
+                        <div class="card" style="width: auto; cursor: pointer;">
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=data.image%>.png" class="card-img-top" alt="...">
+                        </div>
+            </section>
 
-                    <section class="main-section" style="min-height: 0px;">
-                        <%for(imgs of data.image){%>
-                            <div class="card" style="width: auto; cursor: pointer;">
-                                <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs.url%>.png"
-                                    class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <% if(imgs.caption) {%>
-                                            <p><%=imgs.caption%></p>
-                                            <% } %>
-                                    </div>
+        <div class="page" style="margin: 20px;">
+            <h2>Details</h2>
+            <hr>
+            <p><b>Name</b>:  <%=data.name%> </p>
+            <p><b>University</b>:  <%=data.university%> </p>
+            <p><b>PhD Topic</b>:  <%=data.phd%></p>
+            <p><b>Status</b>:  <%=data.status%></p>
+            <p><b>Short Biography</b>:  <%=data.bio%></p><br>
+            <p><b>Department</b>:  <%=data.dept%></p>
+            <p><b>Registration No</b>:  <%=data.reg%></p><br>
+            <a href="<%=data.link%>"><Button style="padding: 5px; color: white; background-color:blue; border-radius: 5px; border: none;">Visit Profile</Button></a>
 
-                                </div>
-
-                            <%}%>
-                    </section>
+            
         </div>
         <div class="popup-image">
             <span>&times;</span>
@@ -140,7 +132,7 @@
         routes.classList.toggle('active');
     })
 
-    document.querySelectorAll('.card img').forEach((image) => {
+    document.querySelectorAll('.card img').forEach((image)=>{
         image.onclick = () => {
             document.querySelector('.popup-image').style.display = 'block';
             document.querySelector('.popup-image img').src = image.getAttribute('src');

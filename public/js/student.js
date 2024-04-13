@@ -1,5 +1,5 @@
-const api_key = "293987939994788"
-const cloud_name = "ddkcibobs"
+const api_key = "888263251911887"
+const cloud_name = "dra540ujl"
 // It's okay for these to be public on client-side JS
 // You just don't ever want to leak your API Secret
 
@@ -28,9 +28,10 @@ document.querySelector("#upload-form").addEventListener("submit", async function
       public_id: cloudinaryResponse.data.public_id,
       version: cloudinaryResponse.data.version,
       signature: cloudinaryResponse.data.signature,
+      user_id: document.querySelector("#id").value
     }
   
-    axios.post("/home/image", photoData);
+    axios.post("student/image", photoData);
     window.location.reload();
   })
   

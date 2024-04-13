@@ -22,7 +22,8 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li><a href="/student">Student</a></li>
+                        <li><a href="/student">Scholar</a></li>
+                        <li><a href="/news">News</a></li>
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
@@ -40,9 +41,10 @@
 
         <section class="main-section">
             <%for(trekking of data){%>
+                <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
                 <a href="/trekking/<%=trekking._id%>/show" style="text-decoration: none;color: black;">
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0]%>.png" class="card-img-top" alt="..."
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
                         >
                         <div class="card-body">
                             <h2 class="card-title">Description</h2>
@@ -57,7 +59,32 @@
                         </div>
                     </div>
                 </a>
-                <%}%>
+                <%}}%>
+        </section>
+
+        <h1 id="Trekking">Riding</h1>
+        <hr>
+
+        <section class="main-section">
+            <%for(trekking of data){%>
+                <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
+                <a href="/trekking/<%=trekking._id%>/show" style="text-decoration: none;color: black;">
+                    <div class="card">
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
+                        >
+                        <div class="card-body">
+                            <h2 class="card-title">Description</h2>
+                            <p class="card-text">
+                                <%=trekking.description%>
+                            </p>
+                            <p><b>Location</b>: <%=trekking.location%>
+                            </p>
+                            <p><b>Year</b>:<%=trekking.year%>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <%}}%>
         </section>
 
         <footer>

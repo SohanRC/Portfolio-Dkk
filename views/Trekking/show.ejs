@@ -22,7 +22,8 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li><a href="/student">Student</a></li>
+                        <li><a href="/student">Scholar</a></li>
+                        <li><a href="/news">News</a></li>
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
@@ -35,18 +36,19 @@
             </nav>
         </div>
 
-        <h1 id="Trekking">Trekking</h1>
-        <hr>
+
 
         <a href="/trekking/new"><button
-            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add Post</button></a>
-
+                style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
+                Post</button></a><br><br>
+        <h1 id="Trekking">Trekking</h1>
+        <hr>
         <section class="main-section">
             <%for(trekking of data){%>
-                
+                <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0]%>.png" class="card-img-top" alt="..."
-                        style="width: 390px;">
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                            class="card-img-top" alt="..." style="width: 390px;">
                         <div class="card-body">
                             <h2 class="card-title">Description</h2>
                             <p class="card-text">
@@ -54,22 +56,60 @@
                             </p>
                             <p><b>Location</b>: <%=trekking.location%>
                             </p>
-                            <p><b>Duration</b>: <%=trekking.duration%> days</p>
                             <p><b>Year</b>:<%=trekking.year%>
                             </p>
                         </div>
                         <div class="buttons" style="display: flex;">
-                            <a href="/trekking/<%=trekking._id%>/show" style="text-decoration: none;color: black;"><button style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                            <a href="/trekking/<%=trekking._id%>/show"
+                                style="text-decoration: none;color: black;"><button
+                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
                             <a href="/trekking/<%=trekking._id%>/edit"><button
                                     style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
                             <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
-                                <button style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                <button
+                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
                             </form>
                         </div>
                     </div>
-                <%}%>
+                    <%}}%>
 
         </section>
+
+
+        <h1 id="Trekking">Riding</h1>
+        <hr>
+        <section class="main-section">
+            <%for(trekking of data){%>
+                <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
+                    <div class="card">
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                            class="card-img-top" alt="..." style="width: 390px;">
+                        <div class="card-body">
+                            <h2 class="card-title">Description</h2>
+                            <p class="card-text">
+                                <%=trekking.description%>
+                            </p>
+                            <p><b>Location</b>: <%=trekking.location%>
+                            </p>
+                            <p><b>Year</b>:<%=trekking.year%>
+                            </p>
+                        </div>
+                        <div class="buttons" style="display: flex;">
+                            <a href="/trekking/<%=trekking._id%>/show"
+                                style="text-decoration: none;color: black;"><button
+                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                            <a href="/trekking/<%=trekking._id%>/edit"><button
+                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                            <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
+                                <button
+                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <%}}%>
+
+        </section>
+
 
         <footer>
             <h2>Dr. Dipak Kumar Kole</h2>

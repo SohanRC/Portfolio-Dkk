@@ -8,6 +8,7 @@ const activities = require("./routes/activities.js");
 const dashboard = require("./routes/dashboard.js");
 const trekking = require("./routes/trekking.js");
 const student = require("./routes/student.js");
+const news = require("./routes/news.js");
 const awards = require("./routes/awards.js");
 const home = require("./routes/home.js");
 // const fileUpload = require('express-fileupload');
@@ -110,7 +111,7 @@ app.get("/get-signature", (req, res) => {
 app.post("/image", async (req, res) => {
   let { user_id } = req.body;
 
-  const data = await Trekking.findOneAndUpdate({ _id: user_id }, { $push: { image: req.body.public_id } });
+  const data = await Trekking.findOneAndUpdate({ _id: user_id }, { $push: { image:{ url:req.body.public_id }} });
   console.log(data);
   // res.redirect(`/trekking/${user_id}/edit`);
 })
@@ -118,7 +119,7 @@ app.post("/image", async (req, res) => {
 //Delete Image
 app.delete("/trekking/:id/image/:imgid", asyncWrap(async (req, res) => {
   let { id,imgid } = req.params;
-  const data = await Trekking.findOneAndUpdate({ _id: id }, { $pull: { image: imgid } });
+  const data = await Trekking.findOneAndUpdate({ _id: id }, { $pull: { image:{url: imgid }} });
   console.log(data);
   cloudinary.uploader.destroy(imgid);
   res.redirect(`/trekking/${id}/edit`);
@@ -131,6 +132,7 @@ app.use("/awards", awards);
 app.use("/dashboard", dashboard);
 app.use("/trekking", trekking);
 app.use("/student", student);
+app.use("/news", news);
 app.use("/user", user);
 app.use("/", home);
 

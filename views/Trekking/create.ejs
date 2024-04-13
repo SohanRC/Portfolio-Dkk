@@ -24,7 +24,8 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li><a href="/student">Student</a></li>
+                        <li><a href="/student">Scholar</a></li>
+                        <li><a href="/news">News</a></li>
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
@@ -49,7 +50,13 @@
                     <div>
 
 
-                       
+                        <div class="mb-3">
+                            <label for="type" class="form-label">Type</label>
+                            <input type="text" id="type" class="form-control" name="newtrekking[type]" value="Trekking" placeholder="Trekking or Riding (first letter uppercase)" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid String.
+                            </div>
+                        </div>
 
                         <div class="mb-3">
                             <label for="location" class="form-label">Location</label>
@@ -69,14 +76,6 @@
                             <input type="text" id="year" class="form-control" name="newtrekking[year]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid Year.
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="duration" class="form-label">Duration</label>
-                            <input type="text" id="duration" class="form-control" name="newtrekking[duration]" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Number.
                             </div>
                         </div>
 

@@ -6,7 +6,7 @@ const { TrekkingSchema } = require("../schemaValidation.js");
 const router = express.Router();
 const { isLoggedin } = require("../views/middleware.js");
 const Trekking = require("../models/trekking.js");
-const cloud_name = "dra540ujl";
+const cloud_name = "ddkcibobs";
 const cloudinary = require("cloudinary").v2;
 //cloudnari
 const cloudinaryConfig = cloudinary.config({
@@ -28,6 +28,21 @@ const validateTrekking = (req, res, next) => {
   }
 };
 
+//Add Caption Image
+router.post("/:id/image/:imgid", asyncWrap(async (req, res) => {
+  let { id,imgid } = req.params;
+  let {caption}=req.body;
+  const data = await Trekking.find({ _id: id });
+  let image=data[0].image;
+  for(img of image){
+    if(img.url==imgid){
+      img.caption=caption;
+      break;
+    }
+  }
+  await Trekking.findOneAndUpdate({ _id: id },{ image: image } );
+  res.redirect(`/trekking/${id}/edit`);
+}));
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {

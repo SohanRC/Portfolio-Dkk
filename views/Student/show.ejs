@@ -38,7 +38,9 @@
 
         <h1 id="Trekking">My PhD Scholar</h1>
         <hr>
-
+        <a href="/student/new"><button
+                style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
+                Scholar</button></a>
         <section class="main-section">
             <%for(student of data){%>
                 <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;">
@@ -51,6 +53,16 @@
                             <p><b>PhD Topic</b>: <%=student.phd%> days</p>
                             <p><b>University</b>:<%=student.university%>
                             </p>
+                        </div>
+                        <div class="buttons" style="display: flex;">
+                            <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;"><button
+                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                            <a href="/student/<%=student._id%>/edit"><button
+                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                            <form method="POST" action="/student/<%=student._id%>?_method=DELETE">
+                                <button
+                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </a>

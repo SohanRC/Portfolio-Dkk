@@ -41,7 +41,23 @@ module.exports.TrekkingSchema = Joi.object({
     year: Joi.number().required(),
     description: Joi.string().required(),
     location: Joi.string().required(),
-    duration: Joi.number().required(),
+    type: Joi.string().required(),
+    
+  }).required()
+
+});
+
+module.exports.StudentSchema = Joi.object({
+  newstudent: Joi.object({
+   name:Joi.string().required(),
+   university:Joi.string().required(),
+   phd:Joi.string().required(),
+   status:Joi.string().required(),
+   bio:Joi.string(),
+   link:Joi.string().required(),
+   dept:Joi.string().required(),
+   reg:Joi.string().required(),
+   priority: Joi.number().required(),
     
   }).required()
 

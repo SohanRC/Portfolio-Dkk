@@ -24,9 +24,9 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li><a href="/student">Scholar</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
+                        <li><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
@@ -46,60 +46,94 @@
             <form id="upload-form">
                 <input type="text" value="<%=data._id%>" readonly style="display: none;" id="id"><br>
                 <input id="file-field" type="file"/>
-                <button style="border-radius: 5px; padding: 5px;">Upload Image</button>
+                <button style="border-radius: 5px; padding: 5px;">Change Photo</button>
             </form>
             <br><br>
             <section class="main-section" style="min-height: 0px;">
-                <%for(imgs of data.image){%>
+               
                         <div class="card" style="width: 200px;">
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs.url%>.png" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <form method="POST" action="/trekking/<%=data._id%>/image/<%=imgs.url%>">
-                                    <div class="div" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                                    <input type="text" placeholder="Add Caption" name="caption" value=<%=imgs.caption %>><button style="background-color: rgb(47, 0, 255);color: white; border-radius: 5px; border: none; padding: 5px; font-size: 0.8rem;margin: 5px;">Add Caption</button>
-                                </div>
-                                </form>
-                                <form method="POST" action="/trekking/<%=data._id%>/image/<%=imgs.url%>?_method=DELETE">
-                                    <button style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin-left:4vw; font-size: 1rem;">Delete</button>
-                                </form>
-                            </div>
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=data.image%>.png" class="card-img-top" alt="...">
                         </div>
-                    <%}%>
+                    
             </section>
             <br><br>
 
-            <form method="POST" action="/trekking/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <form method="POST" action="/student/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div>
 
 
+                       
+
+                        
                         <div class="mb-3">
-                            <label for="type" class="form-label">Type</label>
-                            <input type="text" id="type" class="form-control" name="newtrekking[type]" value=<%=data.type %> placeholder="Trekking or Riding (first letter uppercase)" required>
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-control" name="newstudent[name]" value="<%=data.name%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="university" class="form-label">University</label>
+                            <input type="text" id="university" class="form-control" name="newstudent[university]" value="<%=data.university%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phd" class="form-label">PhD Topic</label>
+                            <input type="text" id="phd" class="form-control" name="newstudent[phd]" value="<%=data.phd%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <input type="text" id="status" class="form-control" name="newstudent[status]" value="<%=data.status%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="bio" class="form-label">Short Biography</label>
+                            <textarea name="newstudent[bio]" class="form-control" id="bio" cols="100"
+                                rows="10"><%=data.bio%></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="link" class="form-label">Profile Link</label>
+                            <input type="text" id="link" class="form-control" name="newstudent[link]" value="<%=data.link%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid link.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dept" class="form-label">Department</label>
+                            <input type="text" id="dept" class="form-control" name="newstudent[dept]" value="<%=data.dept%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid String.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="location" class="form-label">Location</label>
-                            <input type="text" id="location" class="form-control" name="newtrekking[location]" value="<%=data.location%>" required>
+                            <label for="reg" class="form-label">Registration No.</label>
+                            <input type="text" id="reg" class="form-control" name="newstudent[reg]" value="<%=data.reg%>" required>
                             <div class="invalid-feedback">
-                                Please enter a valid string.
+                                Please enter a valid String.
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="newtrekking[description]" class="form-control" id="description" cols="100"
-                                rows="20"><%=data.description%></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="year" class="form-label">Year</label>
-                            <input type="text" id="year" class="form-control" name="newtrekking[year]" value="<%=data.year%>" required>
+                            <label for="priority" class="form-label">Priority</label>
+                            <input type="text" id="priority" class="form-control" name="newstudent[priority]" value="<%=data.priority%>" required>
                             <div class="invalid-feedback">
-                                Please enter a valid Year.
+                                Please enter a valid Number.
                             </div>
                         </div>
 
@@ -126,7 +160,7 @@
     </div>
     <script src="/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/image.js"></script>
+    <script src="/student.js"></script>
 
     <script>
         let hamburger = document.querySelector('.hamburger');

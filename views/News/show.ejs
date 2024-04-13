@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/trekking.css">
     <style>
-        .main-container .popup-image {
+        .main-container .popup-image{
             position: fixed;
             top: 0;
             left: 0;
@@ -19,40 +19,40 @@
             display: none;
         }
 
-        .main-container .popup-image span {
+        .main-container .popup-image span{
             position: absolute;
             top: 0px;
             right: 10px;
             font-size: 60px;
             font-weight: bolder;
-            color: #fff;
+            color: #fff ;
             cursor: pointer;
             z-index: 9999999999999999999;
         }
 
-        .main-container .popup-image img {
+        .main-container .popup-image img{
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%,-50%);
             border: 5px solid #fff;
             border-radius: 5px;
             max-width: 800px;
             height: 600px;
         }
 
-        @media screen and (max-width : 850px) {
+        @media screen and (max-width : 850px){
             .main-container .popup-image img {
                 max-width: 500px;
                 height: 400px;
-            }
+           }
         }
 
-        @media screen and (max-width : 600px) {
+        @media screen and (max-width : 600px){
             .main-container .popup-image img {
                 max-width: 300px;
                 height: 300px;
-            }
+           }
         }
     </style>
 </head>
@@ -70,8 +70,8 @@
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
                         <li><a href="/student">Scholar</a></li>
-                        <li><a href="/news">News</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/trekking">Trekking</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/news">News</a></li>
+                        <li><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
@@ -82,38 +82,45 @@
                 </div>
             </nav>
         </div>
-        <div class="page" style="margin: 20px;">
-            <h2>
-                <%= data.type %> - <%=data.location%>
-            </h2>
-            <hr>
-            <p class="card-text">
-                <%=data.description%>
-            </p>
-            <p><b>Location</b>: <%=data.location%>
-            </p>
-                    <p><b>Year</b>: <%=data.year%>
-                    </p>
-
-                    <h2 id="Gallery">Gallery</h2>
-                    <hr>
-
-                    <section class="main-section" style="min-height: 0px;">
-                        <%for(imgs of data.image){%>
-                            <div class="card" style="width: auto; cursor: pointer;">
-                                <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs.url%>.png"
-                                    class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <% if(imgs.caption) {%>
-                                            <p><%=imgs.caption%></p>
-                                            <% } %>
-                                    </div>
-
-                                </div>
-
+        <h1>News</h1>
+        <hr>
+        <form id="upload-form">
+            <input id="file-field" type="file" />
+            <button style="border-radius: 5px; padding: 5px;">Add News</button>
+        </form>
+        <br><br>
+        <section class="main-section">
+            <%for(imgs of data){%>
+                <div class="card" style="width: auto; cursor: pointer;">
+                    <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs.image%>.png"
+                        class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <%if(imgs.description){%>
+                            <p class="card-text">
+                                <%=imgs.description%>
+                            </p>
+                            <% } %>
+                            <%if(imgs.location){%>
+                            <p><b>Published at</b>: <%=imgs.location%>
+                            </p>
+                            <% } %>
+                            <%if(imgs.year){%>
+                            <p><b>Year</b>:<%=imgs.year%>
+                            </p>
                             <%}%>
-                    </section>
-        </div>
+                        </div>
+
+                <div class="buttons" style="display: flex;">
+                    <a href="/news/<%=imgs._id%>/edit"><button
+                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                    <form method="POST" action="/news/<%=imgs._id%>?_method=DELETE">
+                        <button
+                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                    </form>
+                </div>
+            </div>
+                <%}%>
+        </section>
         <div class="popup-image">
             <span>&times;</span>
             <img src="" alt="">
@@ -131,6 +138,9 @@
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
         </footer>
     </div>
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/news.js"></script>
 </body>
 
 <script>
@@ -140,7 +150,7 @@
         routes.classList.toggle('active');
     })
 
-    document.querySelectorAll('.card img').forEach((image) => {
+    document.querySelectorAll('.card img').forEach((image)=>{
         image.onclick = () => {
             document.querySelector('.popup-image').style.display = 'block';
             document.querySelector('.popup-image img').src = image.getAttribute('src');
