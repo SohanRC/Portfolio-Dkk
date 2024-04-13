@@ -43,9 +43,12 @@
             <%for(trekking of data){%>
                 <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
                 <a href="/trekking/<%=trekking._id%>/show" style="text-decoration: none;color: black;">
+                   
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
+                        <% if(trekking.image[0]){ %>
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
                         >
+                        <% } %>
                         <div class="card-body">
                             <h2 class="card-title">Description</h2>
                             <p class="card-text">
@@ -70,8 +73,10 @@
                 <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
                 <a href="/trekking/<%=trekking._id%>/show" style="text-decoration: none;color: black;">
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
+                        <% if(trekking.image[0]){ %>
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png" class="card-img-top" alt="..."
                         >
+                        <% } %>
                         <div class="card-body">
                             <h2 class="card-title">Description</h2>
                             <p class="card-text">

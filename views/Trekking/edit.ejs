@@ -52,11 +52,11 @@
             <section class="main-section" style="min-height: 0px;">
                 <%for(imgs of data.image){%>
                         <div class="card" style="width: 200px;">
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=imgs.url%>.png" class="card-img-top" alt="...">
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.url%>.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <form method="POST" action="/trekking/<%=data._id%>/image/<%=imgs.url%>">
                                     <div class="div" style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
-                                    <input type="text" placeholder="Add Caption" name="caption" value=<%=imgs.caption %>><button style="background-color: rgb(47, 0, 255);color: white; border-radius: 5px; border: none; padding: 5px; font-size: 0.8rem;margin: 5px;">Add Caption</button>
+                                    <input type="text" placeholder="Add Caption" name="caption" value="<%=imgs.caption %>"><button style="background-color: rgb(47, 0, 255);color: white; border-radius: 5px; border: none; padding: 5px; font-size: 0.8rem;margin: 5px;">Add Caption</button>
                                 </div>
                                 </form>
                                 <form method="POST" action="/trekking/<%=data._id%>/image/<%=imgs.url%>?_method=DELETE">

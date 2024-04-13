@@ -43,7 +43,7 @@
             <%for(student of data){%>
                 <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;">
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=student.image%>.png"
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
                             class="card-img-top" alt="...">
                         <div class="card-body">
                             <p><b>Name</b>: <%=student.name%>

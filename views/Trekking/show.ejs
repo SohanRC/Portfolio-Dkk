@@ -47,29 +47,31 @@
             <%for(trekking of data){%>
                 <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png"
-                            class="card-img-top" alt="..." style="width: 390px;">
-                        <div class="card-body">
-                            <h2 class="card-title">Description</h2>
-                            <p class="card-text">
-                                <%=trekking.description%>
-                            </p>
-                            <p><b>Location</b>: <%=trekking.location%>
-                            </p>
-                            <p><b>Year</b>:<%=trekking.year%>
-                            </p>
-                        </div>
-                        <div class="buttons" style="display: flex;">
-                            <a href="/trekking/<%=trekking._id%>/show"
-                                style="text-decoration: none;color: black;"><button
-                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                            <a href="/trekking/<%=trekking._id%>/edit"><button
-                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                            <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
-                                <button
-                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                            </form>
-                        </div>
+                        <% if(trekking.image[0]){ %>
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                                class="card-img-top" alt="..." style="width: 390px;">
+                            <% } %>
+                                <div class="card-body">
+                                    <h2 class="card-title">Description</h2>
+                                    <p class="card-text">
+                                        <%=trekking.description%>
+                                    </p>
+                                    <p><b>Location</b>: <%=trekking.location%>
+                                    </p>
+                                    <p><b>Year</b>:<%=trekking.year%>
+                                    </p>
+                                </div>
+                                <div class="buttons" style="display: flex;">
+                                    <a href="/trekking/<%=trekking._id%>/show"
+                                        style="text-decoration: none;color: black;"><button
+                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                    <a href="/trekking/<%=trekking._id%>/edit"><button
+                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                    <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
+                                        <button
+                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                    </form>
+                                </div>
                     </div>
                     <%}}%>
 
@@ -82,29 +84,32 @@
             <%for(trekking of data){%>
                 <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_700,h_1000,c_crop,q_100/<%=trekking.image[0].url%>.png"
-                            class="card-img-top" alt="..." style="width: 390px;">
-                        <div class="card-body">
-                            <h2 class="card-title">Description</h2>
-                            <p class="card-text">
-                                <%=trekking.description%>
-                            </p>
-                            <p><b>Location</b>: <%=trekking.location%>
-                            </p>
-                            <p><b>Year</b>:<%=trekking.year%>
-                            </p>
-                        </div>
-                        <div class="buttons" style="display: flex;">
-                            <a href="/trekking/<%=trekking._id%>/show"
-                                style="text-decoration: none;color: black;"><button
-                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                            <a href="/trekking/<%=trekking._id%>/edit"><button
-                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                            <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
-                                <button
-                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                            </form>
-                        </div>
+                        <% if(trekking.image[0]){ %>
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                                class="card-img-top" alt="..." style="width: 390px;">
+                            <% } %>
+
+                                <div class="card-body">
+                                    <h2 class="card-title">Description</h2>
+                                    <p class="card-text">
+                                        <%=trekking.description%>
+                                    </p>
+                                    <p><b>Location</b>: <%=trekking.location%>
+                                    </p>
+                                    <p><b>Year</b>:<%=trekking.year%>
+                                    </p>
+                                </div>
+                                <div class="buttons" style="display: flex;">
+                                    <a href="/trekking/<%=trekking._id%>/show"
+                                        style="text-decoration: none;color: black;"><button
+                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                    <a href="/trekking/<%=trekking._id%>/edit"><button
+                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                    <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
+                                        <button
+                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                    </form>
+                                </div>
                     </div>
                     <%}}%>
 
