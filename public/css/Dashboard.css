@@ -7,8 +7,7 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     font-weight: 500;
-    font-style: normal;
-    
+    font-style: normal;  
 }
 
 body {
@@ -90,7 +89,7 @@ nav h1{
 }
 
 .routes.active{
-    height: 459px;
+    height: 480px;
     transition: height 0.2s ease-in-out;
 }
 
@@ -101,7 +100,7 @@ ul{
     font-size: 1.2rem;
 }
 
-@media screen and (max-width : 1020px){
+@media screen and (max-width : 1363px){
     .routes{
         position: absolute;
         top: 100%;
