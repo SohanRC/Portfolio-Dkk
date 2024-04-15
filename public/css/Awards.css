@@ -100,7 +100,7 @@ ul{
     font-size: 1.2rem;
 }
 
-@media screen and (max-width : 1363px){
+@media screen and (max-width : 1200px){
     .routes{
         position: absolute;
         top: 100%;
