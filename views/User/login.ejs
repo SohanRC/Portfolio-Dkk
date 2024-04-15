@@ -80,5 +80,11 @@
 
         <script src="/script.js"></script>
 </body>
-
+<script>
+    let hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+        let routes = document.querySelector('.routes');
+        routes.classList.toggle('active');
+    })
+</script>
 </html>
