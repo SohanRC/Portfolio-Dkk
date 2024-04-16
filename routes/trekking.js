@@ -8,6 +8,7 @@ const { isLoggedin } = require("../views/middleware.js");
 const Trekking = require("../models/trekking.js");
 const cloud_name = "ddkcibobs";
 const cloudinary = require("cloudinary").v2;
+const User = require("../models/user.js")
 //cloudnari
 const cloudinaryConfig = cloudinary.config({
   cloud_name: process.env.CLOUDNAME,
@@ -30,25 +31,30 @@ const validateTrekking = (req, res, next) => {
 
 //Add Caption Image
 router.post("/:id/image/:imgid", asyncWrap(async (req, res) => {
-  let { id,imgid } = req.params;
-  let {caption}=req.body;
+  let { id, imgid } = req.params;
+  let { caption } = req.body;
   const data = await Trekking.find({ _id: id });
-  let image=data[0].image;
-  for(img of image){
-    if(img.url==imgid){
-      img.caption=caption;
+  let image = data[0].image;
+  for (img of image) {
+    if (img.url == imgid) {
+      img.caption = caption;
       break;
     }
   }
-  await Trekking.findOneAndUpdate({ _id: id },{ image: image } );
+  await Trekking.findOneAndUpdate({ _id: id }, { image: image });
   res.redirect(`/trekking/${id}/edit`);
 }));
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
   const data = await Trekking.find().sort({ year: -1 });
+  const user = await User.find({});
   console.log(data);
-  res.render("./Trekking/index", { data,cloud_name });
+  res.render("./Trekking/index", {
+    data, cloud_name, facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //Show Route 
@@ -57,15 +63,21 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
   console.log(req.params);
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
+  const user = await User.find({});
   console.log(data);
-  res.render("./Trekking/details.ejs",{data:data[0],cloud_name});
+  res.render("./Trekking/details.ejs", {
+    data: data[0], cloud_name,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //update Route
 router.get("/edit", asyncWrap(async (req, res) => {
-  const data = await Trekking.find().sort({year:-1});
+  const data = await Trekking.find().sort({ year: -1 });
   console.log(data);
-  res.render("./Trekking/show", { data,cloud_name });
+  res.render("./Trekking/show", { data, cloud_name });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
@@ -87,14 +99,14 @@ router.post("/", validateTrekking, asyncWrap(async (req, res) => {
 
 
 // Edit Route
-router.get("/:id/edit",asyncWrap(async (req, res) => {
+router.get("/:id/edit", asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   console.log(data);
-  res.render("./Trekking/edit", { data: data[0],cloud_name});
+  res.render("./Trekking/edit", { data: data[0], cloud_name });
 }));
 
-router.patch("/:id",asyncWrap(async (req, res) => {
+router.patch("/:id", asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newtrekking } = req.body;
   await Trekking.findByIdAndUpdate(id, newtrekking);
@@ -105,7 +117,7 @@ router.patch("/:id",asyncWrap(async (req, res) => {
 router.delete("/:id", asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
-  for(imgs of data[0].image){
+  for (imgs of data[0].image) {
     cloudinary.uploader.destroy(imgs);
   }
   await Trekking.findOneAndDelete({ _id: id });

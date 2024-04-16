@@ -7,6 +7,7 @@ const router = express.Router();
 const Student = require("../models/student.js");
 const cloud_name = "ddkcibobs";
 const cloudinary = require("cloudinary").v2;
+const User = require("../models/user.js")
 //cloudnari
 const cloudinaryConfig = cloudinary.config({
   cloud_name: process.env.CLOUDNAME,
@@ -39,8 +40,13 @@ router.post("/image", async (req, res) => {
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
   const data = await Student.find().sort({ priority: -1 });
+  const user = await User.find({});
   console.log(data);
-  res.render("./Student/index", { data, cloud_name });
+  res.render("./Student/index", {
+    data, cloud_name, facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //Show Route 
@@ -49,8 +55,13 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
   console.log(req.params);
   let { id } = req.params;
   const data = await Student.find({ _id: id });
+  const user = await User.find({});
   console.log(data);
-  res.render("./Student/details.ejs", { data: data[0], cloud_name });
+  res.render("./Student/details.ejs", {
+    data: data[0], cloud_name, facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //update Route

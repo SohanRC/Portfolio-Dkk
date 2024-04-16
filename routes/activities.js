@@ -3,10 +3,10 @@ const asyncWrap = require("../utils/asyncWrap.js");
 const ExpressError = require("../utils/ExpressError.js");
 const { ActivitieSchema } = require("../schemaValidation.js");
 const router = express.Router();
-const {isLoggedin}=require("../views/middleware.js");
+const { isLoggedin } = require("../views/middleware.js");
 
 const Activitie = require("../models/activities.js");
-
+const User = require("../models/user.js")
 //Listing Schema Validation
 const validateActivitie = (req, res, next) => {
   let { error } = ActivitieSchema.validate(req.body);
@@ -22,22 +22,28 @@ const validateActivitie = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Activitie.find().sort({year:-1,priority:-1});
+  const data = await Activitie.find().sort({ year: -1, priority: -1 });
+  const user = await User.find({});
   console.log(data);
-  res.render("./Activities/index", { data });
+  res.render("./Activities/index", {
+    data,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //update Route
 router.get("/edit", asyncWrap(async (req, res) => {
-  const data = await Activitie.find().sort({year:-1,priority:-1}); 
+  const data = await Activitie.find().sort({ year: -1, priority: -1 });
   console.log(data);
   res.render("./Activities/show", { data });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
 router.get("/new", (req, res) => {
-  let {type}=req.query;
-  res.render("./Activities/create",{type});
+  let { type } = req.query;
+  res.render("./Activities/create", { type });
 });
 
 
@@ -51,14 +57,14 @@ router.post("/", validateActivitie, asyncWrap(async (req, res) => {
 }));
 
 //Edit Route
-router.get("/:id/edit",asyncWrap(async (req, res) => {
+router.get("/:id/edit", asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Activitie.find({ _id: id });
   console.log(data);
   res.render("./Activities/edit", { data: data[0] });
 }));
 
-router.patch("/:id",validateActivitie,asyncWrap(async (req, res) => {
+router.patch("/:id", validateActivitie, asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newactivitie } = req.body;
   await Activitie.findByIdAndUpdate(id, newactivitie);

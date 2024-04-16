@@ -6,6 +6,7 @@ const News = require("../models/news.js");
 const router = express.Router();
 const cloud_name = "ddkcibobs";
 const cloudinary = require("cloudinary").v2;
+const User = require("../models/user.js")
 //cloudnari
 const cloudinaryConfig = cloudinary.config({
   cloud_name: process.env.CLOUDNAME,
@@ -19,8 +20,14 @@ const cloudinaryConfig = cloudinary.config({
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
   const data = await News.find().sort({ priority: -1 });
+  const user = await User.find({});
   console.log(data);
-  res.render("./News/index", { data, cloud_name });
+  res.render("./News/index", {
+    data, cloud_name,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
+  });
 }));
 
 //update Route
