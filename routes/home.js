@@ -17,7 +17,7 @@ const cloudinaryConfig = cloudinary.config({
   secure: true
 })
 
-router.post("/home/image", async (req, res) => {
+router.post("/home/image",isLoggedin, async (req, res) => {
   const user = await User.find();
   const imgid = user[0].dp;
   cloudinary.uploader.destroy(imgid);
@@ -46,7 +46,7 @@ router.get("/", async (req, res) => {
 });
 
 // Edit Home Route From Dashboard
-router.get("/edit", async (req, res) => {
+router.get("/edit",isLoggedin, async (req, res) => {
   const homeData = await Home.find().sort({ priority: -1 });
   const user = await User.find();
 
@@ -62,7 +62,7 @@ router.get("/edit", async (req, res) => {
 });
 
 // Edit Profile Links Route From Dashboard
-router.get("/editlinks", async (req, res) => {
+router.get("/editlinks",isLoggedin, async (req, res) => {
   const user = await User.find();
 
   res.render("./Home/editlinks.ejs", {
@@ -73,7 +73,7 @@ router.get("/editlinks", async (req, res) => {
 
 });
 
-router.post("/editlinks", async (req, res) => {
+router.post("/editlinks",isLoggedin, async (req, res) => {
   const { facebook, linkedin, twitter } = req.body;
   const user = await User.findOneAndUpdate({ username: "DKK" }, { $set: { facebook, twitter, linkedin } });
   res.redirect("/edit");
@@ -85,14 +85,14 @@ router.post("/editlinks", async (req, res) => {
 
 
 // create page route
-router.get("/EditHome/add/:place", (req, res) => {
+router.get("/EditHome/add/:place",isLoggedin, (req, res) => {
   res.render("./Home/create.ejs", {
     data: req.params.place,
   });
 })
 
 // edit page route
-router.get("/EditHome/edit/:id", async (req, res) => {
+router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
   try {
     const p = await Home.findById(req.params.id);
     res.render("./Home/edit.ejs", {
@@ -106,7 +106,7 @@ router.get("/EditHome/edit/:id", async (req, res) => {
 
 
 // create a data
-router.post("/create", async (req, res) => {
+router.post("/create",isLoggedin, async (req, res) => {
   try {
     const p = new Home({
       type: req.body.type,
@@ -124,7 +124,7 @@ router.post("/create", async (req, res) => {
 })
 
 // update that data with id
-router.patch("/update/:id", async (req, res) => {
+router.patch("/update/:id",isLoggedin, async (req, res) => {
   try {
     const updatedValue = await Home.findByIdAndUpdate(req.params.id, {
       type: req.body.type,

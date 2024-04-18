@@ -5,6 +5,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { StudentSchema } = require("../schemaValidation.js");
 const router = express.Router();
 const Student = require("../models/student.js");
+const { isLoggedin } = require("../views/middleware.js");
 const cloud_name = "ddkcibobs";
 const cloudinary = require("cloudinary").v2;
 const User = require("../models/user.js")
@@ -28,7 +29,7 @@ const validateStudent = (req, res, next) => {
   }
 };
 
-router.post("/image", async (req, res) => {
+router.post("/image",isLoggedin, async (req, res) => {
   let { user_id } = req.body;
   const previmg = await Student.find({ _id: user_id });
   cloudinary.uploader.destroy(previmg[0].image);
@@ -65,19 +66,19 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
 }));
 
 //update Route
-router.get("/edit", asyncWrap(async (req, res) => {
+router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   const data = await Student.find().sort({ priority: -1 });
   console.log(data);
   res.render("./Student/show", { data, cloud_name });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new", (req, res) => {
+router.get("/new",isLoggedin, (req, res) => {
   res.render("./Student/create");
 });
 
 
-router.post("/", validateStudent, asyncWrap(async (req, res) => {
+router.post("/",isLoggedin, validateStudent, asyncWrap(async (req, res) => {
   let { newstudent } = req.body;
   console.log(newstudent);
   const list = new Student(newstudent);
@@ -86,14 +87,14 @@ router.post("/", validateStudent, asyncWrap(async (req, res) => {
 }));
 
 // Edit Route
-router.get("/:id/edit", asyncWrap(async (req, res) => {
+router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Student.find({ _id: id });
   console.log(data);
   res.render("./Student/edit", { data: data[0], cloud_name });
 }));
 
-router.patch("/:id", asyncWrap(async (req, res) => {
+router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newstudent } = req.body;
   await Student.findByIdAndUpdate(id, newstudent);
@@ -101,7 +102,7 @@ router.patch("/:id", asyncWrap(async (req, res) => {
 }));
 
 //Delete Route
-router.delete("/:id", asyncWrap(async (req, res) => {
+router.delete("/:id",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Student.find({ _id: id });
   cloudinary.uploader.destroy(data[0].image);

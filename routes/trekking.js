@@ -30,7 +30,7 @@ const validateTrekking = (req, res, next) => {
 };
 
 //Add Caption Image
-router.post("/:id/image/:imgid", asyncWrap(async (req, res) => {
+router.post("/:id/image/:imgid",isLoggedin, asyncWrap(async (req, res) => {
   let { id, imgid } = req.params;
   let { caption } = req.body;
   const data = await Trekking.find({ _id: id });
@@ -74,19 +74,19 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
 }));
 
 //update Route
-router.get("/edit", asyncWrap(async (req, res) => {
+router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   const data = await Trekking.find().sort({ year: -1 });
   console.log(data);
   res.render("./Trekking/show", { data, cloud_name });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new", (req, res) => {
+router.get("/new",isLoggedin, (req, res) => {
   res.render("./Trekking/create");
 });
 
 
-router.post("/", validateTrekking, asyncWrap(async (req, res) => {
+router.post("/",isLoggedin, validateTrekking, asyncWrap(async (req, res) => {
   let { newtrekking } = req.body;
   console.log(newtrekking);
   const list = new Trekking(newtrekking);
@@ -99,14 +99,14 @@ router.post("/", validateTrekking, asyncWrap(async (req, res) => {
 
 
 // Edit Route
-router.get("/:id/edit", asyncWrap(async (req, res) => {
+router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   console.log(data);
   res.render("./Trekking/edit", { data: data[0], cloud_name });
 }));
 
-router.patch("/:id", asyncWrap(async (req, res) => {
+router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newtrekking } = req.body;
   await Trekking.findByIdAndUpdate(id, newtrekking);
@@ -114,7 +114,7 @@ router.patch("/:id", asyncWrap(async (req, res) => {
 }));
 
 //Delete Route
-router.delete("/:id", asyncWrap(async (req, res) => {
+router.delete("/:id",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   for (imgs of data[0].image) {

@@ -34,20 +34,20 @@ router.get("/", asyncWrap(async (req, res) => {
 }));
 
 //update Route
-router.get("/edit", asyncWrap(async (req, res) => {
+router.get("/edit", isLoggedin,asyncWrap(async (req, res) => {
   const data = await Activitie.find().sort({ year: -1, priority: -1 });
   console.log(data);
   res.render("./Activities/show", { data });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new", (req, res) => {
+router.get("/new",isLoggedin, (req, res) => {
   let { type } = req.query;
   res.render("./Activities/create", { type });
 });
 
 
-router.post("/", validateActivitie, asyncWrap(async (req, res) => {
+router.post("/",isLoggedin, validateActivitie, asyncWrap(async (req, res) => {
   let { newactivitie } = req.body;
   console.log(newactivitie);
   const list = new Activitie(newactivitie);
@@ -57,14 +57,14 @@ router.post("/", validateActivitie, asyncWrap(async (req, res) => {
 }));
 
 //Edit Route
-router.get("/:id/edit", asyncWrap(async (req, res) => {
+router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Activitie.find({ _id: id });
   console.log(data);
   res.render("./Activities/edit", { data: data[0] });
 }));
 
-router.patch("/:id", validateActivitie, asyncWrap(async (req, res) => {
+router.patch("/:id",isLoggedin, validateActivitie, asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newactivitie } = req.body;
   await Activitie.findByIdAndUpdate(id, newactivitie);
@@ -72,7 +72,7 @@ router.patch("/:id", validateActivitie, asyncWrap(async (req, res) => {
 }));
 
 //Delete Route
-router.delete("/:id", asyncWrap(async (req, res) => {
+router.delete("/:id",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   await Activitie.findOneAndDelete({ _id: id });
   res.redirect("/activities/edit");

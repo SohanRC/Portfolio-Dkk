@@ -13,6 +13,7 @@ const awards = require("./routes/awards.js");
 const home = require("./routes/home.js");
 // const fileUpload = require('express-fileupload');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -61,9 +62,21 @@ const cloudinaryConfig = cloudinary.config({
   secure: true
 })
 
+//Session Store 
+const store=MongoStore.create({
+  mongoUrl:process.env.URI,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600 // time period in seconds
+});
+store.on("error",()=>{
+  console.log("Error in Mongo Session Store",err)
+});
 //Session Options
 const sessionOptions = {
-  secret: "mysupersecretcode",
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -72,6 +85,8 @@ const sessionOptions = {
     httpOnly: true
   }
 }
+
+
 
 app.use(session(sessionOptions));
 app.use(flash());
