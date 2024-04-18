@@ -51,7 +51,8 @@ router.get("/", asyncWrap(async (req, res) => {
   const user = await User.find({});
   console.log(data);
   res.render("./Trekking/index", {
-    data, cloud_name, facebook: user[0].facebook,
+    data, cloud_name, 
+    facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
   });
@@ -77,12 +78,20 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
 router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   const data = await Trekking.find().sort({ year: -1 });
   console.log(data);
-  res.render("./Trekking/show", { data, cloud_name });
+  const user = await User.find({});
+  res.render("./Trekking/show", { data, cloud_name , 
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,});
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new",isLoggedin, (req, res) => {
-  res.render("./Trekking/create");
+router.get("/new",isLoggedin, async(req, res) => {
+  const user = await User.find({});
+  res.render("./Trekking/create",{
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,});
 });
 
 
@@ -103,7 +112,11 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   console.log(data);
-  res.render("./Trekking/edit", { data: data[0], cloud_name });
+  const user = await User.find({});
+  res.render("./Trekking/edit", { data: data[0], cloud_name, 
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin, });
 }));
 
 router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {

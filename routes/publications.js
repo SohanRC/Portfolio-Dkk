@@ -37,13 +37,21 @@ router.get("/", asyncWrap(async (req, res) => {
 router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   const data = await Publication.find().sort({ year: -1, priority: -1 });
   console.log(data);
-  res.render("./Publications/show", { data });
+  const user = await User.find({});
+  res.render("./Publications/show", { data ,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,});
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new",isLoggedin, (req, res) => {
+router.get("/new",isLoggedin, async(req, res) => {
   let { type } = req.query;
-  res.render("./Publications/create", { type });
+  const user = await User.find({});
+  res.render("./Publications/create", { type,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin, });
 });
 
 
@@ -61,7 +69,11 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Publication.find({ _id: id });
   console.log(data);
-  res.render("./Publications/edit", { data: data[0] });
+  const user = await User.find({});
+  res.render("./Publications/edit", { data: data[0],
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin, });
 }));
 
 router.patch("/:id",isLoggedin, validatePublication, asyncWrap(async (req, res) => {

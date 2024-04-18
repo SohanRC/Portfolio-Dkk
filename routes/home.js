@@ -85,9 +85,13 @@ router.post("/editlinks",isLoggedin, async (req, res) => {
 
 
 // create page route
-router.get("/EditHome/add/:place",isLoggedin, (req, res) => {
+router.get("/EditHome/add/:place",isLoggedin, async(req, res) => {
+  const user = await User.find();
   res.render("./Home/create.ejs", {
     data: req.params.place,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,
   });
 })
 
@@ -95,8 +99,12 @@ router.get("/EditHome/add/:place",isLoggedin, (req, res) => {
 router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
   try {
     const p = await Home.findById(req.params.id);
+    const user = await User.find();
     res.render("./Home/edit.ejs", {
       data: p,
+      facebook: user[0].facebook,
+      twitter: user[0].twitter,
+      linkedin: user[0].linkedin,
     });
   } catch (error) {
     console.log("Server Error");
@@ -132,6 +140,7 @@ router.patch("/update/:id",isLoggedin, async (req, res) => {
       priority: req.body.priority
     })
     console.log("Updated Successfully !");
+    const user = await User.find();
     res.redirect("/edit");
   } catch (error) {
     console.log("Failed to Update!");

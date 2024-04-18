@@ -36,12 +36,20 @@ router.get("/", asyncWrap(async (req, res) => {
 router.get("/edit", isLoggedin,asyncWrap(async (req, res) => {
   const data = await Award.find().sort({ date: -1 });
   console.log(data);
-  res.render("./Awards/show.ejs", { data });
+  const user = await User.find({});
+  res.render("./Awards/show.ejs", { data,
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin, });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new",isLoggedin, (req, res) => {
-  res.render("./Awards/create");
+router.get("/new",isLoggedin, async(req, res) => {
+  const user = await User.find({});
+  res.render("./Awards/create",{
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin,});
 });
 
 
@@ -49,7 +57,7 @@ router.post("/", isLoggedin,validateAward, asyncWrap(async (req, res) => {
   let { newaward } = req.body;
   console.log(newaward);
   const list = new Award(newaward);
-  await list.save()
+  await list.save();
   res.redirect("/awards/edit");
 
 }));
@@ -59,7 +67,11 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Award.find({ _id: id });
   console.log(data);
-  res.render("./Awards/edit", { data: data[0] });
+  const user = await User.find({});
+  res.render("./Awards/edit", { data: data[0],
+    facebook: user[0].facebook,
+    twitter: user[0].twitter,
+    linkedin: user[0].linkedin, });
 }));
 
 router.patch("/:id",isLoggedin, validateAward, asyncWrap(async (req, res) => {
