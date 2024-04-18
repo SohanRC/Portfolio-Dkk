@@ -127,11 +127,12 @@
 
 button{
     padding: 0.3rem 0.8rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-right: 0.3rem;
     cursor: pointer;
     border:none;
     outline: none;
+    margin-bottom: 0.3rem;
 
     background-color: #2962ff;
     color: white;
