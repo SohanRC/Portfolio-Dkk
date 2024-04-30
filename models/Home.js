@@ -12,6 +12,9 @@ const homeSchema = new mongoose.Schema({
     priority:{
         type:Number,
         required:true
+    },
+    year:{
+        type:Number,    
     }
 })
 

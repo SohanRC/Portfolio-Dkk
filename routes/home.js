@@ -31,7 +31,7 @@ router.post("/home/image",isLoggedin, async (req, res) => {
 
 router.get("/", async (req, res) => {
 
-  const homeData = await Home.find().sort({ priority: -1 });
+  const homeData = await Home.find().sort({ year:-1,priority: -1 });
   const user = await User.find();
 
   res.render("./Home/index.ejs", {
@@ -47,7 +47,7 @@ router.get("/", async (req, res) => {
 
 // Edit Home Route From Dashboard
 router.get("/edit",isLoggedin, async (req, res) => {
-  const homeData = await Home.find().sort({ priority: -1 });
+  const homeData = await Home.find().sort({year:-1,priority: -1 });
   const user = await User.find();
 
   res.render("./Home/show.ejs", {
@@ -119,7 +119,8 @@ router.post("/create",isLoggedin, async (req, res) => {
     const p = new Home({
       type: req.body.type,
       description: req.body.desc,
-      priority: req.body.priority
+      priority: req.body.priority,
+      year:req.body.year
     })
     const response = await p.save();
     console.log("Data Added Succesfully !");
@@ -137,7 +138,8 @@ router.patch("/update/:id",isLoggedin, async (req, res) => {
     const updatedValue = await Home.findByIdAndUpdate(req.params.id, {
       type: req.body.type,
       description: req.body.desc,
-      priority: req.body.priority
+      priority: req.body.priority,
+      year:req.body.year
     })
     console.log("Updated Successfully !");
     const user = await User.find();

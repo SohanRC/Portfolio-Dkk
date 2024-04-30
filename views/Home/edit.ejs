@@ -69,6 +69,17 @@
                                     Please enter a valid Number.
                                 </div>
                         </div>
+
+                        <% if(data.type=="Experience") {%>
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" class="form-control" id="year" name="year"
+                                    value="<%= data.year %>" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Number.
+                                    </div>
+                            </div>
+                            <% } %>
                         
 
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
