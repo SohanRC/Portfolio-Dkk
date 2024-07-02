@@ -22,11 +22,11 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/student">Scholar</a></li>
+                        <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/myStudentFamily">Student Family</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/myStudentFamily">Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -37,30 +37,36 @@
             </nav>
         </div>
 
-        <h1 id="Trekking">My PhD Scholar</h1>
+        <h1 id="Trekking">My Student Family</h1>
         <hr>
-        <a href="/student/new"><button
+        <a href="/myStudentFamily/new"><button
                 style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
-                Scholar</button></a>
+                Student</button></a>
         <section class="main-section">
             <%for(student of data){%>
-                <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;">
+                <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;">
                     <div class="card">
                         <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
                             class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p><b>Name</b>: <%=student.name%>
+                            <p><b>Name</b>: <%=student.name%></p>
+                            <p><b>Instituion where I taught </b>:<%=student.university%>
                             </p>
-                            <p><b>PhD Topic</b>: <%=student.phd%> days</p>
-                            <p><b>University</b>:<%=student.university%>
+                            <p><b>Current Organization </b>:<%=student.university%>
+                            </p>
+                            <p><b>Current Designation </b>:<%=student.university%>
+                            </p>
+                            <p><b>Current Work Area </b>:<%=student.university%>
+                            </p>
+                            <p><b>Message </b>:<%=student.university%>
                             </p>
                         </div>
                         <div class="buttons" style="display: flex;">
-                            <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;"><button
+                            <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;"><button
                                     style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                            <a href="/student/<%=student._id%>/edit"><button
+                            <a href="/myStudentFamily/<%=student._id%>/edit"><button
                                     style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                            <form method="POST" action="/student/<%=student._id%>?_method=DELETE">
+                            <form method="POST" action="/myStudentFamily/<%=student._id%>?_method=DELETE">
                                 <button
                                     style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
                             </form>
