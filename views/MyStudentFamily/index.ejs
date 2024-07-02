@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities</title>
+    <title>My Student Family</title>
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/activities.css">
-    <base href="/" /> <!-- for local host -->
+    <link rel="stylesheet" href="/trekking.css">
+
 </head>
 
 <body>
@@ -20,13 +20,13 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/publications">Publications</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/activities">Activities</a></li>
+                        <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
                         <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/myStudentFamily">Student Family</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/myStudentFamily">Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -37,62 +37,37 @@
             </nav>
         </div>
 
+        <h1 id="Trekking">My Student Family</h1>
+        <hr>
+
         <section class="main-section">
-
-            <div class="wrapper">
-                <h1>Professional Activities </h1>
-                <hr style="width: 100%;">
-
-
-                <div class="cards-container">
-
-                    <%for(Pact of data){ %>
-                        <% let type=Pact.type %>
-                        <%if(type==="Activities"){%>
-
+            <%for(student of data){%>
+                <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;">
                     <div class="card">
-                        <h3><%=Pact.acted_as%></h3>
-                        <hr>
-                        <br>
-                        <p><strong>Conference: </strong><%=Pact.program%></p>
-                        <p><strong>Organizer: </strong><%=Pact.organizer%></p>
-                        <p><strong>Date: </strong> <%=Pact.date%></p>
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p><b>Name</b>: <%=student.name%></p>
+                            <p><b>Instituion where I taught </b>:<%=student.university%>
+                            </p>
+                            <p><b>Current Organization </b>:<%=student.university%>
+                            </p>
+                            <p><b>Current Designation </b>:<%=student.university%>
+                            </p>
+                            <p><b>Current Work Area </b>:<%=student.university%>
+                            </p>
+                            <p><b>Message </b>:<%=student.university%>
+                            </p>
+                        </div>
                     </div>
-
-                    <%}}%>
-
-                </div>
-
-
-                <h1>Career Development Seminar & workshop attended</h1>
-                <hr style="width: 100%;">
-                
-               
-                <div class="cards-container">
-
-                    <%for(Pact of data){ %>
-                        <% let type=Pact.type %>
-                        <%if(type!="Activities"){%>
-
-                            
-                    <div class="card">
-                        <h3><%=Pact.program%></h3>
-                        <p><strong>Date:</strong><%=Pact.date%></p>
-                        <p><strong>Organizer:</strong><%=Pact.organizer%></p>
-                    </div>
-
-                    <%}}%>
-                </div>
-                
-                
-            </div>
-
+                </a>
+                <%}%>
         </section>
 
         <footer>
             <h2>Dr. Dipak Kumar Kole</h2>
-            <h3><strong style="font-weight: 600;">Email :</strong>  dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
-            <h3><strong style="font-weight: 600;">Address :</strong>  Singur, Hooghly, West Bengal, India.</h3>
+            <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
+            <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
                 <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>

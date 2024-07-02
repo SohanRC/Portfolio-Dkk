@@ -24,11 +24,11 @@
                         <li><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
                         <li><a href="/awards">Achievements</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/student">Scholar</a></li>
+                        <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/myStudentFamily">Student Family</a></li>
+                        <li  style="border-bottom: 2px solid #2962ff;"><a href="/myStudentFamily">Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -44,22 +44,8 @@
             <br><br>
             <h2>Create New Post</h2> <br><br>
             <br>
-            <form id="upload-form">
-                <input type="text" value="<%=data._id%>" readonly style="display: none;" id="id"><br>
-                <input id="file-field" type="file"/>
-                <button style="border-radius: 5px; padding: 5px;">Change Photo</button>
-            </form>
-            <br><br>
-            <section class="main-section" style="min-height: 0px;">
-               
-                        <div class="card" style="width: 200px;">
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=data.image%>.png" class="card-img-top" alt="...">
-                        </div>
-                    
-            </section>
-            <br><br>
 
-            <form method="POST" action="/student/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <form action="/student" method="post" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div>
@@ -67,10 +53,9 @@
 
                        
 
-                        
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-control" name="newstudent[name]" value="<%=data.name%>" required>
+                            <input type="text" id="name" class="form-control" name="newstudent[name]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
@@ -78,7 +63,7 @@
 
                         <div class="mb-3">
                             <label for="university" class="form-label">University</label>
-                            <input type="text" id="university" class="form-control" name="newstudent[university]" value="<%=data.university%>" required>
+                            <input type="text" id="university" class="form-control" name="newstudent[university]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
@@ -86,7 +71,7 @@
 
                         <div class="mb-3">
                             <label for="phd" class="form-label">PhD Topic</label>
-                            <input type="text" id="phd" class="form-control" name="newstudent[phd]" value="<%=data.phd%>" required>
+                            <input type="text" id="phd" class="form-control" name="newstudent[phd]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
@@ -94,7 +79,7 @@
 
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
-                            <input type="text" id="status" class="form-control" name="newstudent[status]" value="<%=data.status%>" required>
+                            <input type="text" id="status" class="form-control" name="newstudent[status]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
@@ -103,12 +88,12 @@
                         <div class="mb-3">
                             <label for="bio" class="form-label">Short Biography</label>
                             <textarea name="newstudent[bio]" class="form-control" id="bio" cols="100"
-                                rows="10"><%=data.bio%></textarea>
+                                rows="10"></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="link" class="form-label">Profile Link</label>
-                            <input type="text" id="link" class="form-control" name="newstudent[link]" value="<%=data.link%>" required>
+                            <input type="text" id="link" class="form-control" name="newstudent[link]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid link.
                             </div>
@@ -116,7 +101,7 @@
 
                         <div class="mb-3">
                             <label for="dept" class="form-label">Department</label>
-                            <input type="text" id="dept" class="form-control" name="newstudent[dept]" value="<%=data.dept%>" required>
+                            <input type="text" id="dept" class="form-control" name="newstudent[dept]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid String.
                             </div>
@@ -124,7 +109,7 @@
 
                         <div class="mb-3">
                             <label for="reg" class="form-label">Registration No.</label>
-                            <input type="text" id="reg" class="form-control" name="newstudent[reg]" value="<%=data.reg%>" required>
+                            <input type="text" id="reg" class="form-control" name="newstudent[reg]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid String.
                             </div>
@@ -132,7 +117,7 @@
 
                         <div class="mb-3">
                             <label for="priority" class="form-label">Priority</label>
-                            <input type="text" id="priority" class="form-control" name="newstudent[priority]" value="<%=data.priority%>" required>
+                            <input type="text" id="priority" class="form-control" name="newstudent[priority]" required>
                             <div class="invalid-feedback">
                                 Please enter a valid Number.
                             </div>
@@ -160,8 +145,6 @@
         </footer>
     </div>
     <script src="/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/student.js"></script>
 
     <script>
         let hamburger = document.querySelector('.hamburger');
