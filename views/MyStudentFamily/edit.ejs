@@ -42,97 +42,120 @@
 
         <section class="main-section" style="display: flex; flex-direction: column; padding: 0 10px;">
             <br><br>
-            <h2>Create New Post</h2> <br><br>
+            <h2>Edit Student Information</h2> <br><br>
             <br>
-            <form id="upload-form">
-                <input type="text" value="<%=data._id%>" readonly style="display: none;" id="id"><br>
-                <input id="file-field" type="file"/>
-                <button style="border-radius: 5px; padding: 5px;">Change Photo</button>
-            </form>
-            <br><br>
-            <section class="main-section" style="min-height: 0px;">
-               
-                        <div class="card" style="width: 200px;">
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=data.image%>.png" class="card-img-top" alt="...">
-                        </div>
-                    
-            </section>
-            <br><br>
 
-            <form method="POST" action="/student/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <form method="POST" action="/myStudentFamily/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div>
-
-
-                       
-
                         
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-control" name="newstudent[name]" value="<%=data.name%>" required>
+                            <input type="text" id="name" class="form-control" name="newMSF[name]" value="<%=data.name%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="university" class="form-label">University</label>
-                            <input type="text" id="university" class="form-control" name="newstudent[university]" value="<%=data.university%>" required>
+                            <label for="photo" class="form-label">Photo</label>
+                            <input type="text" id="photo" class="form-control" name="newMSF[photo]" value="<%=data.photo%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="phd" class="form-label">PhD Topic</label>
-                            <input type="text" id="phd" class="form-control" name="newstudent[phd]" value="<%=data.phd%>" required>
+                            <label for="contact" class="form-label">Contact Number</label>
+                            <input type="text" id="contact" class="form-control" name="newMSF[contact]" value="<%=data.contact%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="status" class="form-label">Status</label>
-                            <input type="text" id="status" class="form-control" name="newstudent[status]" value="<%=data.status%>" required>
+                            <label for="email" class="form-label">Email Id</label>
+                            <input type="text" id="email" class="form-control" name="newMSF[email]" value="<%=data.email%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid string.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="bio" class="form-label">Short Biography</label>
-                            <textarea name="newstudent[bio]" class="form-control" id="bio" cols="100"
-                                rows="10"><%=data.bio%></textarea>
+                            <label for="institution" class="form-label">The institution where I taught you</label>
+                            <input type="text" id="institution" class="form-control" name="newMSF[institution]" value="<%=data.institution%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="meet" class="form-label">Year of First Meeting with You</label>
+                            <input type="text" id="meet" class="form-control" name="newMSF[meet]" value="<%=data.meet%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="degree" class="form-label">Mention the Degree Course during My tenure with you</label>
+                            <input type="text" id="degree" class="form-control" name="newMSF[degree]" value="<%=data.degree%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dept" class="form-label">Department Name (Ex: CSE, IT)</label>
+                            <input type="text" id="dept" class="form-control" name="newMSF[dept]" value="<%=data.dept%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="org" class="form-label">Current Organization/Industry you are working in</label>
+                            <input type="text" id="org" class="form-control" name="newMSF[org]" value="<%=data.org%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="position" class="form-label">Current Designation/Position</label>
+                            <input type="text" id="position" class="form-control" name="newMSF[position]" value="<%=data.position%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="area" class="form-label">Current Area of Work</label>
+                            <input type="text" id="area" class="form-control" name="newMSF[area]" value="<%=data.area%>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid string.
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Short message</label>
+                            <textarea name="newMSF[message]" class="form-control" id="message" cols="100"
+                                rows="10"><%=data.message%></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="link" class="form-label">Profile Link</label>
-                            <input type="text" id="link" class="form-control" name="newstudent[link]" value="<%=data.link%>" required>
+                            <input type="text" id="link" class="form-control" name="newMSF[link]" value="<%=data.link%>">
                             <div class="invalid-feedback">
                                 Please enter a valid link.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="dept" class="form-label">Department</label>
-                            <input type="text" id="dept" class="form-control" name="newstudent[dept]" value="<%=data.dept%>" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid String.
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="reg" class="form-label">Registration No.</label>
-                            <input type="text" id="reg" class="form-control" name="newstudent[reg]" value="<%=data.reg%>" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid String.
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="priority" class="form-label">Priority</label>
-                            <input type="text" id="priority" class="form-control" name="newstudent[priority]" value="<%=data.priority%>" required>
+                            <input type="text" id="priority" class="form-control" name="newMSF[priority]" value="<%=data.priority%>" required>
                             <div class="invalid-feedback">
                                 Please enter a valid Number.
                             </div>

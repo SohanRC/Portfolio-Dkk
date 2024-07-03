@@ -87,26 +87,26 @@
         <!-- <h2 id="Gallery" style="padding: 10px; font-size: 2rem;">Photo</h2> -->
             <hr>
 
-            <section class="main-section" style="min-height: 0px; padding-top: 30px;">
-                        <div class="card" style="width: auto; cursor: pointer;">
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=data.image%>.png" class="card-img-top" alt="...">
-                        </div>
-            </section>
-
         <div class="page" style="margin: 20px;">
             <h2>Details</h2>
             <hr>
-            <p><b>Name</b>:  <%=data.name%> </p>
-            <p><b>Institution where I taught </b>:  <%=data.university%> </p>
-            <p><b>First Year Of Meeting </b>:  2007 </p>
-            <p><b>Degree Course </b>:  BTECH </p>
-            <p><b>Department</b>:  <%=data.dept%></p>
-            <p><b>Contact Number </b>:  123456789 </p>
-            <p><b>Email Id </b>:  abc@gmail.com </p>
-            <p><b>Current Designation</b>:  <%=data.phd%></p>
-            <p><b>Current Work Area</b>:  <%=data.status%></p>
-            <p><b>Message For Me</b>:  <%=data.bio%></p><br>
-            <a href="<%=data.link%>"><Button style="padding: 5px; color: white; background-color:blue; border-radius: 5px; border: none;">Visit Profile</Button></a>
+            <section class="main-section" style="min-height: 0px; padding-top: 30px;">
+                <div class="card" style="width: auto; cursor: pointer;">
+                    <img src="https://drive.google.com/thumbnail?id=<%=updatedData.photo%>" class="card-img-top" alt="...">
+                </div>
+    </section>
+    
+            <p><b>Name</b>:  <%=updatedData.name%> </p>
+            <p><b>Institution where I taught </b>:  <%=updatedData.institution%> </p>
+            <p><b>First Year Of Meeting </b>:   <%=updatedData.meet%></p>
+            <p><b>Degree Course </b>:  <%=updatedData.meet%></p>
+            <p><b>Department</b>:  <%=updatedData.degree%></p>
+            <p><b>Contact Number </b>: <%=updatedData.contact%> </p>
+            <p><b>Email Id </b>:  <%=updatedData.email%></p>
+            <p><b>Current Designation</b>:  <%=updatedData.position%></p>
+            <p><b>Current Work Area</b>:  <%=updatedData.area%></p>
+            <p><b>Message For Me</b>:  <%=updatedData.message%></p><br>
+            <a href="<%=updatedData.link%>"><Button style="padding: 5px; color: white; background-color:blue; border-radius: 5px; border: none;">Visit Profile</Button></a>
 
             
         </div>

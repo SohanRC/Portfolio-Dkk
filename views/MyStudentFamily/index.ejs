@@ -41,27 +41,25 @@
         <hr>
 
         <section class="main-section">
-            <%for(student of data){%>
-                <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;">
+            <%for(student of updatedData){%>
+                <%if(student.view==true){%>
                     <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
-                            class="card-img-top" alt="...">
+                        <img src="https://drive.google.com/thumbnail?id=<%=student.photo%>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p><b>Name</b>: <%=student.name%></p>
-                            <p><b>Instituion where I taught </b>:<%=student.university%>
+                            <p><b>Organization </b>:<%=student.org%>
                             </p>
-                            <p><b>Current Organization </b>:<%=student.university%>
+                            <p><b>Designation </b>:<%=student.position%>
                             </p>
-                            <p><b>Current Designation </b>:<%=student.university%>
+                            <p><b>Work Area </b>:<%=student.area%>
                             </p>
-                            <p><b>Current Work Area </b>:<%=student.university%>
+                            <%if(student.message){%>
+                            <p><b>Message </b>:<%=student.message%>
                             </p>
-                            <p><b>Message </b>:<%=student.university%>
-                            </p>
+                            <%}%>
                         </div>
                     </div>
-                </a>
-                <%}%>
+                <%}}%>
         </section>
 
         <footer>

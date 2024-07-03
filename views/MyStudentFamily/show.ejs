@@ -43,37 +43,78 @@
                 style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
                 Student</button></a>
         <section class="main-section">
-            <%for(student of data){%>
-                <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;">
-                    <div class="card">
-                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p><b>Name</b>: <%=student.name%></p>
-                            <p><b>Instituion where I taught </b>:<%=student.university%>
-                            </p>
-                            <p><b>Current Organization </b>:<%=student.university%>
-                            </p>
-                            <p><b>Current Designation </b>:<%=student.university%>
-                            </p>
-                            <p><b>Current Work Area </b>:<%=student.university%>
-                            </p>
-                            <p><b>Message </b>:<%=student.university%>
-                            </p>
-                        </div>
-                        <div class="buttons" style="display: flex;">
-                            <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;"><button
-                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                            <a href="/myStudentFamily/<%=student._id%>/edit"><button
-                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                            <form method="POST" action="/myStudentFamily/<%=student._id%>?_method=DELETE">
-                                <button
-                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                            </form>
-                        </div>
-                    </div>
-                </a>
-                <%}%>
+            <%let i=-1;%>
+                <%for(student of updatedData){ i++;%>
+                    <%if(student.view==true){%>
+                        <a href="/myStudentFamily/<%=student._id%>/show" style="text-decoration: none;color: black;">
+                            <div class="card" style="background-color: rgb(209, 255, 140);">
+                                <img src="https://drive.google.com/thumbnail?id=<%=student.photo%>" class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <p><b>Name</b>: <%=student.name%>
+                                    </p>
+                                    <p><b>Organization </b>:<%=student.org%>
+                                    </p>
+                                    <p><b>Designation </b>:<%=student.position%>
+                                    </p>
+                                    <p><b>Work Area </b>:<%=student.area%>
+                                    </p>
+                                    <p><b>Message </b>:<%=student.message%>
+                                    </p>
+                                </div>
+                                <div class="buttons" style="display: flex;">
+                                    <a href="/myStudentFamily/<%=student._id%>/show"
+                                        style="text-decoration: none;color: black;"><button
+                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                    <a href="/myStudentFamily/<%=student._id%>/edit"><button
+                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                    <form method="POST" action="/myStudentFamily/<%=student._id%>?_method=DELETE">
+                                        <button
+                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                    </form>
+                                    <button class="approve-btn" data-id="<%= student._id %>"
+                                        data-view="<%= student.view %>" data-index="<%=i%>" style="background-color:rgb(34,
+                                        255, 0);color: white; border-radius: 5px; border: none; padding: 5px; margin:
+                                        10px; font-size: 1rem;">Approved</button>
+                                </div>
+                            </div>
+                        </a>
+                        <%}else{%>
+                            <a href="/myStudentFamily/<%=student._id%>/show"
+                                style="text-decoration: none;color: black;">
+                                <div class="card" style="background-color: rgb(255, 161, 161);">
+                                    <img src="https://drive.google.com/thumbnail?id=<%=student.photo%>"
+                                        class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p><b>Name</b>: <%=student.name%>
+                                        </p>
+                                        <p><b>Organization </b>:<%=student.org%>
+                                        </p>
+                                        <p><b>Designation </b>:<%=student.position%>
+                                        </p>
+                                        <p><b>Work Area </b>:<%=student.area%>
+                                        </p>
+                                        <p><b>Message </b>:<%=student.message%>
+                                        </p>
+                                    </div>
+                                    <div class="buttons" style="display: flex;">
+                                        <a href="/myStudentFamily/<%=student._id%>/show"
+                                            style="text-decoration: none;color: black;"><button
+                                                style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                        <a href="/myStudentFamily/<%=student._id%>/edit"><button
+                                                style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                        <form method="POST" action="/myStudentFamily/<%=student._id%>?_method=DELETE">
+                                            <button
+                                                style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                        </form>
+                                        <button class="approve-btn" data-id="<%= student._id %>"
+                                            data-view="<%= student.view %>" data-index="<%=i%>" style="background-color:
+                                            blue;color: white; border-radius: 5px; border: none; padding: 5px; margin:
+                                            10px; font-size: 1rem;">Approve</button>
+                                    </div>
+                                </div>
+                            </a>
+                            <%}}%>
         </section>
 
         <footer>
@@ -85,14 +126,48 @@
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a> -->
                 <a href="<%= twitter %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
-                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-linkedin"></i></a>
+                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-facebook"></i></a>
             </div>
             <hr style="width: 100%;">
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
         </footer>
     </div>
-</body>
+
+
+<script>
+    document.querySelectorAll('.approve-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            console.log("Button clicked");
+            // const students = JSON.parse('<%-JSON.stringify(data) %>');
+            const index = button.dataset.index;
+            const id = button.dataset.id;
+            console.log("IDD : ",id);
+            const view = button.dataset.view === 'true';
+            const newView = !view;
+            const newMSF={view:newView};
+            try {
+                const response = await fetch(`/myStudentFamily/${id}/toggle`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({newMSF})
+                });
+
+                if (response.ok) {
+                    location.reload(); // Reload the page to reflect changes
+                } else {
+                    console.error('Failed to toggle view status');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
 
 <script>
     let hamburger = document.querySelector('.hamburger');
@@ -101,5 +176,5 @@
         routes.classList.toggle('active');
     })
 </script>
-
+</body>
 </html>

@@ -62,3 +62,22 @@ module.exports.StudentSchema = Joi.object({
   }).required()
 
 });
+
+module.exports.msfSchema = Joi.object({
+  newMSF: Joi.object({
+    name: Joi.string().required(),
+    contact: Joi.string(),
+    email: Joi.string().email(),
+    institution: Joi.string().required(),
+    meet: Joi.string(),
+    degree: Joi.string(),
+    dept: Joi.string(),
+    org: Joi.string().required(),
+    position: Joi.string().required(),
+    area: Joi.string().required(),
+    link: Joi.string().uri(),
+    message: Joi.string(),
+    priority: Joi.number().required(),
+    view: Joi.boolean().required(),
+  }).required()
+});
