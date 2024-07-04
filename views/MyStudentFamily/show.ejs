@@ -39,9 +39,13 @@
 
         <h1 id="Trekking">My Student Family</h1>
         <hr>
-        <a href="/myStudentFamily/new"><button
-                style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
+        <a href="https://forms.gle/RYCfvzKFbHSw2EZu9"><button
+                style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Google
+                Form to Add
                 Student</button></a>
+        <button onclick="myFunction()"
+            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Copy
+            Form Link</button>
         <section class="main-section">
             <%let i=-1;%>
                 <%for(student of updatedData){ i++;%>
@@ -137,44 +141,55 @@
     </div>
 
 
-<script>
-    document.querySelectorAll('.approve-btn').forEach(button => {
-        button.addEventListener('click', async () => {
-            console.log("Button clicked");
-            // const students = JSON.parse('<%-JSON.stringify(data) %>');
-            const index = button.dataset.index;
-            const id = button.dataset.id;
-            console.log("IDD : ",id);
-            const view = button.dataset.view === 'true';
-            const newView = !view;
-            const newMSF={view:newView};
-            try {
-                const response = await fetch(`/myStudentFamily/${id}/toggle`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({newMSF})
-                });
+    <script>
+        document.querySelectorAll('.approve-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                console.log("Button clicked");
+                // const students = JSON.parse('<%-JSON.stringify(data) %>');
+                const index = button.dataset.index;
+                const id = button.dataset.id;
+                console.log("IDD : ", id);
+                const view = button.dataset.view === 'true';
+                const newView = !view;
+                const newMSF = { view: newView };
+                try {
+                    const response = await fetch(`/myStudentFamily/${id}/toggle`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ newMSF })
+                    });
 
-                if (response.ok) {
-                    location.reload(); // Reload the page to reflect changes
-                } else {
-                    console.error('Failed to toggle view status');
+                    if (response.ok) {
+                        location.reload(); // Reload the page to reflect changes
+                    } else {
+                        console.error('Failed to toggle view status');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
                 }
-            } catch (error) {
-                console.error('Error:', error);
-            }
+            });
         });
-    });
-</script>
+    </script>
 
-<script>
-    let hamburger = document.querySelector('.hamburger');
-    hamburger.addEventListener('click', () => {
-        let routes = document.querySelector('.routes');
-        routes.classList.toggle('active');
-    })
-</script>
+    <script>
+        function myFunction() {
+            // Copy the text inside the text field
+            navigator.clipboard.writeText('https://forms.gle/RYCfvzKFbHSw2EZu9');
+
+            // Alert the copied text
+            alert("Copied to the clipboard");
+        }
+    </script>
+
+    <script>
+        let hamburger = document.querySelector('.hamburger');
+        hamburger.addEventListener('click', () => {
+            let routes = document.querySelector('.routes');
+            routes.classList.toggle('active');
+        })
+    </script>
 </body>
+
 </html>
