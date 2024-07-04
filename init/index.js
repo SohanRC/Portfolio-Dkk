@@ -10,7 +10,7 @@ console.log("connection is sucess");
 .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb+srv://dipakkolecse:slIxEInxKZ0DJohc@cluster0.mm6lr4b.mongodb.net/portfolio?retryWrites=true&w=majority&appName=Cluster0");
+  await mongoose.connect(process.env.URI);
 }
 
 const initDB = async ()=>{
