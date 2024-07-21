@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/trekking.css">
     <style>
-        .main-container .popup-image{
+        .main-container .popup-image {
             position: fixed;
             top: 0;
             left: 0;
@@ -19,40 +19,40 @@
             display: none;
         }
 
-        .main-container .popup-image span{
+        .main-container .popup-image span {
             position: absolute;
             top: 0px;
             right: 10px;
             font-size: 60px;
             font-weight: bolder;
-            color: #fff ;
+            color: #fff;
             cursor: pointer;
             z-index: 9999999999999999999;
         }
 
-        .main-container .popup-image img{
+        .main-container .popup-image img {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             border: 5px solid #fff;
             border-radius: 5px;
             max-width: 800px;
             height: 600px;
         }
 
-        @media screen and (max-width : 850px){
+        @media screen and (max-width : 850px) {
             .main-container .popup-image img {
                 max-width: 500px;
                 height: 400px;
-           }
+            }
         }
 
-        @media screen and (max-width : 600px){
+        @media screen and (max-width : 600px) {
             .main-container .popup-image img {
                 max-width: 300px;
                 height: 300px;
-           }
+            }
         }
     </style>
 </head>
@@ -73,7 +73,7 @@
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/myStudentFamily">Student Family</a></li>
+                        <li><a href="/myStudentFamily">My Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -85,29 +85,30 @@
         </div>
         <h1 style="margin-left: 20px;">News</h1>
         <hr>
-        <section class="main-section">
+        <section class="main-section" style="display: flex; align-items: flex-start; justify-content: flex-start; margin-left: 5vw;">
             <%for(imgs of data){%>
-                <div class="card" style="width: auto; cursor: pointer;">
-                    <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.image%>.png"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <%if(imgs.description){%>
-                            <p class="card-text">
-                                <%=imgs.description%>
-                            </p>
-                            <% } %>
-                                <%if(imgs.location){%>
-                                    <p><b>Published at</b>: <%=imgs.location%>
-                                    </p>
-                                    <% } %>
-                                        <%if(imgs.year){%>
-                                            <p><b>Year</b>:<%=imgs.year%>
-                                            </p>
-                                            <%}%>
+                <%if(imgs.view==true){%>
+                    <div class="card" style="width: auto; cursor: pointer;">
+                        <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.image%>.png"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <%if(imgs.description){%>
+                                <p class="card-text">
+                                    <%=imgs.description%>
+                                </p>
+                                <% } %>
+                                    <%if(imgs.location){%>
+                                        <p><b>Published at</b>: <%=imgs.location%>
+                                        </p>
+                                        <% } %>
+                                            <%if(imgs.year){%>
+                                                <p><b>Year</b>:<%=imgs.year%>
+                                                </p>
+                                                <%}%>
+                        </div>
                     </div>
-                </div>
 
-                <%}%>
+                <%}}%>
 
         </section>
         <div class="popup-image">
@@ -123,8 +124,10 @@
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a> -->
                 <a href="<%= twitter %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
-                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-linkedin"></i></a>
+                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-facebook"></i></a>
             </div>
             <hr style="width: 100%;">
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
@@ -139,7 +142,7 @@
         routes.classList.toggle('active');
     })
 
-    document.querySelectorAll('.card img').forEach((image)=>{
+    document.querySelectorAll('.card img').forEach((image) => {
         image.onclick = () => {
             document.querySelector('.popup-image').style.display = 'block';
             document.querySelector('.popup-image img').src = image.getAttribute('src');

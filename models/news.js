@@ -21,7 +21,12 @@ const userSchema = new mongoose.Schema({
   image:{
     type:String,
     required:true
-  }
+  },
+  view:{
+    type:Boolean,
+    default:false
+
+},
 });
 
 const News = mongoose.model("News", userSchema);

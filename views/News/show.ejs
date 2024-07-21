@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/homepage.css">
     <link rel="stylesheet" href="/trekking.css">
     <style>
-        .main-container .popup-image{
+        .main-container .popup-image {
             position: fixed;
             top: 0;
             left: 0;
@@ -19,40 +19,40 @@
             display: none;
         }
 
-        .main-container .popup-image span{
+        .main-container .popup-image span {
             position: absolute;
             top: 0px;
             right: 10px;
             font-size: 60px;
             font-weight: bolder;
-            color: #fff ;
+            color: #fff;
             cursor: pointer;
             z-index: 9999999999999999999;
         }
 
-        .main-container .popup-image img{
+        .main-container .popup-image img {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             border: 5px solid #fff;
             border-radius: 5px;
             max-width: 800px;
             height: 600px;
         }
 
-        @media screen and (max-width : 850px){
+        @media screen and (max-width : 850px) {
             .main-container .popup-image img {
                 max-width: 500px;
                 height: 400px;
-           }
+            }
         }
 
-        @media screen and (max-width : 600px){
+        @media screen and (max-width : 600px) {
             .main-container .popup-image img {
                 max-width: 300px;
                 height: 300px;
-           }
+            }
         }
     </style>
 </head>
@@ -73,7 +73,7 @@
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li><a href="/myStudentFamily">Student Family</a></li>
+                        <li><a href="/myStudentFamily">My Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -91,36 +91,76 @@
         </form>
         <br><br>
         <section class="main-section">
-            <%for(imgs of data){%>
-                <div class="card" style="width: auto; cursor: pointer;">
-                    <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.image%>.png"
-                        class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <%if(imgs.description){%>
-                            <p class="card-text">
-                                <%=imgs.description%>
-                            </p>
-                            <% } %>
-                            <%if(imgs.location){%>
-                            <p><b>Published at</b>: <%=imgs.location%>
-                            </p>
-                            <% } %>
-                            <%if(imgs.year){%>
-                            <p><b>Year</b>:<%=imgs.year%>
-                            </p>
-                            <%}%>
-                        </div>
+            <%let i=-1;%>
+                <%for(imgs of data){ i++;%>
+                    <%if(imgs.view==true){%>
+                        <div class="card" style="width: auto; cursor: pointer; background-color: rgb(209, 255, 140);">
+                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.image%>.png"
+                                class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <%if(imgs.description){%>
+                                    <p class="card-text">
+                                        <%=imgs.description%>
+                                    </p>
+                                    <% } %>
+                                        <%if(imgs.location){%>
+                                            <p><b>Published at</b>: <%=imgs.location%>
+                                            </p>
+                                            <% } %>
+                                                <%if(imgs.year){%>
+                                                    <p><b>Year</b>:<%=imgs.year%>
+                                                    </p>
+                                                    <%}%>
+                            </div>
 
-                <div class="buttons" style="display: flex;">
-                    <a href="/news/<%=imgs._id%>/edit"><button
-                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                    <form method="POST" action="/news/<%=imgs._id%>?_method=DELETE">
-                        <button
-                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                    </form>
-                </div>
-            </div>
-                <%}%>
+                            <div class="buttons" style="display: flex;">
+                                <a href="/news/<%=imgs._id%>/edit"><button
+                                        style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                <form method="POST" action="/news/<%=imgs._id%>?_method=DELETE">
+                                    <button
+                                        style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                    
+                                </form>
+                                <button class="approve-btn" data-id="<%= imgs._id %>"
+                                    data-view="<%= imgs.view %>" data-index="<%=i%>" style="background-color:rgb(34,
+                                    255, 0);color: white; border-radius: 5px; border: none; padding: 5px; margin:
+                                    10px; font-size: 1rem;">Approved</button>
+                            </div>
+                        </div>
+                        <%}else{%>
+                            <div class="card" style="width: auto; cursor: pointer; background-color:rgb(255, 161, 161)">
+                                <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.image%>.png"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <%if(imgs.description){%>
+                                        <p class="card-text">
+                                            <%=imgs.description%>
+                                        </p>
+                                        <% } %>
+                                            <%if(imgs.location){%>
+                                                <p><b>Published at</b>: <%=imgs.location%>
+                                                </p>
+                                                <% } %>
+                                                    <%if(imgs.year){%>
+                                                        <p><b>Year</b>:<%=imgs.year%>
+                                                        </p>
+                                                        <%}%>
+                                </div>
+
+                                <div class="buttons" style="display: flex;">
+                                    <a href="/news/<%=imgs._id%>/edit"><button
+                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                    <form method="POST" action="/news/<%=imgs._id%>?_method=DELETE">
+                                        <button
+                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                    </form>
+                                    <button class="approve-btn" data-id="<%= imgs._id %>"
+                                        data-view="<%= imgs.view %>" data-index="<%=i%>" style="background-color:
+                                    blue;color: white; border-radius: 5px; border: none; padding: 5px; margin:
+                                    10px; font-size: 1rem;">Approve</button>
+                                </div>
+                            </div>
+                        <%}}%>
         </section>
         <div class="popup-image">
             <span>&times;</span>
@@ -145,13 +185,43 @@
 </body>
 
 <script>
+    document.querySelectorAll('.approve-btn').forEach(button => {
+        button.addEventListener('click', async () => {
+            console.log("Button clicked");
+            const id = button.dataset.id;
+            console.log("IDD : ", id);
+            const view = button.dataset.view === 'true';
+            const newView = !view;
+            const newMSF = { view: newView };
+            try {
+                const response = await fetch(`/news/${id}/toggle`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ newMSF })
+                });
+
+                if (response.ok) {
+                    location.reload(); // Reload the page to reflect changes
+                } else {
+                    console.error('Failed to toggle view status');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
+
+<script>
     let hamburger = document.querySelector('.hamburger');
     hamburger.addEventListener('click', () => {
         let routes = document.querySelector('.routes');
         routes.classList.toggle('active');
     })
 
-    document.querySelectorAll('.card img').forEach((image)=>{
+    document.querySelectorAll('.card img').forEach((image) => {
         image.onclick = () => {
             document.querySelector('.popup-image').style.display = 'block';
             document.querySelector('.popup-image img').src = image.getAttribute('src');

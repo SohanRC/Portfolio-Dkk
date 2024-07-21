@@ -26,7 +26,7 @@
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/myStudentFamily">Student Family</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/myStudentFamily">My Student Family</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -43,7 +43,7 @@
         <section class="main-section">
             <%for(student of updatedData){%>
                 <%if(student.view==true){%>
-                    <div class="card">
+                    <div class="card" style="display: flex; flex-direction: column; align-items: center;">
                         <img src="https://drive.google.com/thumbnail?id=<%=student.photo%>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p><b>Name</b>: <%=student.name%></p>
@@ -58,6 +58,9 @@
                             </p>
                             <%}%>
                         </div>
+                        <%if(student.link){%>
+                        <a href="<%=student.link%>"><button style="background-color: #2962ff; padding: 5px; border: none; border-radius: 5px; margin: 5px;">Visit Profile</button></a>
+                    <%}%>
                     </div>
                 <%}}%>
         </section>

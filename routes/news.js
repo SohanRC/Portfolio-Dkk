@@ -57,6 +57,25 @@ router.post("/",isLoggedin, asyncWrap(async (req, res) => {
 
 }));
 
+
+router.patch("/:id/toggle", isLoggedin, asyncWrap(async (req, res) => {
+  const { id } = req.params;
+  const { newMSF } = req.body;
+
+  try {
+    const updatedMSF = await News.findByIdAndUpdate(id, newMSF,{new: true});
+
+    if (!updatedMSF) {
+      throw new Error('News document not found');
+    }
+
+    res.status(200).send(updatedMSF); // Optionally send updated data back to client
+  } catch (error) {
+    console.error('Error updating News:', error);
+    res.status(500).send('Error updating News');
+  }
+}));
+
 //Edit Route
 router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
