@@ -46,194 +46,175 @@
       </div>
       <div class="publication">
 
-        
+
 
         <!-- ---------------- Editor Of Books Begins ----------------------------- -->
         <h1 id="Editor">Editor Of Books</h1>
         <hr>
         <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-            <div class="img-part">
-              <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
-            </div>
-            <div class="author-part" style="display: flex; flex-direction: row;">
-              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of 4th International Conference
-                on Frontiers in
-                Computing and Systems: COMSYS 2023, Volume 2 (Lecture Notes in Networks and Systems Book 975)
-                <span>&#x275E</span>
-              </h4>
-            </div>
-          </div>
-          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-            <div class="img-part">
-              <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
-            </div>
-            <div class="author-part" style="display: flex; flex-direction: row;">
-              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of 4th International Conference
-                on Frontiers in
-                Computing and Systems: COMSYS 2023, Volume 2 (Lecture Notes in Networks and Systems Book 975)
-                <span>&#x275E</span>
-              </h4>
-            </div>
-          </div>
-          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-            <div class="img-part">
-              <img src="https://m.media-amazon.com/images/I/61HrLVIlsyL._SY466_.jpg" alt=""
-              style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
-            </div>
-            <div class="author-part" style="display: flex; flex-direction: row;">
-              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of International Conference on Frontiers in Computing and Systems: COMSYS 2020: 1255 (Advances in Intelligent Systems and Computing, 1255)
-                <span>&#x275E</span>
-              </h4>
-            </div>
-          </div>
-        </div>
-        <!-- ------------------------- Editor Of Books Ends ---------------------------- -->
-
-        <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-        <h1 id="Journal">Journal Publications</h1>
-        <hr>
-
         <%for(journal of data){ %>
           <% let type=journal.type %>
 
-            <%if(type==="Journal"){%>
-              <div class="card">
-                <div class="name">
-                  <b>
-                    <p style="font-weight: 600;">
-                      <%=journal.author%>
-                    </p>
-                  </b>
-                  <p>
-                    <span id="date">
-                      <strong style="font-weight: 600;">
-                        <%=journal.date%> :
-                      </strong>
-                    </span>
-                    <%=journal.location%>
-                  </p>
+            <%if(type==="Editor"){%>
+
+              <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                <div class="img-part">
+                  <img src=<%=journal.link%> alt=""
+                  style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
                 </div>
-
-                <div class="description">
-                  <h2 style="font-weight: 700; margin: 5px;">
-                    <%=journal.title%>
-                  </h2>
-                  <hr>
-
-                  <p>
-                    <%=journal.description%>
-                  </p>
-                  <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                <div class="author-part" style="display: flex; flex-direction: row;">
+                  <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
+                    <%=journal.title%><span>&#x275E</span>
+                  </h4>
                 </div>
               </div>
-            <%}%>
-        <%}%>
 
-
-
-                  <!-- **************Publications in International Conferences BEGIN*********** -->
-                  <h1 id="Conference">Publications in International Conferences</h1>
-                  <hr>
-
-                  <%for(journal of data){ %>
-                    <% let type=journal.type %>
-
-                      <%if(type==="Conference"){%>
-                        <div class="card">
-                          <div class="name">
-                            <b>
-                              <p style="font-weight: 600;">
-                                <%=journal.author%>
-                              </p>
-                            </b>
-                            <p>
-                              <span id="date">
-                                <strong style="font-weight: 600;">
-                                  <%=journal.date%> :
-                                </strong>
-                              </span>
-                              <%=journal.location%>
-                            </p>
-                          </div>
-
-                          <div class="description">
-                            <h2 style="font-weight: 700; margin: 5px;">
-                              <%=journal.title%>
-                            </h2>
-                            <hr>
-
-                            <p>
-                              <%=journal.description%>
-                            </p>
-                            <a href="<%=journal.link%>" id="googleScholar">Details</a>
-                          </div>
-                        </div>
-                      <%}%>
-                  <%}%>
-
-
-       <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-        <h1 id="Books">Book Chapters Published</h1>
-        <hr>
-
-        <%for(journal of data){ %>
-          <% let type=journal.type %>
-
-            <%if(type==="Book"){%>
-              <div class="card">
-                <div class="name">
-                  <b>
-                    <p style="font-weight: 600;">
-                      <%=journal.author%>
-                    </p>
-                  </b>
-                  <p>
-                    <span id="date">
-                      <strong style="font-weight: 600;">
-                        <%=journal.date%> :
-                      </strong>
-                    </span>
-                    <%=journal.location%>
-                  </p>
-                </div>
-
-                <div class="description">
-                  <h2 style="font-weight: 700; margin: 5px;">
-                    <%=journal.title%>
-                  </h2>
-                  <hr>
-
-                  <p>
-                    <%=journal.description%>
-                  </p>
-                  <a href="<%=journal.link%>" id="googleScholar">Details</a>
-                </div>
-              </div>
-            <%}%>
-        <%}%>
-                                      
+              <% }} %>
       </div>
+      <!-- ------------------------- Editor Of Books Ends ---------------------------- -->
 
-    </section>
+      <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+      <h1 id="Journal">Journal Publications</h1>
+      <hr>
 
-    <footer>
-      <h2>Dr. Dipak Kumar Kole</h2>
-      <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
-      <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
-      <div class="links">
-        <a href="<%= twitter %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
-        <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-        <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
-        <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
+      <%for(journal of data){ %>
+        <% let type=journal.type %>
+
+          <%if(type==="Journal"){%>
+            <div class="card">
+              <div class="name">
+                <b>
+                  <p style="font-weight: 600;">
+                    <%=journal.author%>
+                  </p>
+                </b>
+                <p>
+                  <span id="date">
+                    <strong style="font-weight: 600;">
+                      <%=journal.date%> :
+                    </strong>
+                  </span>
+                  <%=journal.location%>
+                </p>
+              </div>
+
+              <div class="description">
+                <h2 style="font-weight: 700; margin: 5px;">
+                  <%=journal.title%>
+                </h2>
+                <hr>
+
+                <p>
+                  <%=journal.description%>
+                </p>
+                <a href="<%=journal.link%>" id="googleScholar">Details</a>
+              </div>
+            </div>
+            <%}%>
+              <%}%>
+
+
+
+                <!-- **************Publications in International Conferences BEGIN*********** -->
+                <h1 id="Conference">Publications in International Conferences</h1>
+                <hr>
+
+                <%for(journal of data){ %>
+                  <% let type=journal.type %>
+
+                    <%if(type==="Conference"){%>
+                      <div class="card">
+                        <div class="name">
+                          <b>
+                            <p style="font-weight: 600;">
+                              <%=journal.author%>
+                            </p>
+                          </b>
+                          <p>
+                            <span id="date">
+                              <strong style="font-weight: 600;">
+                                <%=journal.date%> :
+                              </strong>
+                            </span>
+                            <%=journal.location%>
+                          </p>
+                        </div>
+
+                        <div class="description">
+                          <h2 style="font-weight: 700; margin: 5px;">
+                            <%=journal.title%>
+                          </h2>
+                          <hr>
+
+                          <p>
+                            <%=journal.description%>
+                          </p>
+                          <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                        </div>
+                      </div>
+                      <%}%>
+                        <%}%>
+
+
+                          <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+                          <h1 id="Books">Book Chapters Published</h1>
+                          <hr>
+
+                          <%for(journal of data){ %>
+                            <% let type=journal.type %>
+
+                              <%if(type==="Book"){%>
+                                <div class="card">
+                                  <div class="name">
+                                    <b>
+                                      <p style="font-weight: 600;">
+                                        <%=journal.author%>
+                                      </p>
+                                    </b>
+                                    <p>
+                                      <span id="date">
+                                        <strong style="font-weight: 600;">
+                                          <%=journal.date%> :
+                                        </strong>
+                                      </span>
+                                      <%=journal.location%>
+                                    </p>
+                                  </div>
+
+                                  <div class="description">
+                                    <h2 style="font-weight: 700; margin: 5px;">
+                                      <%=journal.title%>
+                                    </h2>
+                                    <hr>
+
+                                    <p>
+                                      <%=journal.description%>
+                                    </p>
+                                    <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                                  </div>
+                                </div>
+                                <%}%>
+                                  <%}%>
+
+  </div>
+
+  </section>
+
+  <footer>
+    <h2>Dr. Dipak Kumar Kole</h2>
+    <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
+    <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
+    <div class="links">
+      <a href="<%= twitter %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
+      <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
+      <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+      <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
         <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
         <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a> -->
-      </div>
-      <hr style="width: 100%;">
-      <p style="margin: 0.3rem 0; color: white;">@ Dr.Dipak Kumar Kole | 2024</p>
-    </footer>
+    </div>
+    <hr style="width: 100%;">
+    <p style="margin: 0.3rem 0; color: white;">@ Dr.Dipak Kumar Kole | 2024</p>
+  </footer>
   </div>
 </body>
 

@@ -41,82 +41,140 @@
 
 
         <section class="main-section" style="padding: 0 10px;">
+            <% if(type=="Editor" ) {%>
 
-            <form action="/publications" method="post" class="needs-validation" novalidate>
+                <form action="/editors" method="post" class="needs-validation" novalidate>
 
-                <div class="row">
-                    <div><br><br>
-                        <h2>Create New Publications</h2> <br><br>
-                        <div class="mb-3">
-                            <label for="type" class="form-label">publication Type </label>
-                            <input type="text" class="form-control" id="type" name="newpublication[type]"
-                                value="<%=type%>" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="title" name="newpublication[title]" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Title.
+                    <div class="row">
+                        <div><br><br>
+                            <h2>Create New Publications</h2> <br><br>
+                            <div class="mb-3">
+                                <label for="type" class="form-label">publication Type </label>
+                                <input type="text" class="form-control" id="type" name="newpublication[type]"
+                                    value="<%=type%>" readonly>
                             </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="author" class="form-label">Authors</label>
-                            <input type="text" class="form-control" id="author" name="newpublication[author]" required>
-                            <div class="invalid-feedback">
-                                Please enter valid Authors.
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" name="newpublication[title]"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Title.
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="text" id="date" class="form-control" name="newpublication[date]" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Date.
+                            <div class="mb-3">
+                                <label for="link" class="form-label">Image link</label>
+                                <input type="text" id="link" class="form-control" name="newpublication[link]">
                             </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="location" class="form-label">Published at</label>
-                            <input type="text" id="location" class="form-control" name="newpublication[location]"
-                                required>
-                            <div class="invalid-feedback">
-                                Please enter a valid string.
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" id="year" class="form-control" name="newpublication[year]"
+                                    required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Year.
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="newpublication[description]" class="form-control" id="description" cols="100"
-                                rows="20"></textarea>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="link" class="form-label">link</label>
-                            <input type="text" id="link" class="form-control" name="newpublication[link]">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="year" class="form-label">Year</label>
-                            <input type="text" id="year" class="form-control" name="newpublication[year]" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Year.
+                            <div class="mb-3">
+                                <label for="priority" class="form-label">Priority</label>
+                                <input type="text" id="priority" class="form-control"
+                                    name="newpublication[priority]" value="1" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Priority.
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="mb-3">
-                            <label for="priority" class="form-label">Priority</label>
-                            <input type="text" id="priority" class="form-control" name="newpublication[priority]" value="1" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid Priority.
-                            </div>
+                            <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                         </div>
-
-                        <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                     </div>
-                </div>
 
-            </form>
-            <br><br><br>
+                </form>
+
+
+            <% }else{ %>
+
+                    <form action="/publications" method="post" class="needs-validation" novalidate>
+
+                        <div class="row">
+                            <div><br><br>
+                                <h2>Create New Publications</h2> <br><br>
+                                <div class="mb-3">
+                                    <label for="type" class="form-label">publication Type </label>
+                                    <input type="text" class="form-control" id="type" name="newpublication[type]"
+                                        value="<%=type%>" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="title" name="newpublication[title]"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Title.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="author" class="form-label">Authors</label>
+                                    <input type="text" class="form-control" id="author" name="newpublication[author]"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter valid Authors.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="date" class="form-label">Date</label>
+                                    <input type="text" id="date" class="form-control" name="newpublication[date]"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Date.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="location" class="form-label">Published at</label>
+                                    <input type="text" id="location" class="form-control"
+                                        name="newpublication[location]" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid string.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea name="newpublication[description]" class="form-control" id="description"
+                                        cols="100" rows="20"></textarea>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="link" class="form-label">link</label>
+                                    <input type="text" id="link" class="form-control" name="newpublication[link]">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="year" class="form-label">Year</label>
+                                    <input type="text" id="year" class="form-control" name="newpublication[year]"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Year.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="priority" class="form-label">Priority</label>
+                                    <input type="text" id="priority" class="form-control"
+                                        name="newpublication[priority]" value="1" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Priority.
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                <% } %>
+                    <br><br><br>
         </section>
 
         <footer>

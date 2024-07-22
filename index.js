@@ -4,6 +4,7 @@ const engine = require('ejs-mate');
 const asyncWrap = require("./utils/asyncWrap.js");
 const ExpressError = require("./utils/ExpressError.js");
 const publications = require("./routes/publications.js");
+const editors = require("./routes/editor.js");
 const activities = require("./routes/activities.js");
 const dashboard = require("./routes/dashboard.js");
 const trekking = require("./routes/trekking.js");
@@ -144,6 +145,7 @@ app.delete("/trekking/:id/image/:imgid", asyncWrap(async (req, res) => {
 // ROUTERRS
 app.use("/myStudentFamily", myStudentFamily);
 app.use("/publications", publications);
+app.use("/editors", editors);
 app.use("/activities", activities);
 app.use("/awards", awards);
 app.use("/dashboard", dashboard);

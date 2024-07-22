@@ -159,6 +159,33 @@
                         University).</li> -->
                 </ul>
 
+                <h2>Teaching</h2>
+                <hr style="width: 100%">
+                <ul>
+                    <li><a href="/EditHome/add/Teaching">Add Teaching</a></li>
+                    <%   data.forEach((e)=>{ %>
+                        <%  if(e.type == "Teaching") {  %>
+                            <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
+                        <% } %>
+                    <%  }) %>
+                    <!-- <li>➤ Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science
+                        University,Shibpur.Dissertation: Synthesis and Testing of Reversible Logic Circuits.
+                        Supervisors: Prof. Hafizur Rahaman (IIEST, Shibpur) and Prof. Bhargab B. Bhattacharya (ISI,
+                        Kolkata)</li>
+                    <li>➤ M.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta
+                        University).</li> -->
+                </ul>
+
                 <h2>Experience</h2>
                 <hr style="width: 100%">
                 <ul>

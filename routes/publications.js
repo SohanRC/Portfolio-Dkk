@@ -5,6 +5,7 @@ const { PublicationSchema } = require("../schemaValidation.js");
 const router = express.Router();
 const { isLoggedin } = require("../views/middleware.js");
 const Publication = require("../models/publication.js");
+const Editor = require("../models/editor.js");
 const User = require("../models/user.js")
 
 //Listing Schema Validation
@@ -22,7 +23,9 @@ const validatePublication = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Publication.find().sort({ year: -1, priority: -1 });
+  let data = await Publication.find().sort({ year: -1, priority: -1 });
+  const editor = await Editor.find().sort({ year: -1,priority: -1 });
+  data=[...data,...editor];
   const user = await User.find({});
   console.log(data);
   res.render("./Publications/index", {
@@ -35,7 +38,9 @@ router.get("/", asyncWrap(async (req, res) => {
 
 //update Route
 router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
-  const data = await Publication.find().sort({ year: -1, priority: -1 });
+  let data = await Publication.find().sort({ year: -1, priority: -1 });
+  const editor = await Editor.find().sort({ year: -1,priority: -1 });
+  data=[...data,...editor];
   console.log(data);
   const user = await User.find({});
   res.render("./Publications/show", { data ,

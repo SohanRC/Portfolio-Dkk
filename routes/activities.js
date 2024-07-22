@@ -22,7 +22,7 @@ const validateActivitie = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Activitie.find().sort({ year: -1, priority: -1 });
+  const data = await Activitie.find().sort({ acted_as:-1,year: -1, priority: -1,});
   const user = await User.find({});
   console.log(data);
   res.render("./Activities/index", {

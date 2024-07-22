@@ -41,11 +41,24 @@ const validateMSF = (req, res, next) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await MSF.find().sort({ priority: -1 });
+  const data = await MSF.aggregate([
+    {
+      $addFields: {
+        messageLength: { $strLenCP: { $ifNull: ["$message", ""] } }
+      }
+    },
+    {
+      $sort: { priority: -1, messageLength: -1 }
+    },
+    {
+      $project: { messageLength: 0 }
+    }
+  ]);
+  console.log("HOLA  : ",data);
   const user = await User.find({});
   const updatedData = data.map(u => ({
-    ...u._doc, // Spread the existing properties of the document
-    photo: u.photo.split('=')[1] // Extract the ID after '='
+    ...u, // Spread the existing properties of the document
+    photo: u.photo ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
   }));
   console.log("updateData : ", updatedData);
   res.render("./MyStudentFamily/index", {
@@ -57,12 +70,24 @@ router.get("/", asyncWrap(async (req, res) => {
 
 //update Route
 router.get("/edit", isLoggedin, asyncWrap(async (req, res) => {
-  const data = await MSF.find().sort({ priority: -1 });
+  const data = await MSF.aggregate([
+    {
+      $addFields: {
+        messageLength: { $strLenCP: { $ifNull: ["$message", ""] } }
+      }
+    },
+    {
+      $sort: { priority: -1, messageLength: -1 }
+    },
+    {
+      $project: { messageLength: 0 }
+    }
+  ]);
+  console.log("HOLA  : ",data);
   const updatedData = data.map(u => ({
-    ...u._doc, // Spread the existing properties of the document
-    photo: u.photo.split('=')[1] // Extract the ID after '='
+    ...u, // Spread the existing properties of the document
+    photo: u.photo ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
   }));
-
   const user = await User.find({});
   res.render("./MyStudentFamily/show", {
     data, updatedData, facebook: user[0].facebook,

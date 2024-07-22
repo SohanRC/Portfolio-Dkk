@@ -41,7 +41,57 @@
 
 
         <section class="main-section">
+            <% if(data.type=="Editor" ) {%>
 
+                <form method="POST" action="/publications/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+
+                    <div class="row">
+                        <div><br><br>
+                            <h2>Update Publications</h2> <br><br>
+                            <div class="mb-3">
+                                <label for="type" class="form-label">publication Type </label>
+                                <input type="text" class="form-control" id="type" name="newpublication[type]"
+                                    value="<%=data.type%>" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title" name="newpublication[title]" required
+                                    value="<%=data.title%>">
+                                <div class="invalid-feedback">
+                                    Please enter a valid Title.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="link" class="form-label">Image link</label>
+                                <input type="text" id="link" class="form-control" name="newpublication[link]"
+                                    value=<%=data.link%>>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" id="year" class="form-control" name="newpublication[year]"  value="<%=data.year%>" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Year.
+                                </div>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="priority" class="form-label">Priority</label>
+                                <input type="text" id="priority" class="form-control" name="newpublication[priority]"  value="<%=data.priority%>" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Priority.
+                                </div>
+                            </div>
+    
+                            <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
+                        </div>
+                    </div>
+    
+                </form>
+
+
+                <% }else{ %>
+                    
             <form method="POST" action="/publications/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
 
                 <div class="row">
@@ -120,6 +170,7 @@
                 </div>
 
             </form>
+            <% } %>
             <br><br><br>
         </section>
 

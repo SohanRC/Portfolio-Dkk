@@ -95,7 +95,7 @@
                     reflects my commitment to pushing the boundaries of research and innovation in the field of
                     engineering and mathematics.</p> -->
 
-                <h2>Interests</h2>
+                <h2>Area of Interests</h2>
                 <hr style="width: 100%">
                 <ul>
                     <%   data.forEach((e)=>{ %>
@@ -126,6 +126,17 @@
                     <li>➤ B.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
                     <li>➤ B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta
                         University).</li> -->
+                </ul>
+
+                <h2>Teaching</h2>
+                <hr style="width: 100%">
+                <ul>
+                    <%   data.forEach((e)=>{ %>
+                        <%  if(e.type == "Teaching") {  %>
+                            <li>➤ <%= e.description %></li>
+                        <% } %>
+                    <%  }) %>
+                   
                 </ul>
 
                 <h2>Experience</h2>
