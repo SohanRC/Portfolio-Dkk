@@ -43,96 +43,132 @@
         <a href="/trekking/new"><button
                 style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Add
                 Post</button></a><br><br>
-        <h1 id="Trekking">Trekking</h1>
-        <hr>
-        <section class="main-section">
-            <%for(trekking of data){%>
-                <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
-                    <div class="card">
-                        <% if(trekking.image[0]){ %>
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
-                                class="card-img-top" alt="..." style="width: 390px;">
-                            <% } %>
-                                <div class="card-body">
-                                    <h2 class="card-title">Description</h2>
-                                    <p class="card-text">
-                                        <%=trekking.description%>
-                                    </p>
-                                    <p><b>Location</b>: <%=trekking.location%>
-                                    </p>
-                                    <p><b>Year</b>:<%=trekking.year%>
-                                    </p>
-                                </div>
-                                <div class="buttons" style="display: flex;">
-                                    <a href="/trekking/<%=trekking._id%>/show"
-                                        style="text-decoration: none;color: black;"><button
-                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                                    <a href="/trekking/<%=trekking._id%>/edit"><button
-                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                                    <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
-                                        <button
-                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                                    </form>
-                                </div>
-                    </div>
-                    <%}}%>
 
-        </section>
+        <h1 id="Trekking" style="text-align: center;"> My Trekking Experience</h1>
+       
+        <p id="Trekking">
+            <% pera.forEach((e)=>{ %>
+                <% if(e.type=="TrekExp" ) { %>
+                    <%= e.description %>
 
 
-        <h1 id="Trekking">Riding</h1>
-        <hr>
-        <section class="main-section">
-            <%for(trekking of data){%>
-                <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
-                    <div class="card">
-                        <% if(trekking.image[0]){ %>
-                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
-                                class="card-img-top" alt="..." style="width: 390px;">
-                            <% } %>
+                    <!-- My trekking experiences have been incredibly rewarding, offering not just physical challenges but also profound personal growth. Each trek has taught me the importance of perseverance, resilience, and teamwork. I always encourage my students to participate in trekking because it fosters good character and a leadership mentality. Trekking also deepens our appreciation for nature, allowing us to connect with the environment and understand the importance of preserving it. Through these adventures, I hope to inspire my students to embrace the great outdoors and cultivate a strong, compassionate spirit. -->
+        </p>
+        <div>
+            <span><a href="/EditHome/edit/<%= e._id %>" style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white; margin: 1rem;
+                border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+        </div>
+        <% } %>
+            <% }) %>
+                <hr>
+                <section class="main-section">
+                    <%for(trekking of data){%>
+                        <%if(trekking.type=="Trekking"||trekking.type=="trekking"){%>
+                            <div class="card">
+                                <% if(trekking.image[0]){ %>
+                                    <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                                        class="card-img-top" alt="..." style="width: 390px;">
+                                    <% } %>
+                                        <div class="card-body">
+                                            <h2 class="card-title">Description</h2>
+                                            <p class="card-text">
+                                                <%=trekking.description%>
+                                            </p>
+                                            <p><b>Location</b>: <%=trekking.location%>
+                                            </p>
+                                            <p><b>Year</b>:<%=trekking.year%>
+                                            </p>
+                                        </div>
+                                        <div class="buttons" style="display: flex;">
+                                            <a href="/trekking/<%=trekking._id%>/show"
+                                                style="text-decoration: none;color: black;"><button
+                                                    style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                            <a href="/trekking/<%=trekking._id%>/edit"><button
+                                                    style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                            <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
+                                                <button
+                                                    style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                            </form>
+                                        </div>
+                            </div>
+                            <%}}%>
 
-                                <div class="card-body">
-                                    <h2 class="card-title">Description</h2>
-                                    <p class="card-text">
-                                        <%=trekking.description%>
-                                    </p>
-                                    <p><b>Location</b>: <%=trekking.location%>
-                                    </p>
-                                    <p><b>Year</b>:<%=trekking.year%>
-                                    </p>
-                                </div>
-                                <div class="buttons" style="display: flex;">
-                                    <a href="/trekking/<%=trekking._id%>/show"
-                                        style="text-decoration: none;color: black;"><button
-                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
-                                    <a href="/trekking/<%=trekking._id%>/edit"><button
-                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
-                                    <form method="POST" action="/trekking/<%=trekking._id%>?_method=DELETE">
-                                        <button
-                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
-                                    </form>
-                                </div>
-                    </div>
-                    <%}}%>
-
-        </section>
+                </section>
 
 
-        <footer>
-            <h2>Dr. Dipak Kumar Kole</h2>
-            <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
-            <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
-            <div class="links">
-                <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
+                <h1 id="Trekking" style="text-align: center;">My Ridding Experience</h1>
+                <p id="Trekking">
+                    <% pera.forEach((e)=>{ %>
+                        <% if(e.type=="RidExp" ) { %>
+                            <%= e.description %>
+
+
+                            <!-- My bike riding experiences have been filled with excitement and joy, offering a sense of freedom and adventure. Each ride, whether through bustling streets or serene countryside, brings a unique thrill and a refreshing break from routine. I always ensure to ride with all the necessary bike gear and accessories for safety. I advise everyone to do the same, as it not only enhances the riding experience but also ensures a safe journey. Through biking, I have discovered a wonderful way to explore new places, stay fit, and enjoy the beauty of the outdoors. -->
+                </p>
+                <div>
+                    <span><a href="/EditHome/edit/<%= e._id %>" style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;margin: 1rem;
+        border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                </div>
+                <% } %>
+                    <% }) %>
+                        <hr>
+                        <section class="main-section">
+                            <%for(trekking of data){%>
+                                <%if(trekking.type!="Trekking"&&trekking.type!="trekking"){%>
+                                    <div class="card">
+                                        <% if(trekking.image[0]){ %>
+                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=trekking.image[0].url%>.png"
+                                                class="card-img-top" alt="..." style="width: 390px;">
+                                            <% } %>
+
+                                                <div class="card-body">
+                                                    <h2 class="card-title">Description</h2>
+                                                    <p class="card-text">
+                                                        <%=trekking.description%>
+                                                    </p>
+                                                    <p><b>Location</b>: <%=trekking.location%>
+                                                    </p>
+                                                    <p><b>Year</b>:<%=trekking.year%>
+                                                    </p>
+                                                </div>
+                                                <div class="buttons" style="display: flex;">
+                                                    <a href="/trekking/<%=trekking._id%>/show"
+                                                        style="text-decoration: none;color: black;"><button
+                                                            style="background-color: rgb(179, 179, 179); color: black; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1.1rem;">Details</button></a>
+                                                    <a href="/trekking/<%=trekking._id%>/edit"><button
+                                                            style="background-color: black;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Edit</button></a>
+                                                    <form method="POST"
+                                                        action="/trekking/<%=trekking._id%>?_method=DELETE">
+                                                        <button
+                                                            style="background-color: red;color: white; border-radius: 5px; border: none; padding: 5px; margin: 10px; font-size: 1rem;">Delete</button>
+                                                    </form>
+                                                </div>
+                                    </div>
+                                    <%}}%>
+
+                        </section>
+
+
+                        <footer>
+                            <h2>Dr. Dipak Kumar Kole</h2>
+                            <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in,
+                                dipak.kole@gmail.com </h3>
+                            <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal,
+                                India.</h3>
+                            <div class="links">
+                                <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a> -->
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
-                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
-            </div>
-            <hr style="width: 100%;">
-            <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
-        </footer>
+                                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
+                                        class="fa-brands fa-google-scholar"></i></a>
+                                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i
+                                        class="fi fi-brands-linkedin"></i></a>
+                                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i
+                                        class="fi fi-brands-facebook"></i></a>
+                            </div>
+                            <hr style="width: 100%;">
+                            <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
+                        </footer>
     </div>
 </body>
 
