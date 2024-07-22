@@ -38,7 +38,7 @@ router.get("/new",isLoggedin, async(req, res) => {
   res.render("./Publications/create", { type,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin, });
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar, });
 });
 
 
@@ -60,7 +60,7 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   res.render("./Publications/edit", { data: data[0],
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin, });
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar, });
 }));
 
 router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {

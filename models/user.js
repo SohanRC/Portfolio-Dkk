@@ -6,7 +6,8 @@ const User = new Schema({
     dp:String,
     facebook:String,
     twitter:String,
-    linkedin:String,
+    linkedin: String,
+    googleScholar:String,
 });
 
 User.plugin(passportLocalMongoose);

@@ -65,6 +65,7 @@ router.get("/", asyncWrap(async (req, res) => {
     updatedData, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -93,6 +94,7 @@ router.get("/edit", isLoggedin, asyncWrap(async (req, res) => {
     data, updatedData, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -112,6 +114,7 @@ router.get("/:id/show", isLoggedin, asyncWrap(async (req, res) => {
     updatedData: updatedData[0], facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -159,6 +162,7 @@ router.get("/:id/edit", isLoggedin, asyncWrap(async (req, res) => {
     data: data[0], facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
