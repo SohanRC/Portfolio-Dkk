@@ -42,168 +42,190 @@
 
         <section class="main-section">
             <div class="buttons">
+                <a href="/publications#Editor"><button>Editor Of Books</button></a>
                 <a href="/publications/edit#Journal"><button>Journals</button></a>
-                <a href="/publications/edit#Conference"><button>conference</button></a>
+                <a href="/publications/edit#Conference"><button>Conference</button></a>
                 <a href="/publications/edit#Books"><button>Books</button></a>
             </div>
-            <div class="publication">
+        <div class="publication">
 
-                <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-                <h1 id="Journal">Journal Publications</h1>
-                <hr><br>
-                <a href="/publications/new?type=Journal"><button
-                        style="background-color: rgb(179, 179, 179); color: black;">Add Journal</button></a>
 
-                <%for(journal of data){ %>
-                    <% let type=journal.type %>
+    <!-- ---------------- Editor Of Books Begins ----------------------------- -->
+    <h1 id="Editor">Editor Of Books</h1>
+    <hr>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+        <div class="img-part">
+        <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+            style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
+        </div>
+        <div class="author-part" style="display: flex; flex-direction: row;">
+        <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of 4th International Conference
+            on Frontiers in
+            Computing and Systems: COMSYS 2023, Volume 2 (Lecture Notes in Networks and Systems Book 975)
+            <span>&#x275E</span>
+        </h4>
+        </div>
+    </div>
+    </div>
+    <!-- ------------------------- Editor Of Books Ends ---------------------------- -->
 
-                        <%if(type==="Journal"){%>
-                            <div class="card">
-                                <div class="name">
-                                    <b>
-                                        <p style="font-weight: 600;">
-                                            <%=journal.author%>
-                                        </p>
-                                    </b>
-                                    <p>
-                                        <span id="date">
-                                            <strong style="font-weight: 600;">
-                                                <%=journal.date%> :
-                                            </strong>
-                                        </span>
-                                        <%=journal.location%>
-                                    </p>
-                                </div>
+        <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+        <h1 id="Journal">Journal Publications</h1>
+        <hr><br>
+        <a href="/publications/new?type=Journal"><button
+                style="background-color: rgb(179, 179, 179); color: black;">Add Journal</button></a>
 
-                                <div class="description">
-                                    <h2 style="font-weight: 700; margin: 5px;">
-                                        <%=journal.title%>
-                                    </h2>
-                                    <hr>
+        <%for(journal of data){ %>
+            <% let type=journal.type %>
 
-                                    <p>
-                                        <%=journal.description%>
-                                    </p>
-                                    <div class="buttons" style="display: flex;">
-                                        <a href="<%=journal.link%>" id="googleScholar"
-                                            style="margin-right:5px ;">Details</a>
-                                        <a href="/publications/<%=journal._id%>/edit"><button
-                                                style="background-color: black;">Edit</button></a>
-                                        <form method="POST" action="/publications/<%=journal._id%>?_method=DELETE">
-                                            <button style="background-color: red;">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                <%if(type==="Journal"){%>
+                    <div class="card">
+                        <div class="name">
+                            <b>
+                                <p style="font-weight: 600;">
+                                    <%=journal.author%>
+                                </p>
+                            </b>
+                            <p>
+                                <span id="date">
+                                    <strong style="font-weight: 600;">
+                                        <%=journal.date%> :
+                                    </strong>
+                                </span>
+                                <%=journal.location%>
+                            </p>
+                        </div>
+
+                        <div class="description">
+                            <h2 style="font-weight: 700; margin: 5px;">
+                                <%=journal.title%>
+                            </h2>
+                            <hr>
+
+                            <p>
+                                <%=journal.description%>
+                            </p>
+                            <div class="buttons" style="display: flex;">
+                                <a href="<%=journal.link%>" id="googleScholar"
+                                    style="margin-right:5px ;">Details</a>
+                                <a href="/publications/<%=journal._id%>/edit"><button
+                                        style="background-color: black;">Edit</button></a>
+                                <form method="POST" action="/publications/<%=journal._id%>?_method=DELETE">
+                                    <button style="background-color: red;">Delete</button>
+                                </form>
                             </div>
-                            <%}%>
-                                <%}%>
+                        </div>
+                    </div>
+                    <%}%>
+        <%}%>
 
-                                    <!-- **************Publications in International Conferences BEGIN*********** -->
-                                    <h1 id="Conference">Publications in International Conferences</h1>
-                                    <hr><br>
-                                    <a href="/publications/new?type=Conference"><button
-                                            style="background-color: rgb(179, 179, 179); color: black;">Add
-                                            Conference</button></a>
+        <!-- **************Publications in International Conferences BEGIN*********** -->
+        <h1 id="Conference">Publications in International Conferences</h1>
+        <hr><br>
+        <a href="/publications/new?type=Conference"><button
+                style="background-color: rgb(179, 179, 179); color: black;">Add
+                Conference</button></a>
 
-                                    <%for(journal of data){ %>
-                                        <% let type=journal.type %>
+        <%for(journal of data){ %>
+            <% let type=journal.type %>
 
-                                            <%if(type==="Conference"){%>
-                                                <div class="card">
-                                                    <div class="name">
-                                                        <b>
-                                                            <p style="font-weight: 600;">
-                                                                <%=journal.author%>
-                                                            </p>
-                                                        </b>
-                                                        <p>
-                                                            <span id="date">
-                                                                <strong style="font-weight: 600;">
-                                                                    <%=journal.date%> :
-                                                                </strong>
-                                                            </span>
-                                                            <%=journal.location%>
-                                                        </p>
-                                                    </div>
+                <%if(type==="Conference"){%>
+                    <div class="card">
+                        <div class="name">
+                            <b>
+                                <p style="font-weight: 600;">
+                                    <%=journal.author%>
+                                </p>
+                            </b>
+                            <p>
+                                <span id="date">
+                                    <strong style="font-weight: 600;">
+                                        <%=journal.date%> :
+                                    </strong>
+                                </span>
+                                <%=journal.location%>
+                            </p>
+                        </div>
 
-                                                    <div class="description">
-                                                        <h2 style="font-weight: 700; margin: 5px;">
-                                                            <%=journal.title%>
-                                                        </h2>
-                                                        <hr>
+                        <div class="description">
+                            <h2 style="font-weight: 700; margin: 5px;">
+                                <%=journal.title%>
+                            </h2>
+                            <hr>
 
-                                                        <p>
-                                                            <%=journal.description%>
-                                                        </p>
-                                                        <div class="buttons" style="display: flex;">
-                                                            <a href="<%=journal.link%>" id="googleScholar"
-                                                                style="margin-right:5px ;">Details</a>
-                                                            <a href="/publications/<%=journal._id%>/edit"><button
-                                                                    style="background-color: black;">Edit</button></a>
-                                                            <form method="POST"
-                                                                action="/publications/<%=journal._id%>?_method=DELETE">
-                                                                <button style="background-color: red;">Delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <%}%>
-                                                    <%}%>
+                            <p>
+                                <%=journal.description%>
+                            </p>
+                            <div class="buttons" style="display: flex;">
+                                <a href="<%=journal.link%>" id="googleScholar"
+                                    style="margin-right:5px ;">Details</a>
+                                <a href="/publications/<%=journal._id%>/edit"><button
+                                        style="background-color: black;">Edit</button></a>
+                                <form method="POST"
+                                    action="/publications/<%=journal._id%>?_method=DELETE">
+                                    <button style="background-color: red;">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+        <%}%>
 
-                                                        <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-                                                        <h1 id="Books">Book Chapters Published</h1>
-                                                        <hr><br>
-                                                        <a href="/publications/new?type=Book"><button
-                                                                style="background-color: rgb(179, 179, 179); color: black;">Add
-                                                                Book</button></a>
+        <!-- **************Book Chapters BEGIN*********** -->
+        <h1 id="Books">Book Chapters Published</h1>
+        <hr><br>
+        <a href="/publications/new?type=Book"><button
+                style="background-color: rgb(179, 179, 179); color: black;">Add
+                Book</button></a>
 
-                                                        <%for(journal of data){ %>
-                                                            <% let type=journal.type %>
+        <%for(journal of data){ %>
+            <% let type=journal.type %>
 
-                                                                <%if(type==="Book"){%>
-                                                                    <div class="card">
-                                                                        <div class="name">
-                                                                            <b>
-                                                                                <p style="font-weight: 600;">
-                                                                                    <%=journal.author%>
-                                                                                </p>
-                                                                            </b>
-                                                                            <p>
-                                                                                <span id="date">
-                                                                                    <strong style="font-weight: 600;">
-                                                                                        <%=journal.date%> :
-                                                                                    </strong>
-                                                                                </span>
-                                                                                <%=journal.location%>
-                                                                            </p>
-                                                                        </div>
+                <%if(type==="Book"){%>
+                    <div class="card">
+                        <div class="name">
+                            <b>
+                                <p style="font-weight: 600;">
+                                    <%=journal.author%>
+                                </p>
+                            </b>
+                            <p>
+                                <span id="date">
+                                    <strong style="font-weight: 600;">
+                                        <%=journal.date%> :
+                                    </strong>
+                                </span>
+                                <%=journal.location%>
+                            </p>
+                        </div>
 
-                                                                        <div class="description">
-                                                                            <h2 style="font-weight: 700; margin: 5px;">
-                                                                                <%=journal.title%>
-                                                                            </h2>
-                                                                            <hr>
+                        <div class="description">
+                            <h2 style="font-weight: 700; margin: 5px;">
+                                <%=journal.title%>
+                            </h2>
+                            <hr>
 
-                                                                            <p>
-                                                                                <%=journal.description%>
-                                                                            </p>
-                                                                            <div class="buttons" style="display: flex;">
-                                                                                <a href="<%=journal.link%>"
-                                                                                    id="googleScholar"
-                                                                                    style="margin-right:5px ;">Details</a>
-                                                                                <a
-                                                                                    href="/publications/<%=journal._id%>/edit"><button
-                                                                                        style="background-color: black;">Edit</button></a>
-                                                                                <form method="POST"
-                                                                                    action="/publications/<%=journal._id%>?_method=DELETE">
-                                                                                    <button
-                                                                                        style="background-color: red;">Delete</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <%}%>
-                                                                        <%}%>
+                            <p>
+                                <%=journal.description%>
+                            </p>
+                            <div class="buttons" style="display: flex;">
+                                <a href="<%=journal.link%>"
+                                    id="googleScholar"
+                                    style="margin-right:5px ;">Details</a>
+                                <a
+                                    href="/publications/<%=journal._id%>/edit"><button
+                                        style="background-color: black;">Edit</button></a>
+                                <form method="POST"
+                                    action="/publications/<%=journal._id%>?_method=DELETE">
+                                    <button
+                                        style="background-color: red;">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+        <%}%>
 
             </div>
         </section>
