@@ -29,6 +29,7 @@ router.get("/", asyncWrap(async (req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -40,7 +41,7 @@ router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   res.render("./News/show", { data, cloud_name ,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,});
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar,});
 }));
 
 // // Create Route --> its have to be before show or new will be detected as id
@@ -85,7 +86,7 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   res.render("./News/edit", { data: data[0],
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin, });
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar, });
 }));
 
 router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {

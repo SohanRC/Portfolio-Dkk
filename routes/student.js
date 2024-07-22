@@ -47,6 +47,7 @@ router.get("/", asyncWrap(async (req, res) => {
     data, cloud_name, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -62,6 +63,7 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
     data: data[0], cloud_name, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 }));
 
@@ -72,7 +74,7 @@ router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
   const user = await User.find({});
   res.render("./Student/show", { data, cloud_name, facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin, });
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar, });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
@@ -80,7 +82,7 @@ router.get("/new",isLoggedin, async(req, res) => {
   const user = await User.find({});
   res.render("./Student/create",{facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,});
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar,});
 });
 
 
@@ -100,7 +102,7 @@ router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
   const user = await User.find({});
   res.render("./Student/edit", { data: data[0], cloud_name, facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,});
+    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar,});
 }));
 
 router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {

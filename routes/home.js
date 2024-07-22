@@ -40,7 +40,8 @@ router.get("/", async (req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    cloud_name
+    cloud_name,
+    googleScholar : user[0].googleScholar,
   });
 
 });
@@ -56,7 +57,8 @@ router.get("/edit",isLoggedin, async (req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    cloud_name
+    cloud_name,
+    googleScholar : user[0].googleScholar,
   });
 
 });
@@ -69,13 +71,14 @@ router.get("/editlinks",isLoggedin, async (req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 
 });
 
 router.post("/editlinks",isLoggedin, async (req, res) => {
-  const { facebook, linkedin, twitter } = req.body;
-  const user = await User.findOneAndUpdate({ username: "DKK" }, { $set: { facebook, twitter, linkedin } });
+  const { facebook, linkedin, twitter, googleScholar } = req.body;
+  const user = await User.findOneAndUpdate({ username: "DKK" }, { $set: { facebook, twitter, linkedin, googleScholar } });
   res.redirect("/edit");
 
 });
@@ -92,6 +95,7 @@ router.get("/EditHome/add/:place",isLoggedin, async(req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
+    googleScholar : user[0].googleScholar,
   });
 })
 
@@ -105,6 +109,7 @@ router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
       facebook: user[0].facebook,
       twitter: user[0].twitter,
       linkedin: user[0].linkedin,
+      googleScholar : user[0].googleScholar,
     });
   } catch (error) {
     console.log("Server Error");
