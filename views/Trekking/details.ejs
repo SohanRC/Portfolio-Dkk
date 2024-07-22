@@ -94,8 +94,15 @@
             </p>
             <p><b>Location</b>: <%=data.location%>
             </p>
-                    <p><b>Year</b>: <%=data.year%>
-                    </p>
+            <p><b>Year</b>: <%=data.year%>
+            </p>
+            <%if(data.link) {%>
+                <button style="background-color: #2962ff; outline: none; border: none; font-size: 1rem; padding: 5px; border-radius: 5px;">
+                    <a href="<%= data.link %>" style="text-decoration: none; color: white; outline: none; border: none;">
+                        Click here to visit Post
+                    </a>
+                </button>
+            <% }%>
 
                     <h2 id="Gallery">Gallery</h2>
                     <hr>
@@ -105,13 +112,15 @@
                             <div class="card" style="width: auto; cursor: pointer;">
                                 <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=imgs.url%>.png"
                                     class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <% if(imgs.caption) {%>
-                                            <p><%=imgs.caption%></p>
-                                            <% } %>
-                                    </div>
-
+                                <div class="card-body">
+                                    <% if(imgs.caption) {%>
+                                        <p>
+                                            <%=imgs.caption%>
+                                        </p>
+                                        <% } %>
                                 </div>
+
+                            </div>
 
                             <%}%>
                     </section>
@@ -128,9 +137,12 @@
                 <!-- <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="" style="font-size: 2rem; color: white;"><i class="fi fi-brands-github"></i></a> -->
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
-                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
+                        class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-linkedin"></i></a>
+                <a href="<%=facebook %>" style="font-size: 2rem; color: white;"><i
+                        class="fi fi-brands-facebook"></i></a>
             </div>
             <hr style="width: 100%;">
             <p style="margin: 0.3rem 0;">@ Dr.Dipak Kumar Kole | 2024</p>
