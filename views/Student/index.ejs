@@ -40,18 +40,23 @@
         <h1 id="Trekking">My PhD Scholar</h1>
         <hr>
 
-        <section class="main-section">
+        <section class="main-section" style="justify-content: center; align-items: flex-start;">
             <%for(student of data){%>
                 <a href="/student/<%=student._id%>/show" style="text-decoration: none;color: black;">
-                    <div class="card">
+                    <div class="card" style="width: 350px;">
                         <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=student.image%>.png"
-                            class="card-img-top" alt="...">
+                            class="card-img-top" alt="..."
+                            >
                         <div class="card-body">
                             <p><b>Name</b>: <%=student.name%>
                             </p>
                             <p><b>PhD Topic</b>: <%=student.phd%> days</p>
                             <p><b>University</b>:<%=student.university%>
                             </p>
+                        </div>
+                        <div style="display: flex; justify-content: center;">
+                        <a href="/student/<%=student._id%>/show"><button style="background-color: #2962ff; padding: 5px; border: none; border-radius: 5px; margin: 5px; color: white; font-size: 1rem; cursor: pointer;
+                        ">Visit Profile</button></a>
                         </div>
                     </div>
                 </a>

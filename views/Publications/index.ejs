@@ -39,11 +39,58 @@
 
     <section class="main-section">
       <div class="buttons">
-        <a href="/publications#Journal"><button>Journals</button></a>
-        <a href="/publications#Conference"><button>conference</button></a>
+        <a href="/publications#Editor"><button>Editor Of Books</button></a>
         <a href="/publications#Books"><button>Books</button></a>
+        <a href="/publications#Journal"><button>Journals</button></a>
+        <a href="/publications#Conference"><button>Conference</button></a>
       </div>
       <div class="publication">
+
+        
+
+        <!-- ---------------- Editor Of Books Begins ----------------------------- -->
+        <h1 id="Editor">Editor Of Books</h1>
+        <hr>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+            <div class="img-part">
+              <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
+            </div>
+            <div class="author-part" style="display: flex; flex-direction: row;">
+              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of 4th International Conference
+                on Frontiers in
+                Computing and Systems: COMSYS 2023, Volume 2 (Lecture Notes in Networks and Systems Book 975)
+                <span>&#x275E</span>
+              </h4>
+            </div>
+          </div>
+          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+            <div class="img-part">
+              <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
+            </div>
+            <div class="author-part" style="display: flex; flex-direction: row;">
+              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of 4th International Conference
+                on Frontiers in
+                Computing and Systems: COMSYS 2023, Volume 2 (Lecture Notes in Networks and Systems Book 975)
+                <span>&#x275E</span>
+              </h4>
+            </div>
+          </div>
+          <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+            <div class="img-part">
+              <img src="https://m.media-amazon.com/images/I/61HrLVIlsyL._SY466_.jpg" alt=""
+              style="height:300px; width: 270px;object-position: center center; border-radius: 20px;">
+            </div>
+            <div class="author-part" style="display: flex; flex-direction: row;">
+              <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>Proceedings of International Conference on Frontiers in Computing and Systems: COMSYS 2020: 1255 (Advances in Intelligent Systems and Computing, 1255)
+                <span>&#x275E</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <!-- ------------------------- Editor Of Books Ends ---------------------------- -->
 
         <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
         <h1 id="Journal">Journal Publications</h1>
@@ -82,8 +129,8 @@
                   <a href="<%=journal.link%>" id="googleScholar">Details</a>
                 </div>
               </div>
-              <%}%>
-                <%}%>
+            <%}%>
+        <%}%>
 
 
 
@@ -124,49 +171,50 @@
                             <a href="<%=journal.link%>" id="googleScholar">Details</a>
                           </div>
                         </div>
-                        <%}%>
-                          <%}%>
+                      <%}%>
+                  <%}%>
 
 
-                            <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
-                            <h1 id="Books">Book Chapters Published</h1>
-                            <hr>
+       <!-- **************JOURNAL PUBLICATIONS BEGIN*********** -->
+        <h1 id="Books">Book Chapters Published</h1>
+        <hr>
 
-                            <%for(journal of data){ %>
-                              <% let type=journal.type %>
+        <%for(journal of data){ %>
+          <% let type=journal.type %>
 
-                                <%if(type==="Book"){%>
-                                  <div class="card">
-                                    <div class="name">
-                                      <b>
-                                        <p style="font-weight: 600;">
-                                          <%=journal.author%>
-                                        </p>
-                                      </b>
-                                      <p>
-                                        <span id="date">
-                                          <strong style="font-weight: 600;">
-                                            <%=journal.date%> :
-                                          </strong>
-                                        </span>
-                                        <%=journal.location%>
-                                      </p>
-                                    </div>
+            <%if(type==="Book"){%>
+              <div class="card">
+                <div class="name">
+                  <b>
+                    <p style="font-weight: 600;">
+                      <%=journal.author%>
+                    </p>
+                  </b>
+                  <p>
+                    <span id="date">
+                      <strong style="font-weight: 600;">
+                        <%=journal.date%> :
+                      </strong>
+                    </span>
+                    <%=journal.location%>
+                  </p>
+                </div>
 
-                                    <div class="description">
-                                      <h2 style="font-weight: 700; margin: 5px;">
-                                        <%=journal.title%>
-                                      </h2>
-                                      <hr>
+                <div class="description">
+                  <h2 style="font-weight: 700; margin: 5px;">
+                    <%=journal.title%>
+                  </h2>
+                  <hr>
 
-                                      <p>
-                                        <%=journal.description%>
-                                      </p>
-                                      <a href="<%=journal.link%>" id="googleScholar">Details</a>
-                                    </div>
-                                  </div>
-                                  <%}%>
-                                    <%}%>
+                  <p>
+                    <%=journal.description%>
+                  </p>
+                  <a href="<%=journal.link%>" id="googleScholar">Details</a>
+                </div>
+              </div>
+            <%}%>
+        <%}%>
+                                      
       </div>
 
     </section>

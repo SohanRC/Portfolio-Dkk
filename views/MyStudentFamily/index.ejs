@@ -40,12 +40,12 @@
         <h1 id="Trekking">My Student Family</h1>
         <hr>
 
-        <section class="main-section">
+        <section class="main-section" style="justify-content: center; align-items: flex-start;">
             <%for(student of updatedData){%>
                 <%if(student.view==true){%>
                     <div class="card" style="display: flex; flex-direction: column; align-items: center;">
                         <img src="https://drive.google.com/thumbnail?id=<%=student.photo%>" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <div class="card-body" style="align-self: flex-start; margin-top: 10px;">
                             <p><b>Name</b>: <%=student.name%></p>
                             <p><b>Organization </b>:<%=student.org%>
                             </p>
@@ -59,7 +59,7 @@
                             <%}%>
                         </div>
                         <%if(student.link){%>
-                        <a href="<%=student.link%>"><button style="background-color: #2962ff; padding: 5px; border: none; border-radius: 5px; margin: 5px;">Visit Profile</button></a>
+                        <a href="<%=student.link%>"><button style="background-color: #2962ff; padding: 5px; border: none; border-radius: 5px; margin: 5px; color: white; font-size: 1rem; cursor: pointer;">Visit Profile</button></a>
                     <%}%>
                     </div>
                 <%}}%>

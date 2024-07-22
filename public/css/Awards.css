@@ -89,18 +89,18 @@ nav h1{
 }
 
 .routes.active{
-    height: 550px;
+    height: 450px;
     transition: height 0.2s ease-in-out;
 }
 
 ul{
     list-style: none;
     display: flex;
-    gap: 2rem;
-    font-size: 1.2rem;
+    gap: 1rem;
+    font-size: 1rem;
 }
 
-@media screen and (max-width : 1400px){
+@media screen and (max-width : 1270px){
     .routes{
         position: absolute;
         top: 100%;
