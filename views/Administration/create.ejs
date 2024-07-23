@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="/homepage.css">
-    <link rel="stylesheet" href="/Awards.css">
+    <link rel="stylesheet" href="/publications.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <base href="/" /> <!-- for local host -->
-    <script src="https://kit.fontawesome.com/43728a2927.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,15 +21,15 @@
                 <div class="routes">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="/publications">Publications</a></li>
+                        <li ><a href="/publications">Publications</a></li>
                         <li><a href="/activities">Activities</a></li>
-                        <li style="border-bottom: 2px solid #2962ff;"><a href="/awards">Achievements</a></li>
+                        <li><a href="/awards">Achievements</a></li>
                         <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking</a></li>
                         <li><a href="/dashboard">Dashboard</a></li>
                         <li><a href="/myStudentFamily">My Student Family</a></li>
-                        <li><a href="/administration"> Administration</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/administration"> Administration</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -44,26 +43,45 @@
 
         <section class="main-section" style="padding: 0 10px;">
 
-            <form method="POST" action="awards/<%=data._id%>?_method=PATCH" class="needs-validation" novalidate>
+            <form action="/create" method="post" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div><br><br>
-                        <h2>Update Achievements</h2> <br><br>
-                       
+                        <h2>Add</h2> <br><br>
                         <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input type="text" id="date" class="form-control" name="newaward[date]" required
-                                value="<%=data.date%>">
+                            <label for="type" class="form-label">Type </label>
+                            <input type="text" class="form-control" id="type" name="type"
+                                value="<%= data %>" readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Description</label>
+                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
+                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" required></textarea>
+                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
                             <div class="invalid-feedback">
-                                Please enter a valid Date.
+                                Please enter a valid Description.
                             </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
-                            <textarea name="newaward[description]" class="form-control" id="description" cols="60"
-                                rows="10" required><%=data.description%></textarea>
+                            <label for="priority" class="form-label">Priority</label>
+                            <input type="text" class="form-control" id="priority" name="priority"
+                                value="1" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid Number.
+                                </div>
                         </div>
+
+                        <% if(data=="Experience") {%>
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" class="form-control" id="year" name="year" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid Number.
+                                    </div>
+                            </div>
+                            <% } %>
+                       
 
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                     </div>
@@ -78,7 +96,7 @@
             <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
             <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%=twitter%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-twitter"></i></a>
                 <a href="<%=linkedin%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="<%=facebook%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
             </div>

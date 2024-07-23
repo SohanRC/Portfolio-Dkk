@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="/homepage.css">
+    <link rel="stylesheet" href="/publications.css">
+    <script src="https://kit.fontawesome.com/43728a2927.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div class="navbar-container">
+            <nav>
+                <h2>Dr.Dipak Kumar Kole</h2>
+                <div class="routes">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/publications">Publications</a></li>
+                        <li><a href="/activities">Activities</a></li>
+                        <li><a href="/awards">Achievements</a></li>
+                        <li><a href="/student">Scholar</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/trekking">Trekking & Riding</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/myStudentFamily">My Student Family</a></li>
+                        <li style="border-bottom: 2px solid #2962ff;"><a href="/administration"> Administration</a></li>
+                    </ul>
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+
+        <section class="main-section">
+            <div class="biography" style="align-items: flex-start;">
+                <div>
+                    <h2 style="text-align: left;">Current Administrative Responsibilities</h2>
+                    <hr style="width: 100%">
+                    <ul>
+                        <% data.forEach((e)=>{ %>
+                            <% if(e.type=="currRes" ) { %>
+                                <li>➤ <%= e.description %>
+                                </li>
+                                <% } %>
+                                    <% }) %>
+                    </ul>
+
+                    <!-- // Links -->
+                    <h3 style="font-size: 1.3rem;">Links :</h3>
+                    <ul>
+                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
+                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
+                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
+                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
+                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
+                    </ul>
+
+                    <!-- Documents Links -->
+                    <h3 style="font-size: 1.3rem;">Documents :</h3>
+                    <ul>
+                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
+                                1</a></li>
+                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
+                                1</a></li>
+                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
+                                1</a></li>
+                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
+                                1</a></li>
+                    </ul>
+
+                    <!-- Images -->
+                    <h3 style="font-size: 1.3rem;">Images :</h3>
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                            <div class="img-part">
+                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                                style="height:300px; width: 270px;object-position: center center;
+                                border-radius: 20px;">
+                            </div>
+                            <div class="author-part" style="display: flex; flex-direction: row;">
+                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
+                                  Lorem ipsum dolor sit amet.
+                                  <span>&#x275E</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                            <div class="img-part">
+                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                                style="height:300px; width: 270px;object-position: center center;
+                                border-radius: 20px;">
+                            </div>
+                            <div class="author-part" style="display: flex; flex-direction: row;">
+                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
+                                  Lorem ipsum dolor sit amet.
+                                  <span>&#x275E</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                            <div class="img-part">
+                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                                style="height:300px; width: 270px;object-position: center center;
+                                border-radius: 20px;">
+                            </div>
+                            <div class="author-part" style="display: flex; flex-direction: row;">
+                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
+                                  Lorem ipsum dolor sit amet.
+                                  <span>&#x275E</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                            <div class="img-part">
+                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
+                                style="height:300px; width: 270px;object-position: center center;
+                                border-radius: 20px;">
+                            </div>
+                            <div class="author-part" style="display: flex; flex-direction: row;">
+                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
+                                  Lorem ipsum dolor sit amet.
+                                  <span>&#x275E</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div>
+                    <h2 style="text-align: left;">Past Administrative Responsibilities</h2>
+                    <hr style="width: 100%">
+                    <ul>
+                        <% data.forEach((e)=>{ %>
+                            <% if(e.type=="pastRes" ) { %>
+                                <li>➤ <%= e.description %>
+                                </li>
+                                <% } %>
+                                    <% }) %>
+                    </ul>
+                </div>
+
+
+            </div>
+        </section>
+
+        <footer>
+            <h2>Dr. Dipak Kumar Kole</h2>
+            <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
+            <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
+            <div class="links">
+                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
+                        class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%=linkedin%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
+                <a href="<%=facebook%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+            </div>
+            <hr style="width: 100%;">
+            <p style="margin: 0.3rem 0; color: white;">@ Dr.Dipak Kumar Kole | 2024</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/dp.js"></script>
+</body>
+
+<script>
+    let hamburger = document.querySelector('.hamburger');
+    hamburger.addEventListener('click', () => {
+        let routes = document.querySelector('.routes');
+        routes.classList.toggle('active');
+    })
+
+
+</script>
+
+</html>

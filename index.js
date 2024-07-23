@@ -13,6 +13,7 @@ const news = require("./routes/news.js");
 const awards = require("./routes/awards.js");
 const home = require("./routes/home.js");
 const myStudentFamily = require("./routes/MyStudentFamily.js")
+const administration = require("./routes/administration.js")
 // const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -143,6 +144,7 @@ app.delete("/trekking/:id/image/:imgid", asyncWrap(async (req, res) => {
 }));
 
 // ROUTERRS
+app.use("/administration", administration);
 app.use("/myStudentFamily", myStudentFamily);
 app.use("/publications", publications);
 app.use("/editors", editors);
