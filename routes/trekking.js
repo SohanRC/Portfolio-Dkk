@@ -48,12 +48,12 @@ router.post("/:id/image/:imgid", isLoggedin, asyncWrap(async (req, res) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Trekking.find().sort({ year: -1 });
+  const data = await Trekking.find().sort({ priority: -1, year: -1 });
   const pera = await Home.find();
   const user = await User.find({});
   console.log(data);
   res.render("./Trekking/index", {
-    data,pera, cloud_name,
+    data, pera, cloud_name,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
@@ -80,12 +80,12 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
 
 //update Route
 router.get("/edit", isLoggedin, asyncWrap(async (req, res) => {
-  const data = await Trekking.find().sort({ year: -1 });
+  const data = await Trekking.find().sort({ priority: -1, year: -1 });
   const pera = await Home.find();
   console.log(data);
   const user = await User.find({});
   res.render("./Trekking/show", {
-    data,pera, cloud_name,
+    data, pera, cloud_name,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin, googleScholar: user[0].googleScholar,
