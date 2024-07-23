@@ -15,7 +15,7 @@
 
         <div class="navbar-container">
             <nav>
-                <h2>Dr.Dipak Kumar Kole</h2>
+                <h2>Dr. Dipak Kumar Kole</h2>
                 <div class="routes">
                     <ul>
                         <li><a href="/">Home</a></li>
@@ -25,9 +25,9 @@
                         <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking & Riding</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
                         <li><a href="/myStudentFamily">My Student Family</a></li>
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/administration"> Administration</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -41,115 +41,143 @@
         <section class="main-section">
             <div class="biography" style="align-items: flex-start;">
                 <div>
-                    <h1>Under Construction</h1>
-                    <!-- <h2 style="text-align: left;">Current Administrative Responsibilities</h2>
+                    <h2 style="text-align: left;">Current Administrative Responsibilities</h2>
                     <hr style="width: 100%">
                     <ul>
-                        <% data.forEach((e)=>{ %>
-                            <% if(e.type=="currRes" ) { %>
-                                <li>➤ <%= e.description %>
-                                </li>
-                                <% } %>
-                                    <% }) %>
-                    </ul> -->
+                        <% data.forEach((e) => { %>
+                            <% if (e.type == "currRes") { %>
+                                <li>➤ <%= e.description %></li>
+                            <% } %>
+                        <% }) %>
+                    </ul>
 
-                    <!-- // Links -->
-                    <!-- <h3 style="font-size: 1.3rem;">Links :</h3>
-                    <ul>
-                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
-                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
-                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
-                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
-                        <li>➤ <a href="">Lorem ipsum dolor sit amet.</a></li>
-                    </ul> -->
+                    <!-- Links -->
+                    <% if (adminData.some(e => e.type == "Link")) { %>
+                        <h3 style="font-size: 1.3rem;">Links :</h3>
+                        <ul>
+                            <% adminData.forEach((e) => { %>
+                                <% if (e.type == "Link") { %>
+                                    <li>➤ <a href="<%= e.link %>"><%= e.title %></a></li>
+                                <% } %>
+                            <% }) %>
+                        </ul>
+                    <% } %>
 
                     <!-- Documents Links -->
-                    <!-- <h3 style="font-size: 1.3rem;">Documents :</h3>
-                    <ul>
-                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
-                                1</a></li>
-                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
-                                1</a></li>
-                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
-                                1</a></li>
-                        <li>➤ <a href="https://www.princexml.com/samples/invoice/invoicesample.pdf" target="_blank">Pdf
-                                1</a></li>
-                    </ul> -->
+                    <% if (images.some(img => img.type == "currDocument")) { %>
+                        <h3 style="font-size: 1.3rem;">Documents :</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+                            <% for (let img of images) { %>
+                                <% if (img.type == "currDocument") { %>
+                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                                        <div class="img-part">
+                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
+                                        </div>
+                                        <div class="author-part" style="display: flex; flex-direction: row;">
+                                            <h4 class="" style="text-align: justify; font-weight: 600;">
+                                                <span>&#x275D</span>
+                                                <%= img.caption %>
+                                                <span>&#x275E</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <% } %>
 
                     <!-- Images -->
-                    <!-- <h3 style="font-size: 1.3rem;">Images :</h3>
-                    <div
-                        style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                            <div class="img-part">
-                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                                style="height:300px; width: 270px;object-position: center center;
-                                border-radius: 20px;">
-                            </div>
-                            <div class="author-part" style="display: flex; flex-direction: row;">
-                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
-                                  Lorem ipsum dolor sit amet.
-                                  <span>&#x275E</span>
-                                </h4>
-                            </div>
+                    <% if (images.some(img => img.type == "currImage")) { %>
+                        <h3 style="font-size: 1.3rem;">Images :</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+                            <% for (let img of images) { %>
+                                <% if (img.type == "currImage") { %>
+                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                                        <div class="img-part">
+                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
+                                        </div>
+                                        <div class="author-part" style="display: flex; flex-direction: row;">
+                                            <h4 class="" style="text-align: justify; font-weight: 600;">
+                                                <span>&#x275D</span>
+                                                <%= img.caption %>
+                                                <span>&#x275E</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
                         </div>
-                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                            <div class="img-part">
-                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                                style="height:300px; width: 270px;object-position: center center;
-                                border-radius: 20px;">
-                            </div>
-                            <div class="author-part" style="display: flex; flex-direction: row;">
-                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
-                                  Lorem ipsum dolor sit amet.
-                                  <span>&#x275E</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                            <div class="img-part">
-                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                                style="height:300px; width: 270px;object-position: center center;
-                                border-radius: 20px;">
-                            </div>
-                            <div class="author-part" style="display: flex; flex-direction: row;">
-                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
-                                  Lorem ipsum dolor sit amet.
-                                  <span>&#x275E</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                            <div class="img-part">
-                                <img src="https://m.media-amazon.com/images/I/61a-lTRaBrL._SY466_.jpg" alt=""
-                                style="height:300px; width: 270px;object-position: center center;
-                                border-radius: 20px;">
-                            </div>
-                            <div class="author-part" style="display: flex; flex-direction: row;">
-                                <h4 class="" style="text-align: justify; font-weight: 600;"><span>&#x275D</span>
-                                  Lorem ipsum dolor sit amet.
-                                  <span>&#x275E</span>
-                                </h4>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    
+                    <% } %>
                 </div>
-                <!-- <div>
+                <div>
                     <h2 style="text-align: left;">Past Administrative Responsibilities</h2>
                     <hr style="width: 100%">
                     <ul>
-                        <% data.forEach((e)=>{ %>
-                            <% if(e.type=="pastRes" ) { %>
-                                <li>➤ <%= e.description %>
-                                </li>
-                                <% } %>
-                                    <% }) %>
+                        <% data.forEach((e) => { %>
+                            <% if (e.type == "pastRes") { %>
+                                <li>➤ <%= e.description %></li>
+                            <% } %>
+                        <% }) %>
                     </ul>
-                </div> -->
 
+                    <!-- Links -->
+                    <% if (adminData.some(e => e.type == "pastLink")) { %>
+                        <h3 style="font-size: 1.3rem;">Links :</h3>
+                        <ul>
+                            <% adminData.forEach((e) => { %>
+                                <% if (e.type == "pastLink") { %>
+                                    <li>➤ <a href="<%= e.link %>"><%= e.title %></a></li>
+                                <% } %>
+                            <% }) %>
+                        </ul>
+                    <% } %>
 
+                    <!-- Documents Links -->
+                    <% if (images.some(img => img.type == "pastDocument")) { %>
+                        <h3 style="font-size: 1.3rem;">Documents :</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+                            <% for (let img of images) { %>
+                                <% if (img.type == "pastDocument") { %>
+                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                                        <div class="img-part">
+                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
+                                        </div>
+                                        <div class="author-part" style="display: flex; flex-direction: row;">
+                                            <h4 class="" style="text-align: justify; font-weight: 600;">
+                                                <span>&#x275D</span>
+                                                <%= img.caption %>
+                                                <span>&#x275E</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <% } %>
+
+                    <!-- Images -->
+                    <% if (images.some(img => img.type == "pastImage")) { %>
+                        <h3 style="font-size: 1.3rem;">Images :</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
+                            <% for (let img of images) { %>
+                                <% if (img.type == "pastImage") { %>
+                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
+                                        <div class="img-part">
+                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
+                                        </div>
+                                        <div class="author-part" style="display: flex; flex-direction: row;">
+                                            <h4 class="" style="text-align: justify; font-weight: 600;">
+                                                <span>&#x275D</span>
+                                                <%= img.caption %>
+                                                <span>&#x275E</span>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                    <% } %>
+                </div>
             </div>
         </section>
 
@@ -158,17 +186,16 @@
             <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
             <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
-                        class="fa-brands fa-google-scholar"></i></a>
-                <a href="<%=linkedin%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
-                <a href="<%=facebook%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
+                <a href="<%= googleScholar %>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%= linkedin %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
+                <a href="<%= facebook %>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
             </div>
             <hr style="width: 100%;">
             <p style="margin: 0.3rem 0; color: white;">@ Dr.Dipak Kumar Kole | 2024</p>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/dp.js"></script>
+    <script src="/administration.js"></script>
 </body>
 
 <script>
@@ -177,8 +204,6 @@
         let routes = document.querySelector('.routes');
         routes.classList.toggle('active');
     })
-
-
 </script>
 
 </html>

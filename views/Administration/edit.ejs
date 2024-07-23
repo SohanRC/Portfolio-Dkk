@@ -28,9 +28,9 @@
                         <li><a href="/student">Scholar</a></li>
                         <li><a href="/news">News</a></li>
                         <li><a href="/trekking">Trekking</a></li>
-                        <li><a href="/dashboard">Dashboard</a></li>
                         <li><a href="/myStudentFamily">My Student Family</a></li>
                         <li style="border-bottom: 2px solid #2962ff;"><a href="/administration"> Administration</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
                     </ul>
                 </div>
                 <div class="hamburger">
@@ -44,7 +44,7 @@
 
         <section class="main-section" style="padding: 0 10px;">
 
-            <form method="POST" action="/update/<%= data._id %>?_method=PATCH" class="needs-validation" novalidate>
+            <form method="POST" action="/administration/update/<%= data._id %>?_method=PATCH" class="needs-validation" novalidate>
                 <!-- <form method="POST" action="/publications/?_method=PATCH" class="needs-validation" novalidate> -->
 
                 <div class="row">
@@ -56,15 +56,25 @@
                                 readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="title" class="form-label">Description</label>
+                            <label for="title" class="form-label">Title</label>
 
-                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" name="desc"
-                                required><%= data.description %></textarea>
+                            <textarea name="title" cols="100" rows="20" class="form-control" id="title" 
+                                required><%= data.title %></textarea>
 
                             <div class="invalid-feedback">
-                                Please enter a valid Description.
+                                Please enter a valid Title.
                             </div>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="link" class="form-label">Link</label>
+                            <input type="text" class="form-control" id="link" name="link"
+                                value="<%= data.link %>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid link.
+                            </div>
+                        </div>
+
                         <div class="mb-3">
                             <label for="priority" class="form-label">Priority</label>
                             <input type="text" class="form-control" id="priority" name="priority"
@@ -74,7 +84,6 @@
                             </div>
                         </div>
 
-                        <% if(data.type=="Experience" ) {%>
                             <div class="mb-3">
                                 <label for="year" class="form-label">Year</label>
                                 <input type="text" class="form-control" id="year" name="year" value="<%= data.year %>"
@@ -83,7 +92,6 @@
                                     Please enter a valid Number.
                                 </div>
                             </div>
-                            <% } %>
 
 
                                 <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>

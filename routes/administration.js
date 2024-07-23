@@ -5,6 +5,7 @@ const ExpressError = require("../utils/ExpressError.js");
 // const { HomeSchema } = require("../schemaValidation.js");
 const router = express.Router();
 const Home = require("../models/Home.js");
+const Administration = require("../models/administration.js");
 const User = require("../models/user.js");
 const { isLoggedin } = require("../views/middleware.js");
 const cloudinary = require("cloudinary").v2;
@@ -17,25 +18,71 @@ const cloudinaryConfig = cloudinary.config({
   secure: true
 })
 
-router.post("/home/image",isLoggedin, async (req, res) => {
-  const user = await User.find();
-  const imgid = user[0].dp;
-  cloudinary.uploader.destroy(imgid);
-  await User.updateMany({}, { dp: req.body.public_id });
 
-  // const data = await Trekking.findOneAndUpdate({ _id: user_id }, { $push: { image: req.body.public_id } });
-  // console.log(data);
-  // // res.redirect(`/trekking/${user_id}/edit`);
+
+router.post("/tmc", async (req, res) => {
+  try {
+    const { public_id, type } = req.body;
+
+    if (!public_id || !type) {
+      console.error("public_id and type are required");
+    }
+
+    let user = await User.findOne({ username: "DKK" });
+    if (!user) {
+      console.error("User not found");
+    }
+
+    user.adminImage.push({ url: public_id, type });
+
+    await user.save();
+    return res.send("success");
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
 })
+
+//Add Caption Image
+router.post("/image/:imgid", isLoggedin, asyncWrap(async (req, res) => {
+  let { imgid } = req.params;
+  let { caption } = req.body;
+  let data = await User.findOne({username:"DKK"});
+  let image = data.adminImage;
+  for (img of image) {
+    if (img.url == imgid) {
+      img.caption = caption;
+      break;
+    }
+  }
+ data.adminImage = image;
+  await data.save();
+  res.redirect("/administration/edit");
+}));
+
+
+//Delete Image
+router.delete("/image/:imgid", asyncWrap(async (req, res) => {
+  let { imgid } = req.params;
+  const data = await User.findOneAndUpdate({username:"DKK"},{ $pull: { adminImage:{url: imgid }} });
+  console.log(data);
+  cloudinary.uploader.destroy(imgid);
+  res.redirect("/administration/edit");
+}));
+
+
 
 
 router.get("/", async (req, res) => {
 
   const homeData = await Home.find().sort({ year:-1,priority: -1 });
+  const adminData = await Administration.find().sort({year:-1,priority: -1 });
+  const images=await User.findOne({username:"DKK"});
   const user = await User.find();
 
   res.render("./Administration/index.ejs", {
     data: homeData,
+    adminData,
+    images:images.adminImage,
     dp: user[0].dp,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
@@ -49,10 +96,14 @@ router.get("/", async (req, res) => {
 // Edit Home Route From Dashboard
 router.get("/edit",isLoggedin, async (req, res) => {
   const homeData = await Home.find().sort({year:-1,priority: -1 });
+  const adminData = await Administration.find().sort({year:-1,priority: -1 });
+  const images=await User.findOne({username:"DKK"});
   const user = await User.find();
 
   res.render("./Administration/show.ejs", {
     data: homeData,
+    adminData,
+    images:images.adminImage,
     dp: user[0].dp,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
@@ -63,34 +114,12 @@ router.get("/edit",isLoggedin, async (req, res) => {
 
 });
 
-// Edit Profile Links Route From Dashboard
-router.get("/editlinks",isLoggedin, async (req, res) => {
-  const user = await User.find();
-
-  res.render("./Home/editlinks.ejs", {
-    facebook: user[0].facebook,
-    twitter: user[0].twitter,
-    linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
-  });
-
-});
-
-router.post("/editlinks",isLoggedin, async (req, res) => {
-  const { facebook, linkedin, twitter, googleScholar } = req.body;
-  const user = await User.findOneAndUpdate({ username: "DKK" }, { $set: { facebook, twitter, linkedin, googleScholar } });
-  res.redirect("/edit");
-
-});
-
-
-
 
 
 // create page route
 router.get("/EditHome/add/:place",isLoggedin, async(req, res) => {
   const user = await User.find();
-  res.render("./Home/create.ejs", {
+  res.render("./Administration/create.ejs", {
     data: req.params.place,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
@@ -102,9 +131,9 @@ router.get("/EditHome/add/:place",isLoggedin, async(req, res) => {
 // edit page route
 router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
   try {
-    const p = await Home.findById(req.params.id);
+    const p = await Administration.findById(req.params.id);
     const user = await User.find();
-    res.render("./Home/edit.ejs", {
+    res.render("./Administration/edit.ejs", {
       data: p,
       facebook: user[0].facebook,
       twitter: user[0].twitter,
@@ -113,7 +142,7 @@ router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
     });
   } catch (error) {
     console.log("Server Error");
-    res.redirect("/");
+    res.redirect("/administration");
   }
 })
 
@@ -121,38 +150,40 @@ router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
 // create a data
 router.post("/create",isLoggedin, async (req, res) => {
   try {
-    const p = new Home({
+    const p = new Administration({
       type: req.body.type,
-      description: req.body.desc,
+      title: req.body.title,
+      link:req.body.link,
       priority: req.body.priority,
       year:req.body.year
     })
     const response = await p.save();
     console.log("Data Added Succesfully !");
-    res.redirect("/edit");
+    res.redirect("/administration/edit");
   } catch (error) {
     console.log("Error");
     console.log(error.message);
-    res.redirect("/edit");
+    res.redirect("/administration/edit");
   }
 })
 
 // update that data with id
 router.patch("/update/:id",isLoggedin, async (req, res) => {
   try {
-    const updatedValue = await Home.findByIdAndUpdate(req.params.id, {
+    const updatedValue = await Administration.findByIdAndUpdate(req.params.id, {
       type: req.body.type,
-      description: req.body.desc,
+      title: req.body.title,
+      link:req.body.link,
       priority: req.body.priority,
       year:req.body.year
     })
     console.log("Updated Successfully !");
     const user = await User.find();
-    res.redirect("/edit");
+    res.redirect("/administration/edit");
   } catch (error) {
     console.log("Failed to Update!");
     console.log(error.message);
-    res.redirect("/edit");
+    res.redirect("/administration/edit");
   }
 })
 
@@ -160,12 +191,12 @@ router.patch("/update/:id",isLoggedin, async (req, res) => {
 // delete with id
 router.get("/EditHome/delete/:id", isLoggedin, async (req, res) => {
   try {
-    await Home.findByIdAndDelete(req.params.id);
-    res.redirect("/");
+    await Administration.findByIdAndDelete(req.params.id);
+    res.redirect("/administration");
   } catch (error) {
     console.log("Could Not Delete !");
     console.log(error.message);
-    res.redirect("/");
+    res.redirect("/administration/");
   }
 })
 
