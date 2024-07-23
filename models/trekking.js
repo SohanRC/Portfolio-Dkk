@@ -18,15 +18,20 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   image: [{
-    url:String,
-    caption:String
+    url: String,
+    caption: String
   }],
   type: {
     type: String,
     required: true,
   },
   link: {
-    type : String,
+    type: String,
+  },
+  priority: {
+    type: Number,
+    required: true,
+    default: 1,
   }
 });
 

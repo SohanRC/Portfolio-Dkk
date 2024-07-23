@@ -30,7 +30,7 @@ const validateTrekking = (req, res, next) => {
 };
 
 //Add Caption Image
-router.post("/:id/image/:imgid",isLoggedin, asyncWrap(async (req, res) => {
+router.post("/:id/image/:imgid", isLoggedin, asyncWrap(async (req, res) => {
   let { id, imgid } = req.params;
   let { caption } = req.body;
   const data = await Trekking.find({ _id: id });
@@ -47,15 +47,15 @@ router.post("/:id/image/:imgid",isLoggedin, asyncWrap(async (req, res) => {
 
 //Read Route
 router.get("/", asyncWrap(async (req, res) => {
-  const data = await Trekking.find().sort({ year: -1 });
+  const data = await Trekking.find().sort({ priority: -1, year: -1 });
   const user = await User.find({});
   console.log(data);
   res.render("./Trekking/index", {
-    data, cloud_name, 
+    data, cloud_name,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
@@ -72,32 +72,35 @@ router.get("/:id/show", asyncWrap(async (req, res) => {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
 //update Route
-router.get("/edit",isLoggedin, asyncWrap(async (req, res) => {
-  const data = await Trekking.find().sort({ year: -1 });
+router.get("/edit", isLoggedin, asyncWrap(async (req, res) => {
+  const data = await Trekking.find().sort({ priority: -1, year: -1 });
   console.log(data);
   const user = await User.find({});
-  res.render("./Trekking/show", { data, cloud_name , 
+  res.render("./Trekking/show", {
+    data, cloud_name,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar,});
+    linkedin: user[0].linkedin, googleScholar: user[0].googleScholar,
+  });
 }));
 
 // Create Route --> its have to be before show or new will be detected as id
-router.get("/new",isLoggedin, async(req, res) => {
+router.get("/new", isLoggedin, async (req, res) => {
   const user = await User.find({});
-  res.render("./Trekking/create",{
+  res.render("./Trekking/create", {
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar,});
+    linkedin: user[0].linkedin, googleScholar: user[0].googleScholar,
+  });
 });
 
 
-router.post("/",isLoggedin, validateTrekking, asyncWrap(async (req, res) => {
+router.post("/", isLoggedin, validateTrekking, asyncWrap(async (req, res) => {
   let { newtrekking } = req.body;
   console.log(newtrekking);
   const list = new Trekking(newtrekking);
@@ -110,18 +113,20 @@ router.post("/",isLoggedin, validateTrekking, asyncWrap(async (req, res) => {
 
 
 // Edit Route
-router.get("/:id/edit",isLoggedin, asyncWrap(async (req, res) => {
+router.get("/:id/edit", isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   console.log(data);
   const user = await User.find({});
-  res.render("./Trekking/edit", { data: data[0], cloud_name, 
+  res.render("./Trekking/edit", {
+    data: data[0], cloud_name,
     facebook: user[0].facebook,
     twitter: user[0].twitter,
-    linkedin: user[0].linkedin,googleScholar : user[0].googleScholar, });
+    linkedin: user[0].linkedin, googleScholar: user[0].googleScholar,
+  });
 }));
 
-router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {
+router.patch("/:id", isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   let { newtrekking } = req.body;
   await Trekking.findByIdAndUpdate(id, newtrekking);
@@ -129,7 +134,7 @@ router.patch("/:id",isLoggedin, asyncWrap(async (req, res) => {
 }));
 
 //Delete Route
-router.delete("/:id",isLoggedin, asyncWrap(async (req, res) => {
+router.delete("/:id", isLoggedin, asyncWrap(async (req, res) => {
   let { id } = req.params;
   const data = await Trekking.find({ _id: id });
   for (imgs of data[0].image) {
