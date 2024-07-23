@@ -44,20 +44,21 @@
         <section class="main-section" style="padding: 0 10px;">
 
             <form method="POST" action="/update/<%= data._id %>?_method=PATCH" class="needs-validation" novalidate>
-            <!-- <form method="POST" action="/publications/?_method=PATCH" class="needs-validation" novalidate> -->
+                <!-- <form method="POST" action="/publications/?_method=PATCH" class="needs-validation" novalidate> -->
 
                 <div class="row">
                     <div><br><br>
                         <h2>Update</h2> <br><br>
                         <div class="mb-3">
                             <label for="type" class="form-label">Type</label>
-                            <input type="text" class="form-control" id="type" name="type"
-                                value="<%= data.type %>" readonly>
+                            <input type="text" class="form-control" id="type" name="type" value="<%= data.type %>"
+                                readonly>
                         </div>
                         <div class="mb-3">
                             <label for="title" class="form-label">Description</label>
 
-                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" name="desc" required><%= data.description %></textarea>
+                            <textarea name="desc" cols="100" rows="20" class="form-control" id="title" name="desc"
+                                required><%= data.description %></textarea>
 
                             <div class="invalid-feedback">
                                 Please enter a valid Description.
@@ -67,24 +68,24 @@
                             <label for="priority" class="form-label">Priority</label>
                             <input type="text" class="form-control" id="priority" name="priority"
                                 value="<%= data.priority %>" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid Number.
+                            </div>
+                        </div>
+
+                        <% if(data.type=="Experience" ) {%>
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="text" class="form-control" id="year" name="year" value="<%= data.year %>"
+                                    required>
                                 <div class="invalid-feedback">
                                     Please enter a valid Number.
                                 </div>
-                        </div>
-
-                        <% if(data.type=="Experience") {%>
-                            <div class="mb-3">
-                                <label for="year" class="form-label">Year</label>
-                                <input type="text" class="form-control" id="year" name="year"
-                                    value="<%= data.year %>" required>
-                                    <div class="invalid-feedback">
-                                        Please enter a valid Number.
-                                    </div>
                             </div>
                             <% } %>
-                        
 
-                        <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
+
+                                <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                     </div>
                 </div>
 
@@ -97,7 +98,8 @@
             <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
             <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
+                        class="fa-brands fa-google-scholar"></i></a>
                 <a href="<%=linkedin%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="<%=facebook%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
             </div>

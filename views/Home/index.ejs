@@ -151,11 +151,17 @@
                                 <ul>
                                     <% data.forEach((e)=>{ %>
                                         <% if(e.type=="Experience" ) { %>
-                                            <li>➤ <%= e.description %>
-                                            </li>
-                                            <% } %>
-                                                <% }) %>
-                                                    <!-- <li>➤ St. Thomas’ College of Engineering & Technology, Associate Professor,Sept’2006-December’2014.
+                                            <% let parts=e.description.split(','); 
+                                            let firstPart=parts.shift(); 
+                                            let rest=parts.join(','); %>
+                                                <li>➤ <span style="font-weight: 600;">
+                                                        <%= firstPart %>: 
+                                                    </span>
+                                                    <%= rest %>
+                                                </li>
+                                                <% } %>
+                                                    <% }) %>
+                                                        <!-- <li>➤ St. Thomas’ College of Engineering & Technology, Associate Professor,Sept’2006-December’2014.
                     </li>
                     <li>➤ NSHM Knowledge Campus Kolkata, Visiting Faculty of M.Sc. in Applied Mathematics and Computer
                         Science, July’2013-December, 2013.</li>
@@ -165,6 +171,30 @@
                     <li>➤ Simplex Infrastructures Ltd., R & D Engineer, Sept’2005 – August’2006.</li>
                     <li>➤ MCKV Institute of Engineering, Sr. Lecturer in CSE Dept., Jun’2001 –S ept’2005.</li> -->
                                 </ul>
+
+
+                                <h2>Current Administrative Responsibilities</h2>
+                                <hr style="width: 100%">
+                                <ul>
+                                    <% data.forEach((e)=>{ %>
+                                        <% if(e.type=="currRes" ) { %>
+                                            <li>➤ <%= e.description %>
+                                            </li>
+                                            <% } %>
+                                                <% }) %>
+
+                                </ul>
+                                <h2>Past Administrative Responsibilities</h2>
+                                <hr style="width: 100%">
+                                <ul>
+                                    <% data.forEach((e)=>{ %>
+                                        <% if(e.type=="pastRes" ) { %>
+                                            <li>➤ <%= e.description %>
+                                            </li>
+                                            <% } %>
+                                                <% }) %>
+
+                                </ul>
             </div>
         </section>
 
@@ -173,7 +203,8 @@
             <h3><strong style="font-weight: 600;">Email :</strong> dipak.kole@cse.jgec.ac.in, dipak.kole@gmail.com </h3>
             <h3><strong style="font-weight: 600;">Address :</strong> Singur, Hooghly, West Bengal, India.</h3>
             <div class="links">
-                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i class="fa-brands fa-google-scholar"></i></a>
+                <a href="<%=googleScholar%>" style="font-size: 2rem; color: white;"><i
+                        class="fa-brands fa-google-scholar"></i></a>
                 <a href="<%=linkedin%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-linkedin"></i></a>
                 <a href="<%=facebook%>" style="font-size: 2rem; color: white;"><i class="fi fi-brands-facebook"></i></a>
             </div>

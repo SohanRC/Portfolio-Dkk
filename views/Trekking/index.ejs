@@ -39,7 +39,15 @@
         </div>
 
         <h1 id="Trekking" style="text-align: center;"> My Trekking Experience</h1>
-        <p id="Trekking">My trekking experiences have been incredibly rewarding, offering not just physical challenges but also profound personal growth. Each trek has taught me the importance of perseverance, resilience, and teamwork. I always encourage my students to participate in trekking because it fosters good character and a leadership mentality. Trekking also deepens our appreciation for nature, allowing us to connect with the environment and understand the importance of preserving it. Through these adventures, I hope to inspire my students to embrace the great outdoors and cultivate a strong, compassionate spirit.</p>
+        <p id="Trekking">
+            <% pera.forEach((e)=>{ %>
+                <% if(e.type=="TrekExp" ) { %>
+                    <%= e.description %>
+                    <% } %>
+                        <% }) %>
+
+            <!-- My trekking experiences have been incredibly rewarding, offering not just physical challenges but also profound personal growth. Each trek has taught me the importance of perseverance, resilience, and teamwork. I always encourage my students to participate in trekking because it fosters good character and a leadership mentality. Trekking also deepens our appreciation for nature, allowing us to connect with the environment and understand the importance of preserving it. Through these adventures, I hope to inspire my students to embrace the great outdoors and cultivate a strong, compassionate spirit. -->
+        </p>
         <hr>
 
         <section class="main-section">
@@ -71,7 +79,15 @@
         </section>
 
         <h1 id="Trekking" style="text-align: center;">My Ridding Experience</h1>
-        <p id="Trekking">My bike riding experiences have been filled with excitement and joy, offering a sense of freedom and adventure. Each ride, whether through bustling streets or serene countryside, brings a unique thrill and a refreshing break from routine. I always ensure to ride with all the necessary bike gear and accessories for safety. I advise everyone to do the same, as it not only enhances the riding experience but also ensures a safe journey. Through biking, I have discovered a wonderful way to explore new places, stay fit, and enjoy the beauty of the outdoors.</p>
+        <p id="Trekking">
+            <% pera.forEach((e)=>{ %>
+                <% if(e.type=="RidExp" ) { %>
+                    <%= e.description %>
+                    <% } %>
+                        <% }) %>
+
+            <!-- My bike riding experiences have been filled with excitement and joy, offering a sense of freedom and adventure. Each ride, whether through bustling streets or serene countryside, brings a unique thrill and a refreshing break from routine. I always ensure to ride with all the necessary bike gear and accessories for safety. I advise everyone to do the same, as it not only enhances the riding experience but also ensures a safe journey. Through biking, I have discovered a wonderful way to explore new places, stay fit, and enjoy the beauty of the outdoors. -->
+        </p>
         <hr>
 
         <section class="main-section">

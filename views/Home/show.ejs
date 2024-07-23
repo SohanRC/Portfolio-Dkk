@@ -193,7 +193,14 @@
                     <li><a href="/EditHome/add/Experience">Add Experience</a></li>
                     <%   data.forEach((e)=>{ %>
                         <%  if(e.type == "Experience") {  %>
-                            <li>➤ <%= e.description %></li>
+                            <% let parts=e.description.split(','); 
+                            let firstPart=parts.shift(); 
+                            let rest=parts.join(','); %>
+                                <li>➤ <span style="font-weight: 600;">
+                                        <%= firstPart %>: 
+                                    </span>
+                                    <%= rest %>
+                                </li>
                             <div>
                                 <span><a href="/EditHome/edit/<%= e._id %>"
                                     style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
@@ -214,6 +221,62 @@
                     <li>➤ Simplex Infrastructures Ltd., R & D Engineer, Sept’2005 – August’2006.</li>
                     <li>➤ MCKV Institute of Engineering, Sr. Lecturer in CSE Dept., Jun’2001 –S ept’2005.</li> -->
                 </ul>
+
+                <h2>Current Administrative Responsibilities</h2>
+                <hr style="width: 100%">
+                <ul>
+                    <li><a href="/EditHome/add/currRes">Add Current Administrative Responsibilities</a></li>
+                    <%   data.forEach((e)=>{ %>
+                        <%  if(e.type == "currRes") {  %>
+                            <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
+                        <% } %>
+                    <%  }) %>
+                    <!-- <li>➤ Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science
+                        University,Shibpur.Dissertation: Synthesis and Testing of Reversible Logic Circuits.
+                        Supervisors: Prof. Hafizur Rahaman (IIEST, Shibpur) and Prof. Bhargab B. Bhattacharya (ISI,
+                        Kolkata)</li>
+                    <li>➤ M.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta
+                        University).</li> -->
+                </ul>
+
+                <h2>Past Administrative Responsibilities</h2>
+                <hr style="width: 100%">
+                <ul>
+                    <li><a href="/EditHome/add/pastRes">Add Past Administrative Responsibilities</a></li>
+                    <%   data.forEach((e)=>{ %>
+                        <%  if(e.type == "pastRes") {  %>
+                            <li>➤ <%= e.description %></li>
+                            <div>
+                                <span><a href="/EditHome/edit/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: red; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Edit</a></span>
+                                <span><a href="/EditHome/delete/<%= e._id %>"
+                                    style="padding: 0.2rem 0.4rem; border: none; background-color: black; color: white;
+                            border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">Delete</a></span>
+                            </div> 
+                        <% } %>
+                    <%  }) %>
+                    <!-- <li>➤ Ph.D. (Engineering), (February, 2012) Bengal Engineering & Science
+                        University,Shibpur.Dissertation: Synthesis and Testing of Reversible Logic Circuits.
+                        Supervisors: Prof. Hafizur Rahaman (IIEST, Shibpur) and Prof. Bhargab B. Bhattacharya (ISI,
+                        Kolkata)</li>
+                    <li>➤ M.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Tech. in Computer Sc. & Engg. from University of Calcutta</li>
+                    <li>➤ B.Sc. in Mathematics Honours from Serampur College (Obtained 4th Position in Calcutta
+                        University).</li> -->
+                </ul>
+
+
             </div>
         </section>
 
