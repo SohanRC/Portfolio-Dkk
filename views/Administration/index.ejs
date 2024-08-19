@@ -46,138 +46,25 @@
                     <ul>
                         <% data.forEach((e) => { %>
                             <% if (e.type == "currRes") { %>
-                                <li>➤ <%= e.description %></li>
+                                <li>➤ <%= e.title %></li>
+                                <span><a href="/administration/details/<%=e._id %>/" style="padding: 0.2rem 0.4rem; border: none; background-color: rgb(51, 0, 255); color: white;
+                                border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">View Details</a></span>
                             <% } %>
                         <% }) %>
                     </ul>
 
-                    <!-- Links -->
-                    <% if (adminData.some(e => e.type == "Link")) { %>
-                        <h3 style="font-size: 1.3rem;">Links :</h3>
-                        <ul>
-                            <% adminData.forEach((e) => { %>
-                                <% if (e.type == "Link") { %>
-                                    <li>➤ <a href="<%= e.link %>"><%= e.title %></a></li>
-                                <% } %>
-                            <% }) %>
-                        </ul>
-                    <% } %>
-
-                    <!-- Documents Links -->
-                    <% if (images.some(img => img.type == "currDocument")) { %>
-                        <h3 style="font-size: 1.3rem;">Documents :</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-                            <% for (let img of images) { %>
-                                <% if (img.type == "currDocument") { %>
-                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                                        <div class="img-part">
-                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
-                                        </div>
-                                        <div class="author-part" style="display: flex; flex-direction: row;">
-                                            <h4 class="" style="text-align: justify; font-weight: 600;">
-                                                <span>&#x275D</span>
-                                                <%= img.caption %>
-                                                <span>&#x275E</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                <% } %>
-                            <% } %>
-                        </div>
-                    <% } %>
-
-                    <!-- Images -->
-                    <% if (images.some(img => img.type == "currImage")) { %>
-                        <h3 style="font-size: 1.3rem;">Images :</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-                            <% for (let img of images) { %>
-                                <% if (img.type == "currImage") { %>
-                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                                        <div class="img-part">
-                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
-                                        </div>
-                                        <div class="author-part" style="display: flex; flex-direction: row;">
-                                            <h4 class="" style="text-align: justify; font-weight: 600;">
-                                                <span>&#x275D</span>
-                                                <%= img.caption %>
-                                                <span>&#x275E</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                <% } %>
-                            <% } %>
-                        </div>
-                    <% } %>
-                </div>
                 <div>
                     <h2 style="text-align: left;">Past Administrative Responsibilities</h2>
                     <hr style="width: 100%">
                     <ul>
                         <% data.forEach((e) => { %>
                             <% if (e.type == "pastRes") { %>
-                                <li>➤ <%= e.description %></li>
+                                <li>➤ <%= e.title %></li>
+                                <span><a href="/administration/details/<%= e._id %>/" style="padding: 0.2rem 0.4rem; border: none; background-color: rgb(51, 0, 255); color: white;
+                                border-radius: 0.2rem; cursor: pointer; font-size: 1rem;">View Details</a></span>
                             <% } %>
                         <% }) %>
                     </ul>
-
-                    <!-- Links -->
-                    <% if (adminData.some(e => e.type == "pastLink")) { %>
-                        <h3 style="font-size: 1.3rem;">Links :</h3>
-                        <ul>
-                            <% adminData.forEach((e) => { %>
-                                <% if (e.type == "pastLink") { %>
-                                    <li>➤ <a href="<%= e.link %>"><%= e.title %></a></li>
-                                <% } %>
-                            <% }) %>
-                        </ul>
-                    <% } %>
-
-                    <!-- Documents Links -->
-                    <% if (images.some(img => img.type == "pastDocument")) { %>
-                        <h3 style="font-size: 1.3rem;">Documents :</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-                            <% for (let img of images) { %>
-                                <% if (img.type == "pastDocument") { %>
-                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                                        <div class="img-part">
-                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
-                                        </div>
-                                        <div class="author-part" style="display: flex; flex-direction: row;">
-                                            <h4 class="" style="text-align: justify; font-weight: 600;">
-                                                <span>&#x275D</span>
-                                                <%= img.caption %>
-                                                <span>&#x275E</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                <% } %>
-                            <% } %>
-                        </div>
-                    <% } %>
-
-                    <!-- Images -->
-                    <% if (images.some(img => img.type == "pastImage")) { %>
-                        <h3 style="font-size: 1.3rem;">Images :</h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: center;">
-                            <% for (let img of images) { %>
-                                <% if (img.type == "pastImage") { %>
-                                    <div class="card" style="max-width: 300px; gap: 1rem; align-items: center;">
-                                        <div class="img-part">
-                                            <img src="https://res.cloudinary.com/<%=cloud_name%>/image/upload/w_3000,h_3000,c_crop,q_100/<%=img.url%>.png" alt="" style="height:300px; width: 270px; object-position: center center; border-radius: 20px;">
-                                        </div>
-                                        <div class="author-part" style="display: flex; flex-direction: row;">
-                                            <h4 class="" style="text-align: justify; font-weight: 600;">
-                                                <span>&#x275D</span>
-                                                <%= img.caption %>
-                                                <span>&#x275E</span>
-                                            </h4>
-                                        </div>
-                                    </div>
-                                <% } %>
-                            <% } %>
-                        </div>
-                    <% } %>
-                </div>
             </div>
         </section>
 

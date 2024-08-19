@@ -4,22 +4,23 @@ const mongoose = require('mongoose');
 // const Review = require("./reviews.js");
 
 const userSchema = new mongoose.Schema({
-
-  year: {
-    type: Number,
-    required: true
-  },
   title: {
     type: String,
     required: true,
   },
-  type: {
-    type: String,
-    required: true,
-  },
-  link: {
-    type: String,
-  },
+  type: String,
+  links: [{
+    link:String,
+    priority:{type:Number,default:1},
+  }],
+  documents: [{
+    url: String,
+    caption: String,
+  }],
+  images: [{
+    url: String,
+    caption: String,
+  }],
   priority: {
     type: Number,
     required: true,

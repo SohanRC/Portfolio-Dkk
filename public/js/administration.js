@@ -8,7 +8,8 @@ document.addEventListener("submit", async function (e) {
     const form = e.target;
     const index = form.querySelector(".upload-button").getAttribute("data-index");
     const fileField = form.querySelector(`#file-field-${index}`);
-    const typeField = form.querySelector(`#id-${index}`);
+    const typeField = form.querySelector(`#type-${index}`);
+    const idField = form.querySelector(`#id-${index}`);
 
     if (!fileField.files[0]) {
       alert("Please select a file to upload.");
@@ -37,7 +38,8 @@ document.addEventListener("submit", async function (e) {
       public_id: cloudinaryResponse.data.public_id,
       version: cloudinaryResponse.data.version,
       signature: cloudinaryResponse.data.signature,
-      type: typeField.value
+      type: typeField.value,
+      id: idField.value
     };
 
     await axios.post("/administration/tmc", photoData);

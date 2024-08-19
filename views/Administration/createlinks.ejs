@@ -43,25 +43,20 @@
 
         <section class="main-section" style="padding: 0 10px;">
 
-            <form action="/administration/create" method="post" class="needs-validation" novalidate>
+            <form action="/administration/links/<%=data._id %>/create" method="post" class="needs-validation" novalidate>
 
                 <div class="row">
                     <div><br><br>
-                        <h2>Add</h2> <br><br>
+                        <h2>Add a Link</h2> <br><br>
+                       
                         <div class="mb-3">
-                            <label for="type" class="form-label">Type </label>
-                            <input type="text" class="form-control" id="type" name="type" value="<%= data %>" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Title</label>
-                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
-                            <textarea name="title" cols="100" rows="2" class="form-control" id="title"
-                                required></textarea>
-                            <!-- <input type="text" class="form-control" id="title" name="desc" required> -->
+                            <label for="link" class="form-label">Link</label>
+                            <input type="text" class="form-control" id="priority" name="link" required>
                             <div class="invalid-feedback">
-                                Please enter a valid Title.
+                                Please enter a valid Link.
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="priority" class="form-label">Priority</label>
                             <input type="text" class="form-control" id="priority" name="priority" value="1" required>
@@ -69,7 +64,6 @@
                                 Please enter a valid Number.
                             </div>
                         </div>
-
 
                         <button class="btn btn-primary" style="margin-left:15vw ;">Submit</button>
                     </div>
