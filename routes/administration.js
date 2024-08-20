@@ -210,7 +210,7 @@ router.get("/EditHome/edit/:id",isLoggedin, async (req, res) => {
 })
 
 // edit page route
-router.get("/details/:id",isLoggedin, async (req, res) => {
+router.get("/details/:id", async (req, res) => {
   try {
     const p = await Administration.findById(req.params.id);
     const user = await User.find();
