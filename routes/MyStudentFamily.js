@@ -54,18 +54,22 @@ router.get("/", asyncWrap(async (req, res) => {
       $project: { messageLength: 0 }
     }
   ]);
-  console.log("HOLA  : ",data);
+  console.log("HOLA  : ", data);
   const user = await User.find({});
-  const updatedData = data.map(u => ({
-    ...u, // Spread the existing properties of the document
-    photo: u.photo ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
-  }));
+  const updatedData = data.map(u => {
+    if (typeof (u.photo) == "object") u.photo = u.photo[0];
+    return ({
+      ...u, // Spread the existing properties of the document
+      photo: u.photo?.includes("=") ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
+    })
+
+  });
   console.log("updateData : ", updatedData);
   res.render("./MyStudentFamily/index", {
     updatedData, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
@@ -84,17 +88,21 @@ router.get("/edit", isLoggedin, asyncWrap(async (req, res) => {
       $project: { messageLength: 0 }
     }
   ]);
-  console.log("HOLA  : ",data);
-  const updatedData = data.map(u => ({
-    ...u, // Spread the existing properties of the document
-    photo: u.photo ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
-  }));
+  console.log("HOLA  : ", data);
+  const updatedData = data.map(u => {
+    if (typeof (u.photo) == "object") u.photo = u.photo[0];
+    return ({
+      ...u, // Spread the existing properties of the document
+      photo: u.photo?.includes("=") ? u.photo.split('=')[1] : null // Extract the ID after '=' if photo exists
+    })
+
+  });
   const user = await User.find({});
   res.render("./MyStudentFamily/show", {
     data, updatedData, facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
@@ -114,7 +122,7 @@ router.get("/:id/show", isLoggedin, asyncWrap(async (req, res) => {
     updatedData: updatedData[0], facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
@@ -162,7 +170,7 @@ router.get("/:id/edit", isLoggedin, asyncWrap(async (req, res) => {
     data: data[0], facebook: user[0].facebook,
     twitter: user[0].twitter,
     linkedin: user[0].linkedin,
-    googleScholar : user[0].googleScholar,
+    googleScholar: user[0].googleScholar,
   });
 }));
 
